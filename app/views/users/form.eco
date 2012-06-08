@@ -1,0 +1,36 @@
+<form>
+  <label>
+    <span>Phone</span>
+    <% for phone in @phones: %>
+        <select name="type">
+            <option value="mobile">Mobile</option>
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="assistant">Assistant</option>
+            <option value="car">Car</option>
+            <option value="home_fax">Home Fax</option>
+        </select>
+        <input type="text" name="name" value="<%= phone.number %>">
+    <% end %>
+  </label>
+
+  <label>
+    <span>Company</span>
+    <input type="text" name="company" value="<%= @company %>">
+  </label>
+
+  <label>
+    <span>Title</span>
+    <input type="text" name="title" value="<%= @title %>">
+  </label>
+
+  <label>
+    <span>Website</span>
+    <input type="text" name="website" value="<%= @website %>">
+  </label>
+
+  <label>
+    <span>Birthday</span>
+    <input type="date" name="birthday" value="<%= @birthday %>">
+  </label>
+</form>

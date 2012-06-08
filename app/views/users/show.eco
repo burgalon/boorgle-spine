@@ -1,0 +1,9 @@
+<% if @name: %>
+  <p><%= @name() %></p>
+<% end %>
+
+<p><%= @formatted_address2() %></p>
+
+<% if @email: %>
+  <p><a href="mailto:<%= @email %>"><%= @email %></a></p>
+<% end %>
