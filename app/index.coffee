@@ -3,6 +3,8 @@ require('lib/setup')
 Spine   = require('spine')
 {Stage} = require('spine.mobile')
 
+Authorization = require('authorization')
+
 # Models
 FoundFriend = require('models/found_friend')
 MyUser = require('models/my_user')
@@ -11,41 +13,40 @@ MyUser = require('models/my_user')
 FoundFriends = require('controllers/found_friends')
 UserEdit = require('controllers/user_edit')
 
+Spine.Model.host = "http://localhost:3000/api/v1"
+
 class App extends Stage.Global
-  clientId: 'boorgle-iphone'
-  oauthEndPoint: "http://localhost:3000/oauth/authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{window.location}"
+  Authorization: Authorization
 
   constructor: ->
-    @log 'App::constructor super'
     super
 
-    @token = @getToken()
-    @log "Token ", @token
-    unless @token
-      document.location = @oauthEndPoint
-      return
-
-    Spine.Model.host = "http://localhost:3000/api/v1"
-    Spine.Ajax.defaults.headers['Authorization'] = @token
+    Authorization.setup()
 
     # Models
     FoundFriend.fetch()
-    MyUser.fetch()
+    MyUser.fetch() if Authorization.is_loggedin()
 
     # Controllers
-    @log 'App::constructor Controllers'
     @user_edit = new UserEdit
     @found_friends = new FoundFriends
 
     # General initializations
-    @log 'App::constructor General initializations'
-
     Spine.Route.setup()#shim:true)
 #    @navigate '/found_friends'
-    @navigate '/user/edit'
+#    @navigate '/user/edit'
+    @navigate '/user/edit/show' unless Spine.Route.change()
+
+    @addTab('Explore', -> @navigate '/found_friends')
+    @addTab('Synched', -> @navigate '/found_friends')
+    @addTab('Account', -> @navigate '/user/edit/show')
 
 
-  getToken: ->
-    document.location.hash.match(/access_token=(\w+)/)?[1]
+  addTab: (text, callback) ->
+    callback = @[callback] if typeof callback is 'string'
+    button = $('<button />').text(text)
+    button.tap(@proxy(callback))
+    @footer.append(button)
+    button
 
 module.exports = App

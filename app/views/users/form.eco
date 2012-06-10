@@ -41,6 +41,36 @@
   </label>
 
   <label>
+    <span>Street</span>
+    <input type="text" name="street" value="<%= @street %>">
+  </label>
+
+  <label>
+    <span>Apartment</span>
+    <input type="text" name="apartment" value="<%= @apartment %>">
+  </label>
+
+  <label>
+    <span>City</span>
+    <input type="text" name="city" value="<%= @city %>">
+  </label>
+
+  <label>
+    <span>State</span>
+    <input type="text" name="region" value="<%= @region %>">
+  </label>
+
+  <label>
+    <span>ZIP</span>
+    <input type="text" name="zipcode" value="<%= @zipcode %>">
+  </label>
+
+  <label>
+    <span>Country</span>
+    <input type="text" name="country" value="<%= @country %>">
+  </label>
+
+  <label>
     <span>Birthday</span>
     <input type="date" name="birthday" value="<%= @birthday %>">
   </label>

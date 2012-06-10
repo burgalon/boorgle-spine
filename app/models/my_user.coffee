@@ -3,7 +3,6 @@ App = require('index')
 
 # Models
 User = require('./user')
-OauthBase = require('./oauth_base')
 
 class MyUser extends User
   @configure 'MyUser'

@@ -1,5 +1,5 @@
 <h1>
-    <a href="<%= Spine.Model.host.replace('/api/v1', '') + '/oauth/authorize?client_id=boorgle-iphone&response_type=token&redirect_uri='+window.location %>">
-        Connect Here
+    <a href="<%= Spine.Model.host.replace('/api/v1', '') + '/oauth/authorize?client_id=boorgle-iphone&response_type=token&redirect_uri='+encodeURIComponent(window.location) %>">
+        <img src="/images/google-sign-in.png" title="Connect Here" />
     </a>
 </h1>

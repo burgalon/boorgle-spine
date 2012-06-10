@@ -1,13 +1,18 @@
 Spine = require('spine')
 {Panel} = require('spine.mobile')
 
+Authorization = require('authorization')
+
 # Model
 MyUser = require('models/my_user')
 
 # Controllers
+PleaseLogin = require('controllers/please_login')
 UsersShow = require('controllers/users_show')
 
 class UserEditForm extends Panel
+  title: 'Info'
+
   elements:
     'form': 'form'
 
@@ -23,7 +28,7 @@ class UserEditForm extends Panel
     @active @change
 
     @addButton('Cancel', @back)
-    @addButton('Save', @submit).addClass('right')
+    @addButton('Done', @submit).addClass('right')
 
     @active @render
 
@@ -36,7 +41,6 @@ class UserEditForm extends Panel
   submit: (e) ->
     e.preventDefault()
     user = @item.fromForm(@form)
-    @log "submit user - ", user
     if user.save()
       @navigate('/user/edit/show', trans: 'left')
 
@@ -52,6 +56,8 @@ class UserEditForm extends Panel
     @render()
 
 class MyUserShow extends UsersShow
+  title: 'Info'
+
   @configure MyUser
 
   add_buttons: ->
@@ -62,14 +68,21 @@ class MyUserShow extends UsersShow
     @navigate('/user/edit', trans: 'right')
 
   logout: ->
-    alert('TBD')
+    Authorization.logout()
+
+  change: (params) =>
+    super(id: 'my-user')
 
 class UserEdit extends Spine.Controller
   constructor: ->
     super
 
-    @form = new UserEditForm
-    @show = new MyUserShow
+    if Authorization.is_loggedin()
+      @form = new UserEditForm
+      @show = new MyUserShow
+    else
+      @form = new PleaseLogin('Info')
+      @show = new PleaseLogin('Info')
 
     @routes
       '/user/edit/show': (params) -> @show.active(params)

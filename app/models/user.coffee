@@ -10,14 +10,17 @@ class User extends Spine.Model
   is_us : ->
     @country=='US'
 
+  format: (args...) ->
+    $.grep(args, (x) -> return x).join(', ')
+
   formatted_address : ->
-    [@street, @apartment].join(', ')
+    @format(@street, @apartment)
 
   formatted_address1 : ->
-    [@street, @apartment].join(', ')
+    @format(@street, @apartment)
 
   formatted_address2 : ->
-    [@city, [@region, @zipcode].join(' '), @is_us() ? nil : country].join(', ')
+    @format(@city, @format(@region, @zipcode), @is_us() ? nil : country)
 
 
 

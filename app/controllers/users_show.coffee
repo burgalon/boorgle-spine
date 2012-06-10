@@ -8,7 +8,7 @@ class UsersShow extends Panel
   constructor: ->
     super
 
-    @constructor.model_class.bind 'change', @render
+    @constructor.model_class.bind 'refresh', @change
 
     @active @change
     @add_buttons()
@@ -17,16 +17,14 @@ class UsersShow extends Panel
     @addButton('Back', @back)
 
   render: =>
+    @log 'UsersShow::render item - ', @item
     return unless @item
     @html require('views/users/show')(@item)
 
   # Called when a user is clicked on
-  change: (params) ->
-    # TODO: Figure why the exception catching is causing reload not to resume from the same address
-    try
-      @item = @constructor.model_class.find(params.id)
-    catch e # Unknown record
-      return false
+  change: (params) =>
+    @log 'UsersShow::change params - ', params
+    @item = @constructor.model_class.find(params.id) if params.id
     @render()
 
   back: ->

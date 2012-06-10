@@ -1,7 +1,9 @@
+<img src="">
 <% if @name: %>
   <p><%= @name() %></p>
 <% end %>
 
+<p><%= @format(@company, @title) %></p>
 <p><%= @formatted_address2() %></p>
 
 <% if @email: %>
