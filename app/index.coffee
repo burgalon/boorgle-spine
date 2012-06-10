@@ -11,14 +11,22 @@ MyUser = require('models/my_user')
 FoundFriends = require('controllers/found_friends')
 UserEdit = require('controllers/user_edit')
 
-Spine.Model.host = "http://localhost:3000/api/v1"
-
 class App extends Stage.Global
+  clientId: 'boorgle-iphone'
+  oauthEndPoint: "http://localhost:3000/oauth/authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{window.location}"
+
   constructor: ->
     @log 'App::constructor super'
     super
 
-    @check_for_oauth_token()
+    @token = @getToken()
+    @log "Token ", @token
+    unless @token
+      document.location = @oauthEndPoint
+      return
+
+    Spine.Model.host = "http://localhost:3000/api/v1"
+    Spine.Ajax.defaults.headers['Authorization'] = @token
 
     # Models
     FoundFriend.fetch()
@@ -36,13 +44,8 @@ class App extends Stage.Global
 #    @navigate '/found_friends'
     @navigate '/user/edit'
 
-  check_for_oauth_token: ->
-    @log 'App::check_for_oauth_token'
-    matches = window.location.hash.match('access_token\=([^&]+)')
-    @log 'App::check_for_oauth_token found!'
-    localStorage['oauth_token'] = matches[1] if matches
 
-  @oauth_token: ->
-    localStorage['oauth_token']
+  getToken: ->
+    document.location.hash.match(/access_token=(\w+)/)?[1]
 
 module.exports = App

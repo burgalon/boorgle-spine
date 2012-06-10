@@ -17,7 +17,6 @@ class UsersShow extends Panel
     @addButton('Back', @back)
 
   render: =>
-    @log 'UsersShow::render', @item
     return unless @item
     @html require('views/users/show')(@item)
 

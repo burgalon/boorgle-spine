@@ -1,9 +1,8 @@
 Spine = require('spine')
 
 class User extends Spine.Model
-  @extend Spine.Model.Ajax
-
   @configure 'User', 'email', 'first_name', 'last_name', 'company', 'title', 'website', 'birthday', 'street', 'apartment', 'zipcode', 'city', 'region', 'country', 'groups', 'location'
+  @extend Spine.Model.Ajax
 
   name: ->
     [@first_name, @last_name].join(' ')
@@ -20,7 +19,6 @@ class User extends Spine.Model
   formatted_address2 : ->
     [@city, [@region, @zipcode].join(' '), @is_us() ? nil : country].join(', ')
 
-  @url: "/found_friends/1"
 
 
 module.exports = User

@@ -7,17 +7,16 @@ OauthBase = require('./oauth_base')
 
 class MyUser extends User
   @configure 'MyUser'
+  @extend Spine.Model.Ajax
+
   @url: ->
+    Spine.Model.host + "/user"
+
+  url: ->
     Spine.Model.host + "/user"
 
   # For UsersShow which uses find with id=undefined
   @find: ->
     @first()
-
-  # TO-DO: to be continued .... fix OauthBase
-  @fetch: ->
-    return [] unless localStorage['oauth_token']
-    console.log "FETCH ", localStorage['oauth_token']
-    super(headers: {'Authorization': localStorage['oauth_token']})
 
 module.exports = MyUser

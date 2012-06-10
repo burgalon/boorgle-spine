@@ -22,9 +22,8 @@ class UserEditForm extends Panel
     MyUser.bind('refresh change', @change)
     @active @change
 
-    if localStorage['oauth_token']
-      @addButton('Cancel', @back)
-      @addButton('Save', @submit).addClass('right')
+    @addButton('Cancel', @back)
+    @addButton('Save', @submit).addClass('right')
 
     @active @render
 
@@ -36,7 +35,8 @@ class UserEditForm extends Panel
 
   submit: (e) ->
     e.preventDefault()
-    user = User.fromForm(@form)
+    user = @item.fromForm(@form)
+    @log "submit user - ", user
     if user.save()
       @navigate('/user/edit/show', trans: 'left')
 
@@ -55,7 +55,6 @@ class MyUserShow extends UsersShow
   @configure MyUser
 
   add_buttons: ->
-    return unless localStorage['oauth_token']
     @addButton('Edit', @back)
     @addButton('Log Out', @logout).addClass('right')
 
@@ -63,8 +62,7 @@ class MyUserShow extends UsersShow
     @navigate('/user/edit', trans: 'right')
 
   logout: ->
-    delete localStorage['oauth_token']
-    window.location.href.refresh
+    alert('TBD')
 
 class UserEdit extends Spine.Controller
   constructor: ->
