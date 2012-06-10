@@ -35,7 +35,7 @@ class App extends Stage.Global
     Spine.Route.setup()#shim:true)
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
-    @navigate '/user/edit/show' unless Spine.Route.change()
+    @navigate '/user/edit/show' unless document.location.hash
 
     @addTab('Explore', -> @navigate '/found_friends')
     @addTab('Synched', -> @navigate '/found_friends')

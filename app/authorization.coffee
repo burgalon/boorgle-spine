@@ -8,6 +8,12 @@ class Authorization extends Spine.Module
       console.log("XHR.status", xhr.status)
       if xhr.status is 401
         @login()
+      else if xhr.status is 500
+        alert('Server Error')
+      else if xhr.status is 403
+        alert('Bad Request')
+      else
+        alert('Network Error')
 
     @token = @getToken()
     if @token

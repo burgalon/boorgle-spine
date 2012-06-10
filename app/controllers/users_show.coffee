@@ -17,14 +17,13 @@ class UsersShow extends Panel
     @addButton('Back', @back)
 
   render: =>
-    @log 'UsersShow::render item - ', @item
     return unless @item
     @html require('views/users/show')(@item)
 
   # Called when a user is clicked on
   change: (params) =>
-    @log 'UsersShow::change params - ', params
-    @item = @constructor.model_class.find(params.id) if params.id
+    @item_id = params.id if params.id
+    @item = @constructor.model_class.exists(@item_id)
     @render()
 
   back: ->
