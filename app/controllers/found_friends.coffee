@@ -16,7 +16,7 @@ class FoundFriendShow extends UsersShow
 
 class FoundFriendsList extends UsersList
   title: 'Found Friends'
-  @configure FoundFriend
+  @configure FoundFriend, '/found_friends'
 
 class FoundFriends extends Spine.Controller
   constructor: ->
@@ -26,7 +26,7 @@ class FoundFriends extends Spine.Controller
     @show    = new FoundFriendShow
 
     @routes
-      '/users/:id': (params) -> @show.active(params)
+      '/found_friends/:id': (params) -> @show.active(params)
       '/found_friends': (params) -> @list.active(params)
 
 module.exports = FoundFriends

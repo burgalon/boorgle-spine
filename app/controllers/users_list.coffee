@@ -8,7 +8,7 @@ class UsersList extends Panel
 
   className: 'users list listView'
 
-  @configure: (@model_class) ->
+  @configure: (@model_class, @item_url) ->
 
   constructor: ->
     super
@@ -20,12 +20,10 @@ class UsersList extends Panel
     @html require('views/users/item')(items)
 
   click: (e) ->
-    @log 'TARGET', $(e.target)
-#    item = $(e.target).item()
     element = $(e.target)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
-    @navigate('/users', item.id, trans: 'right')
+    @navigate(@constructor.item_url, item.id, trans: 'right')
 
   add: ->
     @navigate('/users/create', trans: 'right')

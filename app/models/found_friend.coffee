@@ -2,7 +2,7 @@ Spine = require('spine')
 User = require('./user')
 class FoundFriend extends User
 
-  @configure 'FoundFriends'
+  @configure 'FoundFriend'
   @extend Spine.Model.Ajax
   @url: ->
     Spine.Model.host + "/found_friends"

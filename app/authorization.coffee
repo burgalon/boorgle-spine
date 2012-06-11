@@ -1,6 +1,6 @@
 class Authorization extends Spine.Module
   clientId: 'boorgle-iphone'
-  oauthEndPoint: "http://localhost:3000/oauth/authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{encodeURIComponent(window.location)}"
+  oauthEndPoint: "http://localhost:3000/oauth/authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{encodeURIComponent(window.location.href.replace(/#.+/,''))}"
 
   @setup: ->
     $(document).ajaxError (xhr, status, error) =>
