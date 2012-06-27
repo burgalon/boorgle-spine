@@ -9,15 +9,18 @@ class Authorization extends Spine.Module
       if xhr.status is 401
         @login()
       else if xhr.status is 500
-        alert('Server Error')
+        @alert('Server Error')
       else if xhr.status is 403
-        alert('Bad Request')
+        @alert('Bad Request')
       else
-        alert('Network Error')
+        @alert('Network Error')
 
     @token = @getToken()
     if @token
       Spine.Ajax.defaults.headers['Authorization'] = @token
+
+  @alert: (msg) ->
+    Spine.trigger 'notify', msg: msg
 
   @getToken: ->
     token = document.location.hash.match(/access_token=(\w+)/)?[1]

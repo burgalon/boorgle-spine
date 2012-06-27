@@ -14,6 +14,7 @@ MyUser = require('models/my_user')
 FoundFriends = require('controllers/found_friends')
 Friends = require('controllers/friends')
 UserEdit = require('controllers/user_edit')
+Notifications = require('controllers/notifications')
 
 Spine.Model.host = "http://localhost:3000/api/v1"
 
@@ -35,8 +36,10 @@ class App extends Stage.Global
     @user_edit = new UserEdit
     @found_friends = new FoundFriends
     @friends = new Friends
+    @notifications = new Notifications
 
     # General initializations
+    Spine.bind 'notify', @notify
     Spine.Route.setup()#shim:true)
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
@@ -46,6 +49,9 @@ class App extends Stage.Global
     @addTab('Synched', -> @navigate '/friends')
     @addTab('Account', -> @navigate '/user/edit/show')
 
+
+  notify: (item) =>
+    @notifications.render(item)
 
   addTab: (text, callback) ->
     callback = @[callback] if typeof callback is 'string'
