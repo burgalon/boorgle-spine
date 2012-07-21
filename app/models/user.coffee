@@ -1,7 +1,7 @@
 Spine = require('spine')
 
 class User extends Spine.Model
-  @configure 'User', 'email', 'first_name', 'last_name', 'company', 'title', 'website', 'birthday', 'street', 'apartment', 'zipcode', 'city', 'region', 'country', 'groups', 'location', 'picture'
+  @configure 'User', 'email', 'first_name', 'last_name', 'company', 'title', 'website', 'birthday', 'street', 'apartment', 'zipcode', 'city', 'region', 'country', 'groups', 'location', 'picture', 'phones'
   @extend Spine.Model.Ajax
 
   name: ->
@@ -20,8 +20,8 @@ class User extends Spine.Model
     @format(@street, @apartment)
 
   formatted_address2 : ->
-    region_or_country = if @is_us() then @region else @country
-    @format(@city, @format(@region, @zipcode), region_or_country)
+    region_or_country = if @is_us() then null else @country
+    @format(@street, @apartment, @city, @format(@region, @zipcode), region_or_country)
 
 
 

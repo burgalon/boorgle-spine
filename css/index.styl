@@ -7,43 +7,46 @@
   border-radius: 8px
   box-shadow: 0 1px 3px #333
 
-.list-group .list-item
-  background: #F6F6F7
-  padding: 12px
-  margin: 12px
-  border-width: 1px 1px 0px 1px
-  border-style: solid
-  border-color: #A9ACAF
+.list-group
+  margin: 12px 0
 
-  &.transparent
-    border: none
-    background: transparent
+  .list-item
+    background: #F6F6F7
+    padding: 12px
+    margin: 0 12px 0
+    border-width: 1px 1px 0px 1px
+    border-style: solid
+    border-color: #A9ACAF
 
-  .list-label
-    display: inline-block
-    text-align: left
-    color: #3c9aff
-    font-size: 12px
-    font-weight: bold
-    padding: 0 10px 0 20px
+    &:first-child
+      border-top-right-radius: 8px
+      border-top-left-radius: 8px
 
+    &:last-child
+      border-bottom-right-radius: 8px
+      border-bottom-left-radius: 8px
 
-  .list-data
-    display: inline-block
-    font-size: 12px
+    &.transparent
+      border: none
+      background: transparent
 
-    a
-      text-decoration: none
-      color: inherit
-
-.list-group .list-item:first-child
-  border-top-right-radius: 8px
-  border-top-left-radius: 8px
+    .list-label
+      display: inline-block
+      text-align: left
+      color: #3c9aff
+      font-size: 12px
+      font-weight: bold
+      padding: 0 10px 0 20px
 
 
-.list-group .list-item:last-child
-  border-bottom-right-radius: 8px
-  border-bottom-left-radius: 8px
+    .list-data
+      display: inline-block
+      font-size: 12px
+
+      a
+        text-decoration: none
+        color: inherit
+
 
 .showView.panel > article
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
