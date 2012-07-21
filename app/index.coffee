@@ -16,7 +16,7 @@ Friends = require('controllers/friends')
 UserEdit = require('controllers/user_edit')
 Notifications = require('controllers/notifications')
 
-Spine.Model.host = "http://localhost:3000/api/v1"
+Spine.Model.host = "http://192.168.1.199:3000/api/v1"
 
 class App extends Stage.Global
   Authorization: Authorization
