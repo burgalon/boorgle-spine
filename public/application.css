@@ -1,0 +1,254 @@
+body,
+html {
+  height: 100%;
+}
+.viewport {
+  position: relative;
+}
+.viewport > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.viewport > *:not(.active) {
+  display: none;
+}
+body.stage > header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+body.stage > article {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+body.stage > footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.panel {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+}
+.panel > article {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  margin: 0;
+  padding: 0;
+  color: #292d39;
+  background: #fff;
+}
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.00);
+}
+body.stage > header {
+  height: 40px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
+}
+body.stage > article {
+  bottom: 40px;
+}
+body.stage > footer {
+  height: 40px;
+  background: -webkit-linear-gradient(top, #1c1c1c 0%, #1c1c1c 2%, #575757 2%, #303030 5%, #141414 51%, #000 51%, #000 100%);
+}
+body.stage > footer {
+  height: 49px;
+  -webkit-box-pack: justify;
+  display: -webkit-box;
+}
+body.stage > footer .nav-item {
+  margin-top: 3px;
+  -webkit-box-flex: 1;
+  color: #999;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+body.stage > footer .nav-item .nav-label {
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+}
+body.stage > footer .nav-item .icon {
+  display: block;
+  width: 100%;
+  height: 30px;
+  -webkit-mask-image: url("http://code.pb.io/ios-css/images/tabbar-icon-flower.png?1313489953");
+  -webkit-mask-size: 30px 30px;
+  -webkit-mask-position: 50% 0%;
+  -webkit-mask-repeat: no-repeat;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.30) 25%, rgba(255,255,255,0.00) 75%);
+}
+body.stage > footer .active.nav-item {
+  color: #fff;
+  background: rgba(255,255,255,0.13);
+}
+body.stage > footer .active.nav-item .icon {
+  background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0.00) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
+}
+.panel > header {
+  height: 40px;
+  line-height: 40px;
+}
+.panel > header h2 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #fffeff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  font-weight: normal;
+}
+.panel > header button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  font-size: 13px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), #476b9d;
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
+  margin: 7px;
+  padding: 5px 12px;
+  border: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.panel > header button:active {
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40), inset 0 0 20px rgba(255,255,255,0.20);
+}
+.panel > header button.right {
+  left: auto;
+  right: 0;
+}
+.list .item {
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+  color: #292d39;
+  text-shadow: 0 1px 0 #fff;
+  background: #f6f6f7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, rgba(255,255,255,0.40)), color-stop(0.5, rgba(255,255,255,0.00))), #f6f6f7;
+}
+.list .item img {
+  float: right;
+  max-width: 30px;
+  max-height: 30px;
+  display: inline-block;
+  margin: 10px 0;
+}
+.list .item:active {
+  background: #f6f6f7;
+  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+}
+form {
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #aeaeae;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.10);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.10);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.10);
+}
+label {
+  display: block;
+  border-bottom: 1px solid #aeaeae;
+  font-size: 13px;
+  padding: 15px;
+}
+label:last-child {
+  border-bottom: none;
+}
+label span::after {
+  content: ':';
+}
+select,
+input {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin: 5px 0 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.thumb {
+  -webkit-box-shadow: 0 1px 3px #333;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: 0 1px 3px #333;
+  -webkit-box-shadow: 0 1px 3px #333;
+  box-shadow: 0 1px 3px #333;
+}
+.list-group {
+  margin: 12px 0;
+}
+.list-group .list-item {
+  background: #f6f6f7;
+  padding: 12px;
+  margin: 0 12px 0;
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: #a9acaf;
+}
+.list-group .list-item:first-child {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.list-group .list-item:last-child {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.list-group .list-item.transparent {
+  border: none;
+  background: transparent;
+}
+.list-group .list-item .list-label {
+  display: inline-block;
+  text-align: left;
+  color: #3c9aff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 10px 0 20px;
+}
+.list-group .list-item .list-data {
+  display: inline-block;
+  font-size: 12px;
+}
+.list-group .list-item .list-data a {
+  text-decoration: none;
+  color: inherit;
+}
+.showView.panel > article {
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
+  background-size: 7px 512px;
+}
