@@ -1,48 +1,50 @@
 @import './mixin'
-
-body, html
-  height: 100%
-  
-.viewport
-  position: relative
-  
-  > *
-    position: absolute
-    left: 0
-    right: 0
-    top: 0
-    bottom: 0
-    
-    &:not(.active)
-      display: none
-      
-body.stage 
-  > header
-    position: absolute
-    left: 0
-    top: 0
-    right: 0
-
-  > article
-    position: absolute
-    left: 0
-    right: 0
-    top: 0
-    bottom: 0
-    
-  > footer
-    position: absolute
-    left: 0
-    bottom: 0
-    right: 0
-
-.panel
-  vbox()
-
-  > article
-    box-flex(1)
-
-    overflow: auto
-    -webkit-overflow-scrolling: touch
-    
+@import './panels'
 @import './theme'
+
+.thumb
+  -webkit-box-shadow: 0 1px 3px #333
+  border-radius: 8px
+  box-shadow: 0 1px 3px #333
+
+.list-group .list-item
+  background: #F6F6F7
+  padding: 12px
+  margin: 12px
+  border-width: 1px 1px 0px 1px
+  border-style: solid
+  border-color: #A9ACAF
+
+  &.transparent
+    border: none
+    background: transparent
+
+  .list-label
+    display: -webkit-inline-box
+    text-align: left
+    color: #3c9aff
+    font-size: 12px
+    font-weight: bold
+    padding: 0 10px 0 20px
+
+
+  .list-data
+    display: -webkit-inline-box
+
+    a
+      text-decoration: none
+      color: inherit
+
+.list-group .list-item:first-child
+  border-top-right-radius: 8px
+  border-top-left-radius: 8px
+
+
+.list-group .list-item:last-child
+  border-bottom-right-radius: 8px
+  border-bottom-left-radius: 8px
+
+.showView.panel > article
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
+  background-size: 7px 512px
+

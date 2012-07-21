@@ -38,26 +38,32 @@ class App extends Stage.Global
     @friends = new Friends
     @notifications = new Notifications
 
+    @addTab('Explore', -> @navigate '/found_friends')
+    @addTab('Synched', -> @navigate '/friends')
+    @addTab('Account', -> @navigate '/user/edit/show')
+
     # General initializations
     Spine.bind 'notify', @notify
+    Spine.bind 'activateTab', @activateTab
     Spine.Route.setup()#shim:true)
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
     @navigate '/user/edit/show' unless document.location.hash && !document.location.hash.match('#access_token')
 
-    @addTab('Explore', -> @navigate '/found_friends')
-    @addTab('Synched', -> @navigate '/friends')
-    @addTab('Account', -> @navigate '/user/edit/show')
 
+
+  activateTab: (tabClass) ->
+    $('footer .nav-item').removeClass('active')
+    $('footer .'+tabClass).addClass('active')
 
   notify: (item) =>
     @notifications.render(item)
 
   addTab: (text, callback) ->
     callback = @[callback] if typeof callback is 'string'
-    button = $('<button />').text(text)
+    button=$('<i class="icon"></i><div class="nav-label">'+text+'</div>')
     button.tap(@proxy(callback))
-    @footer.append(button)
+    @footer.append($("<div/>").addClass('nav-item ' + text.toLowerCase()).append(button))
     button
 
 module.exports = App

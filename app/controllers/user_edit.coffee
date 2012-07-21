@@ -1,5 +1,5 @@
 Spine = require('spine')
-{Panel} = require('spine.mobile')
+BasePanel = require('./base_panel')
 
 Authorization = require('authorization')
 
@@ -10,7 +10,7 @@ MyUser = require('models/my_user')
 PleaseLogin = require('controllers/please_login')
 UsersShow = require('controllers/users_show')
 
-class UserEditForm extends Panel
+class UserEditForm extends BasePanel
   title: 'Info'
 
   elements:
@@ -57,6 +57,7 @@ class UserEditForm extends Panel
 
 class MyUserShow extends UsersShow
   title: 'Info'
+  tab: 'account'
 
   @configure MyUser
 
@@ -81,8 +82,8 @@ class UserEdit extends Spine.Controller
       @form = new UserEditForm
       @show = new MyUserShow
     else
-      @form = new PleaseLogin('Info')
-      @show = new PleaseLogin('Info')
+      @form = new PleaseLogin('Info', 'account')
+      @show = new PleaseLogin('Info', 'account')
 
     @routes
       '/user/edit/show': (params) -> @show.active(params)

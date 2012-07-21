@@ -4,7 +4,8 @@ body
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif
   overflow-x: hidden
   -webkit-user-select: none
-  margin: 0; padding: 0
+  margin: 0
+  padding: 0
   color: #292D39
   background: #FFF
 
@@ -23,8 +24,55 @@ body.stage
   > footer
     height: 40px
     
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, rgba(255, 255, 255, 0))), #000
-    
+    //background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, rgba(255, 255, 255, 0))), #000
+    background: -webkit-linear-gradient(top, #1C1C1C 0%, #1C1C1C 2%, #575757 2%, #303030 5%, #141414 51%, black 51%, black 100%)
+
+  // Tabbar
+  > footer
+    height: 49px
+    -webkit-box-pack: justify
+    display: -webkit-box
+
+    .nav-item
+      margin-top: 3px
+      -webkit-box-flex: 1
+      color: #999
+      border-radius: 4px
+
+      .nav-label
+        font-weight: bold
+        font-size: 10px
+        text-align: center
+        height: 42px
+
+      .icon
+        display: block
+        width: 100%
+        height: 30px
+        //background: red
+        -webkit-mask-image: url(http://code.pb.io/ios-css/images/tabbar-icon-flower.png?1313489953)
+        -webkit-mask-size: 30px 30px
+        -webkit-mask-position: 50% 0%
+        -webkit-mask-repeat: no-repeat
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.296875) 25%, rgba(255, 255, 255, 0) 75%)
+
+    .active.nav-item
+      color: #FFF
+      background: rgba(255,255,255,0.13)
+
+      .icon
+        background-image: -webkit-linear-gradient(276deg, white 0%, #7DB9EE 52%, rgba(125, 185, 238, 0) 52%), -webkit-linear-gradient(top, #0429E4 0%, #40CEFB 100%)
+
+
+
+
+
+tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
+  .icon
+    -webkit-mask-image: image-url($image)
+    -webkit-mask-size: $size
+    -webkit-mask-position: $position
+
 .panel
   > header
     height: 40px
@@ -62,6 +110,7 @@ body.stage
       &.right
         left: auto
         right: 0
+
 
 .list
   // overflow: auto

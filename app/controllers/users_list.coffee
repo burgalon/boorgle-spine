@@ -1,6 +1,6 @@
-{Panel} = require('spine.mobile')
+BasePanel = require('./base_panel')
 
-class UsersList extends Panel
+class UsersList extends BasePanel
   events:
     'tap .item': 'click'
 

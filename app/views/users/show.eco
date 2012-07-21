@@ -1,11 +1,28 @@
-<img src="">
-<% if @name: %>
-  <p><%= @name() %></p>
+<div class="list-group">
+  <div class="list-item transparent">
+    <div class="list-label"><img class="thumb" src="<%= @picture %>?oauth_token=<%= app.Authorization.getToken() %>"></div>
+    <div class="list-data">
+      <h2><%= @name() %></h2>
+      <p><%= @company %></p>
+      <p><%= @title %></p>
+    </div>
+  </div>
+</div>
+
+<% if @formatted_address2(): %>
+<div class="list-group">
+  <div class="list-item">
+    <div class="list-label">home</div>
+    <div class="list-data"><%=  @formatted_address2() %></div>
+  </div>
+</div>
 <% end %>
 
-<p><%= @format(@company, @title) %></p>
-<p><%= @formatted_address2() %></p>
-
 <% if @email: %>
-  <p><a href="mailto:<%= @email %>"><%= @email %></a></p>
+<div class="list-group">
+  <div class="list-item">
+    <div class="list-label">email</div>
+    <div class="list-data"><a href="mailto:<%= @email %>"><%= @email %></a></div>
+  </div>
+</div>
 <% end %>

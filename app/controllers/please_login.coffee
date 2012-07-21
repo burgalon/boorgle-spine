@@ -1,10 +1,11 @@
 Spine = require('spine')
-{Panel} = require('spine.mobile')
+BasePanel = require('./base_panel')
 
-class PleaseLogin extends Panel
+class PleaseLogin extends BasePanel
   className: 'please_login'
+  tab: 'account'
 
-  constructor: (title) ->
+  constructor: (title, @tab) ->
     super
     @setTitle(title)
 

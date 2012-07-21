@@ -1,6 +1,7 @@
-{Panel} = require('spine.mobile')
+BasePanel = require('./base_panel')
 
-class UsersShow extends Panel
+# Abstract
+class UsersShow extends BasePanel
   className: 'users showView'
 
   @configure: (@model_class) ->

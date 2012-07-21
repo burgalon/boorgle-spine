@@ -13,15 +13,19 @@ UsersList = require('controllers/users_list')
 
 class FriendShow extends UsersShow
   @configure Friend
+  tab: 'synched'
 
   back: ->
     @navigate('/friends', trans: 'left')
 
 class FriendsList extends UsersList
   title: 'Synched'
+  tab: 'synched'
   @configure Friend, '/friends'
 
 class Friends extends Spine.Controller
+  tab: 'synched'
+
   constructor: ->
     super
 
@@ -29,8 +33,8 @@ class Friends extends Spine.Controller
       @list = new FriendsList
       @show = new FriendShow
     else
-      @list = new PleaseLogin('Synced')
-      @show = new PleaseLogin('Info')
+      @list = new PleaseLogin('Synched', 'synched')
+      @show = new PleaseLogin('Synched', 'synched')
 
     @routes
       '/friends/:id': (params) -> @show.active(params)

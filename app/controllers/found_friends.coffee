@@ -10,15 +10,19 @@ UsersList = require('controllers/users_list')
 
 class FoundFriendShow extends UsersShow
   @configure FoundFriend
+  tab: 'explore'
 
   back: ->
     @navigate('/found_friends', trans: 'left')
 
 class FoundFriendsList extends UsersList
   title: 'Found Friends'
+  tab: 'explore'
   @configure FoundFriend, '/found_friends'
 
 class FoundFriends extends Spine.Controller
+  tab: 'explore'
+
   constructor: ->
     super
 
