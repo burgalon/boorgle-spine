@@ -16,7 +16,7 @@ Friends = require('controllers/friends')
 UserEdit = require('controllers/user_edit')
 Notifications = require('controllers/notifications')
 
-Spine.Model.host = document.location.href.match(/localhost|192./) ? "http://192.168.1.199:3000/api/v1" : "http://www.boorgle.com/api/v1"
+Spine.Model.host = if document.location.href.match(/localhost|192./) then "http://192.168.1.199:3000/api/v1" else "http://www.boorgle.com/api/v1"
 
 class App extends Stage.Global
   Authorization: Authorization
