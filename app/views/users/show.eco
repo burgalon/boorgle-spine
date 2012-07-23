@@ -1,6 +1,6 @@
-<div class="list-group">
+<div class="list-group thumb-list">
   <div class="list-item transparent">
-    <div class="list-label"><img class="thumb" width="75" height="75" src="<%= @picture %>?oauth_token=<%= app.Authorization.getToken() %>"></div>
+    <div class="list-label"><img class="thumb" width="62" height="62" src="<%= @picture %>?oauth_token=<%= app.Authorization.getToken() %>"></div>
     <div class="list-data">
       <h2><%= @name() %></h2>
       <p><%= @company %></p>

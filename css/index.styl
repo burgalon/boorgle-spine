@@ -3,18 +3,17 @@
 @import './theme'
 
 .thumb
-  -webkit-box-shadow: 0 1px 3px #333
-  border-radius: 8px
-  box-shadow: 0 1px 3px #333
+  border-radius: 2px
+  border: 1px solid #999
 
 .list-group
-  margin: 12px 0
+  margin: 5px 0
 
   .list-item
     background: #F6F6F7
-    padding: 12px
+    padding: 15px 0
     margin: 0 12px 0
-    border-width: 1px 1px 0px 1px
+    border-width: 1px 1px 1px 1px
     border-style: solid
     border-color: #A9ACAF
 
@@ -31,25 +30,29 @@
       background: transparent
 
     .list-label
+      //background: red
       display: inline-block
-      text-align: left
+      text-align: right
       color: #3c9aff
-      font-size: 12px
+      font-size: 14px
       font-weight: bold
-      padding: 0 10px 0 20px
-      width: 95px
-      vertical-align: top
+      padding: 0 10px 0 0px
+      width: 56px
 
 
     .list-data
-      width: 450px
+      //background: green
+      width: 220px
       display: inline-block
-      font-size: 12px
+      font-size: 16px
+      font-weight: bold
 
       a
         text-decoration: none
         color: inherit
 
+.thumb-list .list-label
+  text-align: left
 
 .showView.panel > article
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
