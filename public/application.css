@@ -207,10 +207,14 @@ input {
   border-radius: 2px;
   border: 1px solid #999;
 }
-.list-group {
+.showView h2,
+.showView p {
+  margin: 0;
+}
+.showView .list-group {
   margin: 5px 0;
 }
-.list-group .list-item {
+.showView .list-group .list-item {
   background: #f6f6f7;
   padding: 15px 0;
   margin: 0 12px 0;
@@ -218,39 +222,43 @@ input {
   border-style: solid;
   border-color: #a9acaf;
 }
-.list-group .list-item:first-child {
+.showView .list-group .list-item:first-child {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
-.list-group .list-item:last-child {
+.showView .list-group .list-item:last-child {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.list-group .list-item.transparent {
+.showView .list-group .list-item.transparent {
   border: none;
   background: transparent;
 }
-.list-group .list-item .list-label {
+.showView .list-group .list-item .list-label {
   display: inline-block;
   text-align: right;
   color: #3c9aff;
   font-size: 14px;
   font-weight: bold;
-  padding: 0 10px 0 0px;
-  width: 56px;
+  padding: 0 10px 0 10px;
+  width: 63px;
+  vertical-align: top;
 }
-.list-group .list-item .list-data {
-  width: 220px;
+.showView .list-group .list-item .list-data {
+  width: 170px;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
-.list-group .list-item .list-data a {
+.showView .list-group .list-item .list-data a {
   text-decoration: none;
   color: inherit;
 }
-.thumb-list .list-label {
+.showView .thumb-list.list-group .list-label {
   text-align: left;
+}
+.showView .thumb-list.list-group .list-data {
+  font-weight: normal;
 }
 .showView.panel > article {
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
