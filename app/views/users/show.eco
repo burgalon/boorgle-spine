@@ -9,12 +9,14 @@
   </div>
 </div>
 
-<% if @formatted_address2(): %>
+<% if @phones && @phones.length: %>
 <div class="list-group">
+  <% for phone in @phones: %>
   <div class="list-item">
-    <div class="list-label">home</div>
-    <div class="list-data"><a target="_blank" href="http://maps.google.com/maps?saddr=Current+Location&daddr=<%=  encodeURIComponent(@formatted_address2()) %>"><%=  @formatted_address2() %></a></div>
+    <div class="list-label"><%= phone.type.replace('_', ' ') %></div>
+    <div class="list-data"><a target="_blank" href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></div>
   </div>
+  <% end %>
 </div>
 <% end %>
 
@@ -27,13 +29,11 @@
 </div>
 <% end %>
 
-<% if @phones && @phones.length: %>
+<% if @formatted_address2(): %>
 <div class="list-group">
-  <% for phone in @phones: %>
   <div class="list-item">
-    <div class="list-label"><%= phone.type.replace('_', ' ') %></div>
-    <div class="list-data"><a target="_blank" href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></div>
+    <div class="list-label">home</div>
+    <div class="list-data"><a target="_blank" href="http://maps.google.com/maps?saddr=Current+Location&daddr=<%=  encodeURIComponent(@formatted_address2()) %>"><%=  @formatted_address2() %></a></div>
   </div>
-  <% end %>
 </div>
 <% end %>
