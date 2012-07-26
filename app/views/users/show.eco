@@ -3,8 +3,8 @@
     <div class="list-label"><img class="thumb" width="62" height="62" src="<%= @picture %>?oauth_token=<%= app.Authorization.getToken() %>"></div>
     <div class="list-data">
       <h2><%= @name() %></h2>
-      <p><%= @company %></p>
       <p><%= @title %></p>
+      <p><%= @company %></p>
     </div>
   </div>
 </div>
