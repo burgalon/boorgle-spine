@@ -1,56 +1,150 @@
-.thumb
-  border-radius: 2px
-  border: 1px solid #999
+body.stage 
+  > header
+    height: 40px
+    
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0))), -webkit-gradient(linear, left top, left bottom, from(lighten(#6a83a1, 5%)), to(#6a83a1))
+    
+  > article
+    bottom: 40px
+    
+  > footer
+    height: 40px
+    
+    //background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, rgba(255, 255, 255, 0))), #000
+    background: -webkit-linear-gradient(top, #1C1C1C 0%, #1C1C1C 2%, #575757 2%, #303030 5%, #141414 51%, black 51%, black 100%)
 
-.list-group
-  margin: 5px 0
+  // Tabbar
+  > footer
+    height: 49px
+    -webkit-box-pack: justify
+    display: -webkit-box
 
-  .list-item
+    .nav-item
+      margin-top: 3px
+      -webkit-box-flex: 1
+      color: #999
+      border-radius: 4px
+
+      .nav-label
+        font-weight: bold
+        font-size: 10px
+        text-align: center
+
+      .icon
+        display: block
+        width: 100%
+        height: 30px
+        //background: red
+        -webkit-mask-image: url(http://code.pb.io/ios-css/images/tabbar-icon-flower.png?1313489953)
+        -webkit-mask-size: 30px 30px
+        -webkit-mask-position: 50% 0%
+        -webkit-mask-repeat: no-repeat
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.296875) 25%, rgba(255, 255, 255, 0) 75%)
+
+    .active.nav-item
+      color: #FFF
+      background: rgba(255,255,255,0.13)
+
+      .icon
+        background-image: -webkit-linear-gradient(276deg, white 0%, #7DB9EE 52%, rgba(125, 185, 238, 0) 52%), -webkit-linear-gradient(top, #0429E4 0%, #40CEFB 100%)
+
+
+
+
+
+tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
+  .icon
+    -webkit-mask-image: image-url($image)
+    -webkit-mask-size: $size
+    -webkit-mask-position: $position
+
+.panel
+  > header
+    height: 40px
+    line-height: 40px
+    
+    h2
+      margin: 0
+      padding: 0
+      text-align: center
+      color: #fffeff
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5)
+      font-weight: normal
+    
+    button
+      position: absolute
+      left: 0
+      top: 0
+      
+      color: #FFF
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5)
+      font-size: 13px
+    
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0))), #476b9d
+      
+      -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4)
+      
+      margin: 7px
+      padding: 5px 12px
+      border: 0
+      border-radius(5px)
+      
+      &:active
+        -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2)
+        
+      &.right
+        left: auto
+        right: 0
+
+
+.list
+  // overflow: auto
+  // -webkit-overflow-scrolling: touch
+
+.list .item
+  padding: 0 15px
+  height: 50px
+  line-height: 50px
+  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  color: #292D39
+  text-shadow: 0 1px 0 white
+  background: #F6F6F7
+  background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(0.5, rgba(255, 255, 255, 0.4)), color-stop(0.5, rgba(255, 255, 255, 0))), #F6F6F7
+  
+  img
+    float: right
+    max-width: 30px
+    max-height: 30px
+    display: inline-block
+    margin: 10px 0
+
+  &:active
     background: #F6F6F7
-    padding: 15px 0
-    margin: 0 12px 0
-    border-width: 1px 1px 1px 1px
-    border-style: solid
-    border-color: #A9ACAF
-
-    &:first-child
-      border-top-right-radius: 8px
-      border-top-left-radius: 8px
-
-    &:last-child
-      border-bottom-right-radius: 8px
-      border-bottom-left-radius: 8px
-
-    &.transparent
-      border: none
-      background: transparent
-
-    .list-label
-      //background: red
-      display: inline-block
-      text-align: right
-      color: #3c9aff
-      font-size: 14px
-      font-weight: bold
-      padding: 0 10px 0 0px
-      width: 56px
-
-
-    .list-data
-      //background: green
-      width: 220px
-      display: inline-block
-      font-size: 16px
-      font-weight: bold
-
-      a
-        text-decoration: none
-        color: inherit
-
-.thumb-list .list-label
-  text-align: left
-
-.showView.panel > article
-  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
-  background-size: 7px 512px
-
+    inset-box-shadow(0, 1px, 3px, rgba(0, 0, 0, 0.1))
+    
+form
+  margin: 10px
+  background: #FFF
+  border: 1px solid #aeaeae
+  border-radius(10px)
+  box-shadow(0, 1px 1px, rgba(0, 0, 0, 0.1))
+  
+label
+  display: block
+  border-bottom: 1px solid #aeaeae
+  font-size: 13px
+  padding: 15px
+  
+  &:last-child
+    border-bottom: none
+    
+  span::after
+    content: ':'
+  
+select, input
+  display: block
+  width: 100%
+  font-size: 15px
+  margin: 5px 0 0 0
+  border-box()
