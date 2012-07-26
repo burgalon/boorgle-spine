@@ -1,6 +1,8 @@
+Config = require('./config')
+
 class Authorization extends Spine.Module
-  clientId: 'boorgle-iphone'
-  oauthEndPoint: "http://localhost:3000/oauth/authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{encodeURIComponent(window.location.href.replace(/#.+/,''))}"
+  clientId: Config.clientId
+  oauthEndPoint: "#{Config.oauthEndpoint}authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{encodeURIComponent(window.location.href.replace(/#.+/,''))}"
 
   @setup: ->
     $(document).ajaxError (xhr, status, error) =>

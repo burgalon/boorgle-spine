@@ -1,2 +1,2 @@
 <h1>Sign In</h1>
-<a href="<%= Spine.Model.host.replace('/api/v1', '') + '/oauth/authorize?client_id=boorgle-iphone&response_type=token&redirect_uri='+encodeURIComponent(window.location.href.replace(/#.+/,'')) %>" target="_parent">Connect with GMail</a>
+<a href="<%= Config.oauthEndpoint + 'authorize?client_id='+Config.clientId+'&response_type=token&redirect_uri='+encodeURIComponent(window.location.href.replace(/#.+/,'')) %>" target="_parent">Connect with GMail</a>

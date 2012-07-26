@@ -3,6 +3,7 @@ require('lib/setup')
 Spine   = require('spine')
 {Stage} = require('spine.mobile')
 
+window.Config = Config = require('./config')
 Authorization = require('authorization')
 
 # Models
@@ -16,7 +17,8 @@ Friends = require('controllers/friends')
 UserEdit = require('controllers/user_edit')
 Notifications = require('controllers/notifications')
 
-Spine.Model.host = if document.location.href.match(/localhost|192./) then "http://localhost:3000/api/v1" else "http://www.boorgle.com/api/v1"
+#Spine.Model.host = if document.location.href.match(/localhost|192./) then "http://localhost:3000/api/v1" else "http://www.boorgle.com/api/v1"
+Spine.Model.host = Config.host
 
 class App extends Stage.Global
   Authorization: Authorization
