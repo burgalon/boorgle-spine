@@ -5,7 +5,7 @@ class Authorization extends Spine.Module
   oauthEndPoint: "#{Config.oauthEndpoint}authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{encodeURIComponent(window.location.href.replace(/#.+/,''))}"
 
   @setup: ->
-    $(document).ajaxError (xhr, status, error) =>
+    $(document).ajaxError (event, xhr, ajaxSettings, thrownError) =>
       console.log("Global ajaxError", arguments)
       console.log("XHR.status", xhr.status)
       if xhr.status is 401
@@ -34,8 +34,11 @@ class Authorization extends Spine.Module
     document.location.reload()
 
   @login: ->
+    delete localStorage['access_token']
     if confirm("Invalid login. Singin again?")
       window.location = @::oauthEndPoint
+    else
+      window.location = '/'
 
   @is_loggedin: ->
     !!@token
