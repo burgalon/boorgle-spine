@@ -8,6 +8,7 @@ class Authorization extends Spine.Module
     $(document).ajaxError (event, xhr, ajaxSettings, thrownError) =>
       console.log("Global ajaxError", arguments)
       console.log("XHR.status", xhr.status)
+      console.log("XHR.responseText", xhr.responseText)
       if xhr.status is 401
         @login()
       else if xhr.status is 500
