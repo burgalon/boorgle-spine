@@ -205,7 +205,6 @@ input {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #999;
 }
 .showView h2,
 .showView p {
@@ -257,10 +256,36 @@ input {
 .showView .thumb-list.list-group .list-label {
   text-align: left;
 }
+.showView .thumb-list.list-group .list-label .thumb {
+  border: 1px solid #999;
+}
 .showView .thumb-list.list-group .list-data {
   font-weight: normal;
 }
 .showView.panel > article {
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
   background-size: 7px 512px;
+}
+.users.list h3 {
+  background: #8d9daa;
+  -moz-box-shadow: 0 -1px 0 #78858e;
+  -webkit-box-shadow: 0 -1px 0 #78858e;
+  box-shadow: 0 -1px 0 #78858e;
+  border-top: 1px solid rgba(255,255,255,0.50);
+  text-shadow: 0 1px 1px rgba(100,100,100,0.80);
+  color: #fff;
+  font-size: 13px;
+  margin: 0;
+}
+.users.list .item >div {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+}
+.users.list .item .name {
+  padding-left: 10px;
+}
+.users.list .item .status {
+  font-size: 10px;
+  float: right;
 }
