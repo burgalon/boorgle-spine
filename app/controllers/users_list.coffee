@@ -16,11 +16,10 @@ class UsersList extends BasePanel
     @constructor.model_class.bind 'refresh change', @render
 
   render: =>
-    items = @constructor.model_class.all()
-    @html require('views/users/item')(items)
+    @html require('views/users/item')(@constructor.model_class.all())
 
   click: (e) ->
-    element = $(e.target)
+    element = $(e.currentTarget)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
     @navigate(@constructor.item_url, item.id, trans: 'right')

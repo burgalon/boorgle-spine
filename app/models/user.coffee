@@ -23,6 +23,9 @@ class User extends Spine.Model
     region_or_country = if @is_us() then null else @country
     @format(@street, @apartment, @city, @format(@region, @zipcode), region_or_country)
 
-
+  # For some reason it seams like clear is not a default
+  # This is important when refreshing an empty AJAX response, and the result doesn't clear unless clear: true is specified
+  @refresh: (values, options)->
+    super(values, $.extend(options, clear: true))
 
 module.exports = User

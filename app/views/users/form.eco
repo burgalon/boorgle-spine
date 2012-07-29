@@ -12,6 +12,7 @@
             <option value="home_fax">Home Fax</option>
         </select>
         <input type="text" name="number" value="<%= phone.number %>">
+        <input name="phones_attributes][][number]" size="30" type="tel" value="<%= phone.number %>">
     <% end %>
     <% end %>
     <select name="type">

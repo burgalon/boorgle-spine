@@ -37,3 +37,7 @@
   </div>
 </div>
 <% end %>
+
+<% if @constructor.className == 'Pending': %>
+  Pending Request
+<% end %>

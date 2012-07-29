@@ -50,9 +50,7 @@ class App extends Stage.Global
     Spine.Route.setup()#shim:true)
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
-    @navigate '/user/edit/show' unless document.location.hash && !document.location.hash.match('#access_token')
-
-
+    @navigate '/found_friends' unless document.location.hash && !document.location.hash.match('#access_token')
 
   activateTab: (tabClass) ->
     $('footer .nav-item').removeClass('active')

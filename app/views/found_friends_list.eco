@@ -1,0 +1,6 @@
+<input type="search" placeholder="search" results="0" incremental="true" autofocus>
+
+<% for key in @collection_types: %>
+  <h3><%= key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ') %></h3>
+  <div class="items <%= key %>"></div>
+<% end %>

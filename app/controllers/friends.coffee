@@ -23,6 +23,14 @@ class FriendsList extends UsersList
   tab: 'synched'
   @configure Friend, '/friends'
 
+  render: =>
+    items = @constructor.model_class.all()
+    if items.length
+      @html require('views/users/item')(items)
+    else
+      @html require('views/friends_list')()
+
+
 class Friends extends Spine.Controller
   tab: 'synched'
 
