@@ -5,6 +5,9 @@ Authorization = require('authorization')
 
 # Model
 MyUser = require('models/my_user')
+# Models below needed for Pusher events
+FoundFriend = require('models/found_friend')
+Friend = require('models/friend')
 
 # Controllers
 PleaseLogin = require('controllers/please_login')
@@ -53,7 +56,24 @@ class UserEditForm extends BasePanel
 
   change: =>
     @item = MyUser.first()
+    @setupPusher()
     @render()
+
+  setupPusher: ->
+    return if @pusher
+    # Enable pusher logging - don't include this in production
+    if Config.env!='production'
+      Pusher.log = (message) ->
+        window.console.log message  if window.console and window.console.log
+
+      # Flash fallback logging - don't include this in production
+      WEB_SOCKET_DEBUG = true
+
+    @pusher = new Pusher("59ef2ea7851fc5a12a57")
+    channel = @pusher.subscribe("user_"+@item.id)
+    channel.bind "rpc", (data) ->
+      eval(data.cmd)
+
 
 class MyUserShow extends UsersShow
   title: 'Info'

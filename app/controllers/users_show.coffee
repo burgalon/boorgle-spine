@@ -30,7 +30,7 @@ class UsersShow extends BasePanel
     @log 'Missing back button'
 
   clear_buttons: ->
-    @header.remove('button')
+    $('button', @header).remove()
 
   render: =>
     return unless @item
