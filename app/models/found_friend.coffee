@@ -65,4 +65,14 @@ class FoundFriend extends User
 #    else
 #      new @(objects)
 
+  @fetch: ->
+    navigator.geolocation.getCurrentPosition((location) =>
+      location.created_at = new Date()
+      Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
+      super
+      console.log 'Retrieved location', location
+    , ((error) ->
+      console.log 'Could not get location'
+    ))
+
 module.exports = FoundFriend
