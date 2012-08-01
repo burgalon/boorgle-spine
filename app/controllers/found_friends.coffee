@@ -6,6 +6,7 @@ Authorization = require('authorization')
 
 # Models
 FoundFriend = require('models/found_friend')
+SearchFriend = require('models/search_friend')
 
 # Controllers
 UsersShow = require('controllers/users_show')
@@ -24,8 +25,13 @@ class FoundFriendsList extends UsersList
   title: 'Explore'
   tab: 'explore'
   @configure FoundFriend, '/found_friends'
-  elements: {}
   collection_types: FoundFriend.collection_types
+  events:
+    'tap .item': 'click'
+    'input input': 'search'
+  elements:
+    '.found-panel': 'foundPanel'
+    '.search-panel': 'searchPanel'
 
   constructor: ->
     super
@@ -37,13 +43,35 @@ class FoundFriendsList extends UsersList
     @html require('views/found_friends_list')(this)
     # Initialize list sub-views for each collection of users
     for key in @collection_types
-      @[key+'_list'] = new List
-            el: @[key],
+      @[key+'List'] = new List
+            el: @[key]
             template: require('views/users/item')
+    @searchList = new List
+      el: @searchPanel
+      template: require('views/users/item')
+
+    SearchFriend.bind 'refresh change', @renderSearch
 
   render: =>
     for key in @collection_types
-      @[key+'_list'].render(FoundFriend[key].all())
+      @[key+'List'].render(FoundFriend[key].all())
+
+  renderSearch: =>
+    @searchList.render(SearchFriend.System.all())
+
+  search: (e) ->
+    element = $(e.currentTarget)
+    value = element.val()
+
+    if value
+      SearchFriend.fetch(value)
+      if !@searchPanel.hasClass('active')
+        @searchPanel.addClass('active')
+        @foundPanel.removeClass('active')
+    else
+      if @searchPanel.hasClass('active')
+        @searchPanel.removeClass('active')
+        @foundPanel.addClass('active')
 
 # Explore Tab
 class FoundFriends extends Spine.Controller
