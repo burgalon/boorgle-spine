@@ -49,6 +49,9 @@ body.stage > footer {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.panel:not(.active) {
+  display: none;
+}
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
