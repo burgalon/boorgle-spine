@@ -62,7 +62,7 @@ class UserEditForm extends BasePanel
   setupPusher: ->
     return if @pusher
     # Enable pusher logging - don't include this in production
-    if Config.env!='production'
+    if Config.env!='production' && false
       Pusher.log = (message) ->
         window.console.log message  if window.console and window.console.log
 
