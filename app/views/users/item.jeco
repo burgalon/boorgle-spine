@@ -1,4 +1,4 @@
 <div class="item">
-  <div class="thumb"><img class="thumb" width="62" height="62" src="<%= @picture %>?oauth_token=<%= app.Authorization.getToken() %>"></div>
+  <div class="thumb"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
   <div class="name"><%= @name() %></div>
 </div>

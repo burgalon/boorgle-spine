@@ -23,6 +23,11 @@ class User extends Spine.Model
     region_or_country = if @is_us() then null else @country
     @format(@street, @apartment, @city, @format(@region, @zipcode), region_or_country)
 
+  picture_url: ->
+    ret = @picture
+    ret+='?oauth_token='+ app.Authorization.getToken() if ret.match('localhost|boorgle')
+    ret
+
   # For some reason it seams like clear is not a default
   # This is important when refreshing an empty AJAX response, and the result doesn't clear unless clear: true is specified
   @refresh: (values, options)->
