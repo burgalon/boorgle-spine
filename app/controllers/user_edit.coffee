@@ -60,7 +60,7 @@ class UserEditForm extends BasePanel
     @render()
 
   setupPusher: ->
-    return if @pusher
+    return if @pusher || !@item
     # Enable pusher logging - don't include this in production
     if Config.env!='production' && false
       Pusher.log = (message) ->
