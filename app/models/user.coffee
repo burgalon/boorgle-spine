@@ -1,6 +1,8 @@
-Spine = require('spine')
+Model = require('./model')
 
-class User extends Spine.Model
+Authorization = require('authorization')
+
+class User extends Model
   @configure 'User', 'email', 'first_name', 'last_name', 'company', 'title', 'website', 'birthday', 'street', 'apartment', 'zipcode', 'city', 'region', 'country', 'groups', 'location', 'picture', 'phones'
   @extend Spine.Model.Ajax
 
@@ -25,10 +27,10 @@ class User extends Spine.Model
 
   picture_url: ->
     ret = @picture
-    ret+='?oauth_token='+ app.Authorization.getToken() if ret.match('localhost|boorgle')
+    ret+='?oauth_token='+ Authorization.getToken() if ret.match('localhost|boorgle')
     ret
 
-  # For some reason it seams like clear is not a default
+  # For some reason it seems like 'clear' is not a default
   # This is important when refreshing an empty AJAX response, and the result doesn't clear unless clear: true is specified
   @refresh: (values, options)->
     super(values, $.extend(options, clear: true))
