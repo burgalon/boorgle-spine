@@ -1,4 +1,8 @@
 BasePanel = require('./base_panel')
+Authorization = require('authorization')
+
+# Model
+GmailUser = require('models/gmail_user')
 
 class UsersList extends BasePanel
   events:
@@ -22,7 +26,15 @@ class UsersList extends BasePanel
     element = $(e.currentTarget)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
+    if item instanceof GmailUser
+      if confirm("Would you like to invite #{item.name} (#{item.email}}")
+        @invite(item)
+      return
     @navigate(@constructor.item_url, item.id, trans: 'right')
+
+  invite: (item) ->
+    Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
+    Authorization.friendAjax('invites', item.id)
 
   add: ->
     @navigate('/users/create', trans: 'right')

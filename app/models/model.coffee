@@ -5,7 +5,7 @@ class Model extends Spine.Model
     @constructor._to_partial_path()
 
   @pluralLowerCase: ->
-    @className.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()
+    @className.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()+'s'
 
   @_to_partial_path: ->
     ['views', @pluralLowerCase(), 'item'].join '/'

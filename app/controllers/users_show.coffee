@@ -51,16 +51,8 @@ class UsersShow extends BasePanel
     else
       @addButton('Add', @add).addClass('right')
 
-  # Helper for setting sync/confirm/request ajaxes
-  ajax: (endpoint, friend_id, params) ->
-    defaults =
-      url: Spine.Model.host+'/'+endpoint
-      type: 'POST'
-      data: JSON.stringify(friend_id: friend_id)
-    $.ajax($.extend({}, Spine.Ajax.defaults, defaults, params))
-
   delete: ->
-    @ajax('friends/'+ @item.id, @item.id, type: 'DELETE').done( =>
+    Authorization.friendAjax('friends/'+ @item.id, @item.id, type: 'DELETE').done( =>
               FoundFriend.fetch()
               Friend.fetch()
               @navigate '/friends'
@@ -69,7 +61,7 @@ class UsersShow extends BasePanel
   # Confirm pending request
   confirm: ->
     return @navigate('/user/edit', trans: 'left') unless Authorization.is_loggedin()
-    @ajax('friends', @item.id).done( =>
+    Authorization.friendAjax('friends', @item.id).done( =>
               FoundFriend.fetch()
               Friend.fetch()
               @navigate '/friends'
@@ -78,7 +70,7 @@ class UsersShow extends BasePanel
   # Request to sync
   add: ->
     return @navigate('/user/edit', trans: 'left') unless Authorization.is_loggedin()
-    @ajax('pending_friends', @item.id).done( =>
+    Authorization.friendAjax('pending_friends', @item.id).done( =>
           FoundFriend.fetch()
           @navigate '/found_friends'
         )

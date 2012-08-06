@@ -44,4 +44,13 @@ class Authorization extends Spine.Module
   @is_loggedin: ->
     !!@token
 
+  # Helper for setting sync/confirm/request ajaxes
+  @friendAjax: (endpoint, friend_id, params) ->
+    defaults =
+      url: Spine.Model.host+'/'+endpoint
+      type: 'POST'
+      data: JSON.stringify(friend_id: friend_id)
+    $.ajax($.extend({}, Spine.Ajax.defaults, defaults, params))
+
+
 module.exports = Authorization

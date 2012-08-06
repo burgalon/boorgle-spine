@@ -1,37 +1,44 @@
 Spine = require('spine')
 User = require('./user')
+GmailUser = require('./gmail_user')
 
 # Collections
-# Users near you
-class Near extends User
-  @configure 'Near'
-# Users who signed up to the system recently
-class Recent extends User
-  @configure 'Recent'
+class UserCollection extends User
+  @pluralLowerCase: ->
+    'users'
+
 # Users who requestsed to connect with you
-class Confirm extends User
+class Confirm extends UserCollection
   @configure 'Confirm'
+# Users near you
+class Near extends UserCollection
+  @configure 'Near'
+# Users found from your gmail account
+class Gmail extends UserCollection
+  @configure 'Gmail'
+# Users found from your gmail account and are NOT on Boorgle (need invite)
+class GmailInvite extends GmailUser
+# Users who signed up to the system recently
+class Recent extends UserCollection
+  @configure 'Recent'
+# User you requested to connect with
+class Pending extends UserCollection
+  @configure 'Pending'
 # Users who requested to connect with you, but you decided to ignore from
-class IgnoredConfirm extends User
+class IgnoredConfirm extends UserCollection
   @configure 'IgnoredConfirm'
 # Users from your gmail that you decided to ignore
-class IgnoredFound extends User
+class IgnoredFound extends UserCollection
   @configure 'IgnoredFound'
-# Users found from your gmail account
-class Gmail extends User
-  @configure 'Gmail'
-# User you requested to connect with
-class Pending extends User
-  @configure 'Pending'
 
 
-class FoundFriend extends User
+class FoundFriend extends UserCollection
   @configure 'FoundFriend'
   @extend Spine.Model.Ajax
   @url: ->
     Spine.Model.host + "/found_friends"
 
-  @collection_types: ['Confirm', 'Near', 'Gmail', 'Recent', 'Pending', 'IgnoredConfirm', 'IgnoredFound']
+  @collection_types: ['Confirm', 'Near', 'Gmail', 'GmailInvite', 'Recent', 'Pending', 'IgnoredConfirm', 'IgnoredFound']
   # Collections that are updated as a result
   @Confirm: Confirm
   @Near: Near
@@ -39,6 +46,7 @@ class FoundFriend extends User
   @IgnoredConfirm: IgnoredConfirm
   @IgnoredFound: IgnoredFound
   @Gmail: Gmail
+  @GmailInvite: GmailInvite
   @Pending: Pending
 
   # Looks for object in the sub-collections

@@ -41,17 +41,27 @@ class FoundFriendsList extends UsersList
       @elements['.'+key] = key
 
     @html require('views/found_friends_list')(this)
+
     # Initialize list sub-views for each collection of users
     for key in @collection_types
       @[key+'List'] = new List
             el: @[key]
-            template: require('views/users/item')
+            template: require(FoundFriend[key]._to_partial_path())
+
+    # Initialize search list sub-views for each collection of users
     @searchList = new List
       el: @searchPanel
       template: require('views/users/item')
 
     SearchFriend.bind 'refresh change', @renderSearch
 
+    # Login button
+    unless Authorization.is_loggedin()
+      @addButton('Login', ->
+        @navigate('/user/edit', trans: 'left')
+      ).addClass('right')
+
+  # Renders sub-views
   render: =>
     for key in @collection_types
       @[key+'List'].render(FoundFriend[key].all())
@@ -63,6 +73,7 @@ class FoundFriendsList extends UsersList
     element = $(e.currentTarget)
     value = element.val()
 
+    # Toggle between search panel and explore recommendations
     if value
       SearchFriend.fetch(value)
       if !@searchPanel.hasClass('active')
