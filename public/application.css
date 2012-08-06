@@ -280,7 +280,7 @@ input {
   font-size: 13px;
   margin: 0;
 }
-.users.list .item >div {
+.users.list .item .details>div {
   float: left;
   height: 50px;
   line-height: 50px;
@@ -290,5 +290,8 @@ input {
 }
 .users.list .item .status {
   font-size: 10px;
+  float: right;
+}
+.users.list .item .actions {
   float: right;
 }
