@@ -26,6 +26,7 @@ class FoundFriendsList extends UsersList
   tab: 'explore'
   @configure FoundFriend, '/found_friends'
   collection_types: FoundFriend.collection_types
+  search_collection_types: SearchFriend.collection_types
   events:
     'tap .item': 'click'
     'input input': 'search'
@@ -40,6 +41,9 @@ class FoundFriendsList extends UsersList
     for key in @collection_types
       @elements['.'+key] = key
 
+    for key in @search_collection_types
+      @elements['.search-'+key] = 'search_' + key
+
     @html require('views/found_friends_list')(this)
 
     # Initialize list sub-views for each collection of users
@@ -49,9 +53,10 @@ class FoundFriendsList extends UsersList
             template: require(FoundFriend[key]._to_partial_path())
 
     # Initialize search list sub-views for each collection of users
-    @searchList = new List
-      el: @searchPanel
-      template: require('views/users/item')
+    for key in @search_collection_types
+      @[key+'SearchList'] = new List
+        el: @['search_' + key]
+        template: require(SearchFriend[key]._to_partial_path())
 
     SearchFriend.bind 'refresh change', @renderSearch
 
@@ -67,7 +72,8 @@ class FoundFriendsList extends UsersList
       @[key+'List'].render(FoundFriend[key].all())
 
   renderSearch: =>
-    @searchList.render(SearchFriend.System.all())
+    for key in @search_collection_types
+      @[key+'SearchList'].render(SearchFriend[key].all())
 
   search: (e) ->
     element = $(e.currentTarget)

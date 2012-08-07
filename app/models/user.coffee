@@ -30,9 +30,4 @@ class User extends Model
     ret+='?oauth_token='+ Authorization.getToken() if ret.match('localhost|boorgle')
     ret
 
-  # For some reason it seems like 'clear' is not a default
-  # This is important when refreshing an empty AJAX response, and the result doesn't clear unless clear: true is specified
-  @refresh: (values, options)->
-    super(values, $.extend(options, clear: true))
-
 module.exports = User

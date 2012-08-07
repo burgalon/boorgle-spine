@@ -2,13 +2,23 @@ Spine = require('spine')
 User = require('./user')
 GmailUser = require('./gmail_user')
 
+class SearchInvite extends GmailUser
+  @configure 'GmailInvite'
+  @pluralLowerCase: ->
+    'gmail_users'
+
+class System extends User
+  @configure 'System'
+  @pluralLowerCase: ->
+    'users'
+
 class SearchFriend extends User
   @configure 'SearchFriend'
   @extend Spine.Model.Ajax
-  @collection_types: ['System', 'Gmail']
+  @collection_types: ['System', 'SearchInvite']
   # Collections that are updated as a result
-  @System: User
-  @Gmail: GmailUser
+  @System: System
+  @SearchInvite: SearchInvite
 
   # Looks for object in the sub-collections
   @exists: (id) ->
