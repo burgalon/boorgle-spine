@@ -2,21 +2,27 @@
 .users.list
   h3
     background: #8D9DAA
-    box-shadow: 0 -1px 0 #78858E
-    border-top: 1px solid rgba(255, 255, 255, 0.5)
+    border-top:1px solid #717d85
+    background: #92a0ab;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#92a0ab), color-stop(100%,#b6bec5));
+    background: -webkit-linear-gradient(top,  #92a0ab 0%,#b6bec5 100%);
+    background: linear-gradient(to bottom,  #92a0ab 0%,#b6bec5 100%);
+    box-shadow: inset 0 1px 0 #a1adb6
     text-shadow: 0 1px 1px rgba(100, 100, 100, 0.8)
     color: white
-    font-size: 13px
+    font-size: 16px
+    font-weight:500
     margin: 0
+    padding:4px 12px
 
   .item
     .details>div
-      //display: inline-block
       float: left
       height: 50px
       line-height: 50px
     .name
       padding-left: 10px
+      font-weight:normal
     .status
       font-size: 10px
       float: right

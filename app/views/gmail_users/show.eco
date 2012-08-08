@@ -1,22 +1,22 @@
 <div class="list-group thumb-list">
-    <div class="list-item transparent">
-        <div class="list-label"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
-        <div class="list-data">
-            <h2><%= @name %></h2>
-            <p><%= @title %></p>
-            <p><%= @company %></p>
-        </div>
+  <div class="list-item transparent">
+    <div class="list-label"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
+    <div class="list-data">
+      <h2><%= @name %></h2>
+      <p><%= @title %></p>
+      <p><%= @company %></p>
     </div>
+  </div>
 </div>
 
 <% if @phones && @phones.length: %>
 <div class="list-group">
-    <% for phone in @phones: %>
-    <div class="list-item">
-        <div class="list-label"><%= phone.type.replace('_', ' ') %></div>
-        <div class="list-data"><a target="_blank" href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></div>
-    </div>
-    <% end %>
+  <% for phone in @phones: %>
+  <div class="list-item">
+    <strong class="list-label"><%= phone.type.replace('_', ' ') %></strong>
+    <span class="list-data"><a target="_blank" href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></span>
+  </div>
+  <% end %>
 </div>
 <% end %>
 

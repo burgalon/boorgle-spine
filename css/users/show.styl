@@ -7,6 +7,7 @@
 
   .list-group
     margin: 5px 0
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5)
 
     .list-item
       background: #F6F6F7
@@ -15,6 +16,7 @@
       border-width: 1px 1px 1px 1px
       border-style: solid
       border-color: #A9ACAF
+      font-size:14px;
 
       &:first-child
         border-top-right-radius: 8px
@@ -29,23 +31,16 @@
         background: transparent
 
       .list-label
-        //background: red
-        display: inline-block
-        text-align: right
-        color: #3c9aff
-        font-size: 14px
-        font-weight: bold
-        padding: 0 10px 0 10px
-        width: 63px
-        vertical-align: top
-
+        display:inline-block
+        font-size:13px
+        color: #516691
+        font-weight:normal
+        width:75px
+        padding-right:10px;
+        text-align:right
 
       .list-data
-        //background: green
-        width: 170px
-        display: inline-block
-        font-size: 14px
-        font-weight: bold
+        display:inline-block
 
         a
           text-decoration: none
@@ -54,10 +49,23 @@
 .showView .thumb-list.list-group
   .list-label
     text-align: left
+    display: inline-block
+    text-align: right
+    font-size: 14px
+    font-weight: bold
+    padding: 0 10px 0 10px
+    width: 63px
+    vertical-align: top
+
     .thumb
       border: 1px solid #999
+
   .list-data
     font-weight: normal
+    display: inline-block
+    width: 170px
+    font-size: 14px
+    font-weight: bold
 
 .showView.panel > article
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))

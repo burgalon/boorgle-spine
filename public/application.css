@@ -59,7 +59,7 @@ body {
   -webkit-user-select: none;
   margin: 0;
   padding: 0;
-  color: #292d39;
+  color: #000;
   background: #fff;
 }
 * {
@@ -70,10 +70,9 @@ body.stage > header {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
 }
 body.stage > article {
-  bottom: 40px;
+  bottom: 49px;
 }
 body.stage > footer {
-  height: 40px;
   background: -webkit-linear-gradient(top, #1c1c1c 0%, #1c1c1c 2%, #575757 2%, #303030 5%, #141414 51%, #000 51%, #000 100%);
 }
 body.stage > footer {
@@ -146,15 +145,34 @@ body.stage > footer .active.nav-item .icon {
   left: auto;
   right: 0;
 }
+.button {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  font-size: 13px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), #476b9d;
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
+  margin: 7px;
+  padding: 5px 12px;
+  border: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.button:active {
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40), inset 0 0 20px rgba(255,255,255,0.20);
+}
+.button.right {
+  left: auto;
+  right: 0;
+}
 .list .item {
   padding: 0 15px;
   height: 50px;
   line-height: 50px;
-  border-bottom: 1px solid rgba(0,0,0,0.10);
+  border-top: 1px solid #989ea4;
   color: #292d39;
   text-shadow: 0 1px 0 #fff;
   background: #f6f6f7;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, rgba(255,255,255,0.40)), color-stop(0.5, rgba(255,255,255,0.00))), #f6f6f7;
 }
 .list .item img {
   float: right;
@@ -215,6 +233,7 @@ input {
 }
 .showView .list-group {
   margin: 5px 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.50);
 }
 .showView .list-group .list-item {
   background: #f6f6f7;
@@ -223,6 +242,7 @@ input {
   border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: #a9acaf;
+  font-size: 14px;
 }
 .showView .list-group .list-item:first-child {
   border-top-right-radius: 8px;
@@ -238,19 +258,15 @@ input {
 }
 .showView .list-group .list-item .list-label {
   display: inline-block;
+  font-size: 13px;
+  color: #516691;
+  font-weight: normal;
+  width: 75px;
+  padding-right: 10px;
   text-align: right;
-  color: #3c9aff;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 0 10px 0 10px;
-  width: 63px;
-  vertical-align: top;
 }
 .showView .list-group .list-item .list-data {
-  width: 170px;
   display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
 }
 .showView .list-group .list-item .list-data a {
   text-decoration: none;
@@ -258,12 +274,23 @@ input {
 }
 .showView .thumb-list.list-group .list-label {
   text-align: left;
+  display: inline-block;
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px 0 10px;
+  width: 63px;
+  vertical-align: top;
 }
 .showView .thumb-list.list-group .list-label .thumb {
   border: 1px solid #999;
 }
 .showView .thumb-list.list-group .list-data {
   font-weight: normal;
+  display: inline-block;
+  width: 170px;
+  font-size: 14px;
+  font-weight: bold;
 }
 .showView.panel > article {
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
@@ -271,14 +298,20 @@ input {
 }
 .users.list h3 {
   background: #8d9daa;
-  -moz-box-shadow: 0 -1px 0 #78858e;
-  -webkit-box-shadow: 0 -1px 0 #78858e;
-  box-shadow: 0 -1px 0 #78858e;
-  border-top: 1px solid rgba(255,255,255,0.50);
+  border-top: 1px solid #717d85;
+  background: #92a0ab;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #92a0ab), color-stop(100%, #b6bec5));
+  background: -webkit-linear-gradient(top, #92a0ab 0%, #b6bec5 100%);
+  background: linear-gradient(to bottom, #92a0ab 0%, #b6bec5 100%);
+  -moz-box-shadow: inset 0 1px 0 #a1adb6;
+  -webkit-box-shadow: inset 0 1px 0 #a1adb6;
+  box-shadow: inset 0 1px 0 #a1adb6;
   text-shadow: 0 1px 1px rgba(100,100,100,0.80);
   color: #fff;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 500;
   margin: 0;
+  padding: 4px 12px;
 }
 .users.list .item .details>div {
   float: left;
@@ -287,6 +320,7 @@ input {
 }
 .users.list .item .name {
   padding-left: 10px;
+  font-weight: normal;
 }
 .users.list .item .status {
   font-size: 10px;
@@ -294,4 +328,18 @@ input {
 }
 .users.list .item .actions {
   float: right;
+}
+.users.listView .search-field {
+  padding: 5px;
+  background: #d6dde2;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d6dde2), color-stop(100%, #b1bbc3));
+  background: -webkit-linear-gradient(top, #d6dde2 0%, #b1bbc3 100%);
+  background: linear-gradient(to bottom, #d6dde2 0%, #b1bbc3 100%);
+  -moz-box-shadow: inset 0 1px 0 #e3e9ed;
+  -webkit-box-shadow: inset 0 1px 0 #e3e9ed;
+  box-shadow: inset 0 1px 0 #e3e9ed;
+}
+.users.listView .search-field > input[type=search] {
+  margin: 0;
+  font-size: 16px;
 }

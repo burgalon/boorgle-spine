@@ -1,6 +1,12 @@
+<% parts = @name().split(' ') %>
+<% first_name = parts.pop() %>
+<% last_name = parts.join(' ') %>
 <div class="item">
   <div class="details">
     <div class="thumb"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
-    <div class="name"><%= @name() %></div>
+    <div class="name">
+      <%= first_name %>
+      <strong><%= last_name %></strong>
+    </div>
   </div>
 </div>
