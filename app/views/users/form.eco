@@ -41,7 +41,7 @@
         </select>
       </strong>
       <span class="list-data">
-        <input placeholder="phone" type="text" name="number" value="">
+        <input placeholder="Phone" type="text" name="number" value="">
       </span>
     </div>
   </div>
