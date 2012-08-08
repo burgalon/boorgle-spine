@@ -1,78 +1,76 @@
 <form>
-  <label>
-    <span>Phone</span>
+  <div class="list-group thumb-list">
+    <div class="list-item">
+      <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
+      <span class="list-data">
+        <input placeholder="Company" type="text" name="company" value="<%= @company %>">
+        <input placeholder="Job Title" type="text" name="title" value="<%= @title %>">
+      </span>
+    </div>
+  </div>
+
+  <div class="list-group">
     <% if @phones: %>
     <% for phone in @phones: %>
+      <div class="list-item">
+        <strong class="list-label">
+          <select name="type">
+            <option value="mobile">mobile</option>
+            <option value="home">home</option>
+            <option value="work">work</option>
+            <option value="assistant">assistant</option>
+            <option value="car">car</option>
+            <option value="home_fax">home fax</option>
+          </select>
+        </strong>
+        <span class="list-data">
+          <input placeholder="phone" name="phones_attributes[][number]" type="tel" value="<%= phone.number %>">
+        </span>
+      </div>
+    <% end %>
+    <% end %>
+    <div class="list-item">
+      <strong class="list-label">
         <select name="type">
-            <option value="mobile">Mobile</option>
-            <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="assistant">Assistant</option>
-            <option value="car">Car</option>
-            <option value="home_fax">Home Fax</option>
+          <option value="mobile">mobile</option>
+          <option value="home">home</option>
+          <option value="work">work</option>
+          <option value="assistant">assistant</option>
+          <option value="car">car</option>
+          <option value="home_fax">home fax</option>
         </select>
-        <input type="text" name="number" value="<%= phone.number %>">
-        <input name="phones_attributes][][number]" size="30" type="tel" value="<%= phone.number %>">
-    <% end %>
-    <% end %>
-    <select name="type">
-      <option value="mobile">Mobile</option>
-      <option value="home">Home</option>
-      <option value="work">Work</option>
-      <option value="assistant">Assistant</option>
-      <option value="car">Car</option>
-      <option value="home_fax">Home Fax</option>
-    </select>
-    <input type="text" name="number" value="">
-  </label>
+      </strong>
+      <span class="list-data">
+        <input placeholder="phone" type="text" name="number" value="">
+      </span>
+    </div>
+  </div>
 
-  <label>
-    <span>Company</span>
-    <input type="text" name="company" value="<%= @company %>">
-  </label>
+  <div class="list-group">
+    <div class="list-item">
+      <strong class="list-label">home page</strong>
+      <span class="list-data"><input placeholder="URL" type="text" name="website" value="<%= @website %>"></span>
+    </div>
+  </div>
 
-  <label>
-    <span>Title</span>
-    <input type="text" name="title" value="<%= @title %>">
-  </label>
+  <div class="list-group">
+    <div class="list-item">
+      <strong class="list-label">home</strong>
+      <span class="list-data">
+        <input placeholder="Street" type="text" name="street" value="<%= @street %>">
+        <input placeholder="Apartment" type="text" name="apartment" value="<%= @apartment %>">
+        <input placeholder="City" type="text" name="city" value="<%= @city %>">
+        <input placeholder="State" type="text" name="region" value="<%= @region %>">
+        <input placeholder="ZIP" type="text" name="zipcode" value="<%= @zipcode %>">
+        <input placeholder="Country" type="text" name="country" value="<%= @country %>">
+      </span>
+    </div>
+  </div>
 
-  <label>
-    <span>Website</span>
-    <input type="text" name="website" value="<%= @website %>">
-  </label>
-
-  <label>
-    <span>Street</span>
-    <input type="text" name="street" value="<%= @street %>">
-  </label>
-
-  <label>
-    <span>Apartment</span>
-    <input type="text" name="apartment" value="<%= @apartment %>">
-  </label>
-
-  <label>
-    <span>City</span>
-    <input type="text" name="city" value="<%= @city %>">
-  </label>
-
-  <label>
-    <span>State</span>
-    <input type="text" name="region" value="<%= @region %>">
-  </label>
-
-  <label>
-    <span>ZIP</span>
-    <input type="text" name="zipcode" value="<%= @zipcode %>">
-  </label>
-
-  <label>
-    <span>Country</span>
-    <input type="text" name="country" value="<%= @country %>">
-  </label>
-
-  <label>
-    <span>Birthday</span>
-    <input type="date" name="birthday" value="<%= @birthday %>">
-  </label>
+  <div class="list-group">
+    <div class="list-item">
+      <strong class="list-label">birthday</strong>
+      <span class="list-data"><input type="date" name="birthday" value="<%= @birthday %>"></span>
+    </div>
+  </div>
 </form>

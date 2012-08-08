@@ -191,14 +191,6 @@ body.stage > footer .active.nav-item .icon {
 }
 form {
   margin: 10px;
-  background: #fff;
-  border: 1px solid #aeaeae;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.10);
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.10);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.10);
 }
 label {
   display: block;
@@ -214,49 +206,49 @@ label span::after {
 }
 select,
 input {
-  display: block;
-  width: 100%;
-  font-size: 15px;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   margin: 5px 0 0 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  border: none;
+  background: transparent;
 }
 .thumb {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-.showView h2,
-.showView p {
-  margin: 0;
-}
-.showView .list-group {
+.list-group {
   margin: 5px 0;
   text-shadow: 0 1px 0 rgba(255,255,255,0.50);
 }
-.showView .list-group .list-item {
+.list-group .list-item {
   background: #f6f6f7;
-  padding: 15px 0;
   margin: 0 12px 0;
   border-width: 1px 1px 1px 1px;
   border-style: solid;
   border-color: #a9acaf;
   font-size: 14px;
 }
-.showView .list-group .list-item:first-child {
+.list-group .list-item:first-child {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
-.showView .list-group .list-item:last-child {
+.list-group .list-item:last-child {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.showView .list-group .list-item.transparent {
+.list-group .list-item.transparent {
   border: none;
   background: transparent;
 }
-.showView .list-group .list-item .list-label {
+.list-group .list-item.transparent .list-data,
+.list-group .list-item.transparent .list-label {
+  line-height: inherit;
+}
+.list-group .list-item .list-label {
+  min-height: 45px;
+  line-height: 45px;
   display: inline-block;
   font-size: 13px;
   color: #516691;
@@ -265,12 +257,18 @@ input {
   padding-right: 10px;
   text-align: right;
 }
-.showView .list-group .list-item .list-data {
+.list-group .list-item .list-data {
   display: inline-block;
+  min-height: 45px;
+  line-height: 45px;
 }
-.showView .list-group .list-item .list-data a {
+.list-group .list-item .list-data a {
   text-decoration: none;
   color: inherit;
+}
+.showView h2,
+.showView p {
+  margin: 0;
 }
 .showView .thumb-list.list-group .list-label {
   text-align: left;
@@ -292,9 +290,16 @@ input {
   font-size: 14px;
   font-weight: bold;
 }
-.showView.panel > article {
+.showView.panel > article,
+.editView > article {
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
   background-size: 7px 512px;
+}
+.editView .list-label {
+  border-right: 1px solid;
+}
+.editView .thumb-list.list-group .list-label {
+  border-right: none;
 }
 .users.list h3 {
   background: #8d9daa;

@@ -1,50 +1,56 @@
 .thumb
   border-radius: 2px
 
+.list-group
+  margin: 5px 0
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5)
+
+  .list-item
+    background: #F6F6F7
+    margin: 0 12px 0
+    border-width: 1px 1px 1px 1px
+    border-style: solid
+    border-color: #A9ACAF
+    font-size:14px;
+
+    &:first-child
+      border-top-right-radius: 8px
+      border-top-left-radius: 8px
+
+    &:last-child
+      border-bottom-right-radius: 8px
+      border-bottom-left-radius: 8px
+
+    &.transparent
+      border: none
+      background: transparent
+
+      .list-data, .list-label
+        line-height: inherit
+
+    .list-label
+      min-height: 45px
+      line-height: 45px
+      display:inline-block
+      font-size:13px
+      color: #516691
+      font-weight:normal
+      width:75px
+      padding-right:10px;
+      text-align:right
+
+    .list-data
+      display:inline-block
+      min-height: 45px
+      line-height: 45px
+
+      a
+        text-decoration: none
+        color: inherit
+
 .showView
   h2, p
     margin: 0
-
-  .list-group
-    margin: 5px 0
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5)
-
-    .list-item
-      background: #F6F6F7
-      padding: 15px 0
-      margin: 0 12px 0
-      border-width: 1px 1px 1px 1px
-      border-style: solid
-      border-color: #A9ACAF
-      font-size:14px;
-
-      &:first-child
-        border-top-right-radius: 8px
-        border-top-left-radius: 8px
-
-      &:last-child
-        border-bottom-right-radius: 8px
-        border-bottom-left-radius: 8px
-
-      &.transparent
-        border: none
-        background: transparent
-
-      .list-label
-        display:inline-block
-        font-size:13px
-        color: #516691
-        font-weight:normal
-        width:75px
-        padding-right:10px;
-        text-align:right
-
-      .list-data
-        display:inline-block
-
-        a
-          text-decoration: none
-          color: inherit
 
 .showView .thumb-list.list-group
   .list-label
@@ -67,7 +73,7 @@
     font-size: 14px
     font-weight: bold
 
-.showView.panel > article
+.showView.panel > article, .editView > article
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
   background-size: 7px 512px
 
