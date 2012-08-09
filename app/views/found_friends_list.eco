@@ -4,15 +4,19 @@
 
 <div class="panel active found-panel">
 <% for key in @collection_types: %>
+  <% title = key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ') %>
   <div class="collection-<%= key %> hide">
-    <h3><%= key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ') %></h3>
+    <h3><%= title.match(/[A-Z][a-z]+/g).join(' ') %></h3>
     <div class="items <%= key %>"></div>
   </div>
 <% end %>
 </div>
 <div class="panel search-panel">
-  <% for key in @search_collection_types: %>
-  <h3><%= key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ') %></h3>
-  <div class="items search-<%= key %>"></div>
-  <% end %>
+<% for key in @search_collection_types: %>
+  <% title = key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ') %>
+  <div class="collection-<%= key %>">
+    <h3><%= title.match(/[A-Z][a-z]+/g).join(' ') %></h3>
+    <div class="items search-<%= key %>"></div>
+  </div>
+<% end %>
 </div>
