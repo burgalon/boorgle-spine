@@ -69,11 +69,17 @@ class FoundFriendsList extends UsersList
   # Renders sub-views
   render: =>
     for key in @collection_types
-      @[key+'List'].render(FoundFriend[key].all())
+      el = @el.find('.collection-'+key)
+      if FoundFriend[key].all().length
+        @[key+'List'].render(FoundFriend[key].all())
+        el.removeClass('hide')
+      else
+        el.addClass('hide')
 
   renderSearch: =>
     for key in @search_collection_types
       @[key+'SearchList'].render(SearchFriend[key].all())
+
 
   search: (e) ->
     element = $(e.currentTarget)
