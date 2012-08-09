@@ -25,6 +25,7 @@ class App extends Stage.Global
 
   constructor: ->
     super
+    @setupAJAX()
 
     Authorization.setup()
 
@@ -65,5 +66,16 @@ class App extends Stage.Global
     button.tap(@proxy(callback))
     @footer.append($("<div/>").addClass('nav-item ' + text.toLowerCase()).append(button))
     button
+
+  setupAJAX: ->
+    el = $('<div id="loading">Loading</div>').appendTo($('body'))
+    el.ajaxStart(
+      () ->
+        el.addClass('loading')
+    ).ajaxStop(
+      () ->
+        f = -> el.removeClass('loading')
+        setTimeout(f,500)
+    )
 
 module.exports = App

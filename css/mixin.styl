@@ -108,3 +108,18 @@ ios-button()
   &.right
     left: auto
     right: 0
+
+  &.disabled
+    opacity:0.7
+
+ios-header()
+  height: 40px
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0))), -webkit-gradient(linear, left top, left bottom, from(lighten(#6a83a1, 5%)), to(#6a83a1))
+
+ios-header-text()
+  margin: 0
+  padding: 0
+  text-align: center
+  color: #fffeff
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5)
+  font-weight: normal

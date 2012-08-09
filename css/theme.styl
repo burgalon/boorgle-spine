@@ -15,9 +15,7 @@ body
 
 body.stage 
   > header
-    height: 40px
-    
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0))), -webkit-gradient(linear, left top, left bottom, from(lighten(#6a83a1, 5%)), to(#6a83a1))
+    ios-header()
     
   > article
     bottom: 49px
@@ -62,10 +60,6 @@ body.stage
       .icon
         background-image: -webkit-linear-gradient(276deg, white 0%, #7DB9EE 52%, rgba(125, 185, 238, 0) 52%), -webkit-linear-gradient(top, #0429E4 0%, #40CEFB 100%)
 
-
-
-
-
 tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
   .icon
     -webkit-mask-image: image-url($image)
@@ -78,12 +72,7 @@ tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
     line-height: 40px
     
     h2
-      margin: 0
-      padding: 0
-      text-align: center
-      color: #fffeff
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5)
-      font-weight: normal
+      ios-header-text()
     
     button
       position: absolute
@@ -155,3 +144,20 @@ select, input
 
 .hide
   display:none
+
+#loading
+  ios-header()
+  ios-header-text()
+  line-height:38px
+  position: fixed
+  top:-40px
+  left:0
+  right:0
+  opacity:0
+  -webkit-transition: all 0.25s linear
+  transition: all 0.25s linear
+  z-index:100
+
+  &.loading
+    opacity:1
+    top:0

@@ -68,7 +68,9 @@ class UsersShow extends BasePanel
             )
 
   # Request to sync
-  add: ->
+  add: (e) ->
+    el = $(e.target)
+    el.addClass('disabled')
     return @navigate('/user/edit', trans: 'left') unless Authorization.is_loggedin()
     Authorization.friendAjax('pending_friends', @item.id).done( =>
           FoundFriend.fetch()
