@@ -3,8 +3,8 @@
     <div class="list-item">
       <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
       <span class="list-data">
-        <input placeholder="Company" type="text" name="company" value="<%= @company %>">
-        <input placeholder="Job Title" type="text" name="title" value="<%= @title %>">
+        <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
+        <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>">
       </span>
     </div>
   </div>
@@ -14,7 +14,7 @@
     <% for phone in @phones: %>
       <div class="list-item">
         <strong class="list-label">
-          <select name="type">
+          <select name="user[phones_attributes][][type]">
             <option value="mobile">mobile</option>
             <option value="home">home</option>
             <option value="work">work</option>
@@ -24,14 +24,14 @@
           </select>
         </strong>
         <span class="list-data">
-          <input placeholder="phone" name="phones_attributes[][number]" type="tel" value="<%= phone.number %>">
+          <input placeholder="Phone" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>">
         </span>
       </div>
     <% end %>
     <% end %>
     <div class="list-item">
       <strong class="list-label">
-        <select name="type">
+        <select name="user[phones_attributes][][type]">
           <option value="mobile">mobile</option>
           <option value="home">home</option>
           <option value="work">work</option>
@@ -41,7 +41,7 @@
         </select>
       </strong>
       <span class="list-data">
-        <input placeholder="Phone" type="text" name="number" value="">
+        <input placeholder="Phone" type="text" name="user[phones_attributes][][number]" value="">
       </span>
     </div>
   </div>
@@ -49,7 +49,7 @@
   <div class="list-group">
     <div class="list-item">
       <strong class="list-label">home page</strong>
-      <span class="list-data"><input placeholder="URL" type="text" name="website" value="<%= @website %>"></span>
+      <span class="list-data"><input placeholder="URL" type="text" name="user[website]" value="<%= @website %>"></span>
     </div>
   </div>
 
@@ -57,12 +57,12 @@
     <div class="list-item">
       <strong class="list-label">home</strong>
       <span class="list-data">
-        <input placeholder="Street" type="text" name="street" value="<%= @street %>">
-        <input placeholder="Apartment" type="text" name="apartment" value="<%= @apartment %>">
-        <input placeholder="City" type="text" name="city" value="<%= @city %>">
-        <input placeholder="State" type="text" name="region" value="<%= @region %>">
-        <input placeholder="ZIP" type="text" name="zipcode" value="<%= @zipcode %>">
-        <input placeholder="Country" type="text" name="country" value="<%= @country %>">
+        <input placeholder="Street" type="text" name="user[street]" value="<%= @street %>">
+        <input placeholder="Apartment" type="text" name="user[apartment]" value="<%= @apartment %>">
+        <input placeholder="City" type="text" name="user[city]" value="<%= @city %>">
+        <input placeholder="State" type="text" name="user[region]" value="<%= @region %>">
+        <input placeholder="ZIP" type="text" name="user[zipcode]" value="<%= @zipcode %>">
+        <input placeholder="Country" type="text" name="user[country]" value="<%= @country %>">
       </span>
     </div>
   </div>
@@ -70,7 +70,7 @@
   <div class="list-group">
     <div class="list-item">
       <strong class="list-label">birthday</strong>
-      <span class="list-data"><input type="date" name="birthday" value="<%= @birthday %>"></span>
+      <span class="list-data"><input type="date" name="user[birthday]" value="<%= @birthday %>"></span>
     </div>
   </div>
 </form>

@@ -43,9 +43,15 @@ class UserEditForm extends BasePanel
 
   submit: (e) ->
     e.preventDefault()
-    user = @item.fromForm(@form)
-    if user.save()
-      @navigate('/user/edit/show', trans: 'left')
+    Authorization.ajax(
+      data: @form.serialize(),
+      url: MyUser.url(),
+      type: 'PUT',
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+    ).done( (data) =>
+      MyUser.refresh(data)
+    )
+    @navigate('/user/edit/show', trans: 'left')
 
   back: ->
     @navigate('/user/edit/show', trans: 'left')
@@ -61,8 +67,11 @@ class UserEditForm extends BasePanel
 
   setupPusher: ->
     return if @pusher || !@item
+
+    # Disable pusher on dev mode for now
+    return if Config.env!='production'
     # Enable pusher logging - don't include this in production
-    if Config.env!='production' && false
+    if Config.env!='production'
       Pusher.log = (message) ->
         window.console.log message  if window.console and window.console.log
 

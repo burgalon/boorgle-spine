@@ -29,6 +29,15 @@
 </div>
 <% end %>
 
+<% if @website: %>
+<div class="list-group">
+  <div class="list-item">
+    <div class="list-label">home page</div>
+    <div class="list-data"><a target="_blank" href="<%= @website %>"><%= @website %></a></div>
+  </div>
+</div>
+<% end %>
+
 <% if @formatted_address2(): %>
 <div class="list-group">
   <div class="list-item">
