@@ -12,6 +12,7 @@
   <div class="list-group">
     <% if @phones: %>
     <% for phone in @phones: %>
+      <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
       <div class="list-item">
         <strong class="list-label">
           <select name="user[phones_attributes][][type]">
@@ -29,6 +30,7 @@
       </div>
     <% end %>
     <% end %>
+    <% if !@phones || @phones.length<5: %>
     <div class="list-item">
       <strong class="list-label">
         <select name="user[phones_attributes][][type]">
@@ -45,6 +47,7 @@
       </span>
     </div>
   </div>
+  <% end %>
 
   <div class="list-group">
     <div class="list-item">
