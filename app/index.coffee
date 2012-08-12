@@ -42,7 +42,7 @@ class App extends Stage.Global
     @notifications = new Notifications
 
     @addTab('Explore', -> @navigate '/found_friends')
-    @addTab('Contats', -> @navigate '/friends')
+    @addTab('Contacts', -> @navigate '/friends')
     @addTab('Account', -> @navigate '/user/edit/show')
 
     # General initializations
@@ -62,9 +62,10 @@ class App extends Stage.Global
 
   addTab: (text, callback) ->
     callback = @[callback] if typeof callback is 'string'
-    button=$('<i class="icon"></i><div class="nav-label">'+text+'</div>')
-    button.tap(@proxy(callback))
-    @footer.append($("<div/>").addClass('nav-item ' + text.toLowerCase()).append(button))
+    button=$('<i class="icon '+text.toLowerCase()+'"></i><div class="nav-label">'+text+'</div>')
+    wrapper = $("<div/>").addClass('nav-item ' + text.toLowerCase()).append(button)
+    wrapper.tap(@proxy(callback))
+    @footer.append(wrapper)
     button
 
   setupAJAX: ->

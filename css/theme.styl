@@ -45,14 +45,22 @@ body.stage
 
       .icon
         display: block
-        width: 100%
+        width: 30px
         height: 30px
+        margin: 0 auto
         //background: red
-        -webkit-mask-image: url(http://code.pb.io/ios-css/images/tabbar-icon-flower.png?1313489953)
-        -webkit-mask-size: 30px 30px
-        -webkit-mask-position: 50% 0%
+        -webkit-mask-image: url(/images/tabbar-icons.png)
+        -webkit-mask-size: 90px 30px
         -webkit-mask-repeat: no-repeat
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.296875) 25%, rgba(255, 255, 255, 0) 75%)
+        //background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.296875) 25%, rgba(255, 255, 255, 0) 75%)
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, .4) 75%)
+        //background: white
+
+        &.contacts
+          -webkit-mask-position: -30px 0
+
+        &.account
+          -webkit-mask-position: -60px 0
 
     .active.nav-item
       color: #FFF
