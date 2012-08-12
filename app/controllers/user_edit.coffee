@@ -15,6 +15,7 @@ UsersShow = require('controllers/users_show')
 
 class UserEditForm extends BasePanel
   title: 'Info'
+  tab: 'account'
 
   elements:
     'form': 'form'
