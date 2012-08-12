@@ -1,5 +1,5 @@
 <div class="search-field">
-  <input type="search" placeholder="search" results="0" incremental="true" autofocus>
+  <input type="search" placeholder="search" results="0" incremental="true">
 </div>
 
 <div class="panel active found-panel">
