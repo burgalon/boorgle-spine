@@ -2,10 +2,10 @@
   <div class="list-group thumb-list">
     <div class="list-item transparent">
       <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
-      <span class="list-data">
+      <div class="list-data">
         <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
         <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>">
-      </span>
+      </div>
     </div>
   </div>
 
@@ -13,7 +13,7 @@
     <% if @phones: %>
     <% for phone in @phones: %>
       <div class="list-item">
-        <strong class="list-label">
+        <div class="list-label">
           <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
           <select name="user[phones_attributes][][type]">
             <option value="mobile">mobile</option>
@@ -23,16 +23,16 @@
             <option value="car">car</option>
             <option value="home_fax">home fax</option>
           </select>
-        </strong>
-        <span class="list-data">
+        </div>
+        <div class="list-data">
           <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>"">
-        </span>
+        </div>
       </div>
     <% end %>
     <% end %>
     <% if !@phones || @phones.length<5: %>
     <div class="list-item">
-      <strong class="list-label">
+      <div class="list-label">
         <select name="user[phones_attributes][][type]">
           <option value="mobile">mobile</option>
           <option value="home">home</option>
@@ -41,25 +41,25 @@
           <option value="car">car</option>
           <option value="home_fax">home fax</option>
         </select>
-      </strong>
-      <span class="list-data">
+      </div>
+      <div class="list-data">
         <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" value="+1">
-      </span>
+      </div>
     </div>
   </div>
   <% end %>
 
   <div class="list-group">
     <div class="list-item">
-      <strong class="list-label">home page</strong>
-      <span class="list-data"><input placeholder="URL" type="url" name="user[website]" value="<%= @website %>"></span>
+      <div class="list-label">home page</div>
+      <div class="list-data"><input placeholder="URL" type="url" name="user[website]" value="<%= @website %>"></div>
     </div>
   </div>
 
   <div class="list-group">
     <div class="list-item">
-      <strong class="list-label">home</strong>
-      <span class="list-data">
+      <div class="list-label">home</div>
+      <div class="list-data">
         <input placeholder="Street" type="text" name="user[street]" value="<%= @street %>">
         <input placeholder="Apartment" type="text" name="user[apartment]" value="<%= @apartment %>">
         <input placeholder="City" type="text" name="user[city]" value="<%= @city %>">
@@ -321,14 +321,14 @@
           <option value="ZM">Zambia</option>
           <option value="ZW">Zimbabwe</option>
         </select>
-      </span>
+      </div>
     </div>
   </div>
 
   <div class="list-group">
     <div class="list-item">
-      <strong class="list-label">birthday</strong>
-      <span class="list-data"><input type="date" name="user[birthday]" value="<%= @birthday %>"></span>
+      <div class="list-label">birthday</div>
+      <div class="list-data"><input type="date" name="user[birthday]" value="<%= @birthday %>"></div>
     </div>
   </div>
 </form>

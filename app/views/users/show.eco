@@ -13,8 +13,8 @@
 <div class="list-group">
   <% for phone in @phones: %>
   <div class="list-item">
-    <strong class="list-label"><%= phone.type.replace('_', ' ') %></strong>
-    <span class="list-data"><a href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></span>
+    <div class="list-label"><%= phone.type.replace('_', ' ') %></div>
+    <div class="list-data"><a href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></div>
   </div>
   <% end %>
 </div>
