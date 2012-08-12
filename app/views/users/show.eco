@@ -14,7 +14,7 @@
   <% for phone in @phones: %>
   <div class="list-item">
     <strong class="list-label"><%= phone.type.replace('_', ' ') %></strong>
-    <span class="list-data"><a target="_blank" href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></span>
+    <span class="list-data"><a href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></span>
   </div>
   <% end %>
 </div>
@@ -24,7 +24,7 @@
 <div class="list-group">
   <div class="list-item">
     <div class="list-label">email</div>
-    <div class="list-data"><a target="_blank" href="mailto:<%= @email %>"><%= @email %></a></div>
+    <div class="list-data"><a href="mailto:<%= @email %>"><%= @email %></a></div>
   </div>
 </div>
 <% end %>
@@ -33,7 +33,7 @@
 <div class="list-group">
   <div class="list-item">
     <div class="list-label">home page</div>
-    <div class="list-data"><a target="_blank" href="<%= @website %>"><%= @website %></a></div>
+    <div class="list-data"><a href="<%= @website %>"><%= @website %></a></div>
   </div>
 </div>
 <% end %>
@@ -42,7 +42,7 @@
 <div class="list-group">
   <div class="list-item">
     <div class="list-label">home</div>
-    <div class="list-data"><a target="_blank" href="http://maps.google.com/maps?saddr=Current+Location&daddr=<%=  encodeURIComponent(@formatted_address2()) %>"><%=  @formatted_address2() %></a></div>
+    <div class="list-data"><a href="http://maps.google.com/maps?saddr=Current+Location&daddr=<%=  encodeURIComponent(@formatted_address2()) %>"><%=  @formatted_address2() %></a></div>
   </div>
 </div>
 <% end %>
