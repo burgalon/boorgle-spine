@@ -138,6 +138,7 @@ body.stage > footer .active.nav-item .icon {
   -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
   margin: 6px;
   height: 30px;
+  min-width: 60px;
   padding: 0 10px 0 8px;
   border: 0;
   -moz-border-radius: 5px;
@@ -214,6 +215,7 @@ body.stage > footer .active.nav-item .icon {
   -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
   margin: 6px;
   height: 30px;
+  min-width: 60px;
   padding: 0 10px 0 8px;
   border: 0;
   -moz-border-radius: 5px;
