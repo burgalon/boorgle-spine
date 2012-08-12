@@ -1,3 +1,4 @@
+
 .thumb
   border-radius: 2px
 
@@ -8,10 +9,8 @@
   .list-item
     background: #F6F6F7
     margin: 0 12px 0
-    border-width: 1px 1px 1px 1px
-    border-style: solid
-    border-color: #A9ACAF
-    font-size:14px;
+    border: 1px solid #A9ACAF
+    font-size: 14px
 
     &:first-child
       border-top-right-radius: 8px
@@ -29,8 +28,8 @@
         line-height: inherit
 
     .list-label
-      min-height: 45px
-      line-height: 45px
+      min-height: lineHeight
+      line-height: lineHeight
       display:inline-block
       font-size:13px
       color: #516691
@@ -41,8 +40,9 @@
 
     .list-data
       display:inline-block
-      min-height: 45px
-      line-height: 45px
+      min-height: lineHeight
+      line-height: lineHeight
+      padding-left: 5px
 
       a
         text-decoration: none

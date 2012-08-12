@@ -1,6 +1,6 @@
 <form>
   <div class="list-group thumb-list">
-    <div class="list-item">
+    <div class="list-item transparent">
       <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
       <span class="list-data">
         <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
@@ -12,9 +12,9 @@
   <div class="list-group">
     <% if @phones: %>
     <% for phone in @phones: %>
-      <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
       <div class="list-item">
         <strong class="list-label">
+          <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
           <select name="user[phones_attributes][][type]">
             <option value="mobile">mobile</option>
             <option value="home">home</option>
