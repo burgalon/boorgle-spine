@@ -39,7 +39,7 @@ class UsersShow extends BasePanel
     @html require('views/users/show')(@item)
 
   add_buttons: ->
-    @addButton('Back', @back)
+    @addButton('All Contacts', @back).addClass('back')
     return unless @item
     if @item.constructor.className=='Pending'
       # @addButton('Add', @add).addClass('right')

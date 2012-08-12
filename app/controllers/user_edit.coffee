@@ -31,7 +31,7 @@ class UserEditForm extends BasePanel
     @active @change
 
     @addButton('Cancel', @back)
-    @addButton('Done', @submit).addClass('right')
+    @addButton('Done', @submit).addClass('right blue')
 
     @active @render
 
