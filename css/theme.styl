@@ -1,4 +1,5 @@
 @import './mixin'
+headerSize= 42px
 
 body
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif
@@ -16,7 +17,7 @@ body
 body.stage 
   > header
     ios-header()
-    
+
   > article
     bottom: 49px
 
@@ -68,9 +69,10 @@ tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
 
 .panel
   > header
-    height: 40px
-    line-height: 40px
-    
+    height: headerSize
+    line-height: headerSize
+    border-bottom: 1px solid black !important
+
     h2
       ios-header-text()
     
@@ -148,9 +150,9 @@ select, input
 #loading
   ios-header()
   ios-header-text()
-  line-height:38px
+  line-height:headerSize*.95
   position: fixed
-  top:-40px
+  top: -(headerSize)
   left:0
   right:0
   opacity:0

@@ -100,8 +100,9 @@ ios-button()
 
   -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4)
 
-  margin: 7px
-  padding: 5px 12px
+  margin: 6px
+  height:30px;
+  padding: 0 10px 0 8px;
   border: 0
   border-radius(5px)
 
@@ -122,8 +123,6 @@ ios-button()
     left:5px;/*change the position*/
     //top:10px;/*change the position*/
     position:absolute;
-    height:30px;
-    padding: 0 10px 0 8px;
     z-index : 0;
     border-radius: 6px;
     -webkit-border-top-left-radius : 10px 15px;
@@ -158,7 +157,7 @@ ios-button()
     box-shadow :  1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset; -webkit-mask-image : -webkit-gradient(linear, left top, right bottom, from(#000000), color-stop(0.33,#000000), color-stop(0.5, transparent), to(transparent));
 
 ios-header()
-  height: 40px
+  height: headerSize
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0))), -webkit-gradient(linear, left top, left bottom, from(lighten(#6a83a1, 5%)), to(#6a83a1))
 
 ios-header-text()

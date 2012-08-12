@@ -66,7 +66,7 @@ body {
   -webkit-tap-highlight-color: rgba(0,0,0,0.00);
 }
 body.stage > header {
-  height: 40px;
+  height: 42px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
 }
 body.stage > article {
@@ -111,8 +111,9 @@ body.stage > footer .active.nav-item .icon {
   background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0.00) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
 }
 .panel > header {
-  height: 40px;
-  line-height: 40px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #000 !important;
 }
 .panel > header h2 {
   margin: 0;
@@ -135,8 +136,9 @@ body.stage > footer .active.nav-item .icon {
 /*change this and the background color for the :before element*/
   background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 50%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
   -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
-  margin: 7px;
-  padding: 5px 12px;
+  margin: 6px;
+  height: 30px;
+  padding: 0 10px 0 8px;
   border: 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -159,8 +161,6 @@ body.stage > footer .active.nav-item .icon {
   left: 5px;
 /*change the position*/
   position: absolute;
-  height: 30px;
-  padding: 0 10px 0 8px;
   z-index: 0;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -212,8 +212,9 @@ body.stage > footer .active.nav-item .icon {
 /*change this and the background color for the :before element*/
   background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 50%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
   -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
-  margin: 7px;
-  padding: 5px 12px;
+  margin: 6px;
+  height: 30px;
+  padding: 0 10px 0 8px;
   border: 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -236,8 +237,6 @@ body.stage > footer .active.nav-item .icon {
   left: 5px;
 /*change the position*/
   position: absolute;
-  height: 30px;
-  padding: 0 10px 0 8px;
   z-index: 0;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -331,7 +330,7 @@ input {
   display: none;
 }
 #loading {
-  height: 40px;
+  height: 42px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
   margin: 0;
   padding: 0;
@@ -339,9 +338,9 @@ input {
   color: #fffeff;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
   font-weight: normal;
-  line-height: 38px;
+  line-height: 39.9px;
   position: fixed;
-  top: -40px;
+  top: -42px;
   left: 0;
   right: 0;
   opacity: 0;
@@ -436,6 +435,7 @@ input {
 .editView > article {
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #c5ccd4), color-stop(71.429%, #cbd2d8), color-stop(100%, #cbd2d8));
   background-size: 7px 512px;
+  padding-top: 12px;
 }
 .editView .list-label {
   border-right: 1px solid;
