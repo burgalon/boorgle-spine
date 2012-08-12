@@ -42,7 +42,7 @@ class App extends Stage.Global
     @notifications = new Notifications
 
     @addTab('Explore', -> @navigate '/found_friends')
-    @addTab('Synched', -> @navigate '/friends')
+    @addTab('Contats', -> @navigate '/friends')
     @addTab('Account', -> @navigate '/user/edit/show')
 
     # General initializations
