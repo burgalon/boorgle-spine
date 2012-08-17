@@ -330,9 +330,10 @@ input {
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
-  margin: 5px 0 0 0;
   border: none;
   background: transparent;
+  width: 100%;
+  height: 42px;
 }
 .hide {
   display: none;
@@ -374,9 +375,7 @@ input {
 .list-group .list-item {
   background: #f6f6f7;
   margin: 0 12px 0;
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: #a9acaf;
+  border: 1px solid #a9acaf;
   font-size: 14px;
 }
 .list-group .list-item:first-child {
@@ -396,8 +395,8 @@ input {
   line-height: inherit;
 }
 .list-group .list-item .list-label {
-  min-height: 45px;
-  line-height: 45px;
+  min-height: 42px;
+  line-height: 42px;
   display: inline-block;
   font-size: 13px;
   color: #516691;
@@ -408,8 +407,9 @@ input {
 }
 .list-group .list-item .list-data {
   display: inline-block;
-  min-height: 45px;
-  line-height: 45px;
+  min-height: 42px;
+  line-height: 42px;
+  padding-left: 5px;
 }
 .list-group .list-item .list-data a {
   text-decoration: none;
@@ -448,15 +448,16 @@ input {
 .editView .list-label {
   border-right: 1px solid;
 }
-.editView .thumb-list.list-group .list-label {
+.editView .list-item.transparent .list-label {
   border-right: none;
 }
-input:invalid {
-  background: #ffc0cb url("images/ico_validation.png") right 3px no-repeat;
-}
-input:required:valid {
-  background-color: #fff;
-  background-position: 379px -61px;
+.editView .list-item.transparent .list-data {
+  background: #fff;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  line-height: 42px;
+  border: 1px solid #a9acaf;
 }
 .users.list h3 {
   background: #8d9daa;
