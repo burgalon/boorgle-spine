@@ -1,2 +1,2 @@
 <h1>Sign In</h1>
-<a href="<%= Config.oauthEndpoint + 'authorize?client_id='+Config.clientId+'&response_type=token&redirect_uri='+encodeURIComponent(window.location.href.replace(/#.+/,'')) %>">Connect with GMail</a>
+<a href="<%= Config.oauthEndpoint + 'authorize?client_id='+Config.clientId+'&response_type=token&redirect_uri='+encodeURIComponent(window.Config.oauthRedirectUri) %>">Connect with GMail</a>
