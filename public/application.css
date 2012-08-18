@@ -326,14 +326,19 @@ label span::after {
   content: ':';
 }
 select,
-input {
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=url],
+input[type=date] {
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
   border: none;
-  background: transparent;
+  outline: none;
   width: 100%;
   height: 42px;
+  background: transparent;
 }
 .hide {
   display: none;
@@ -445,8 +450,33 @@ input {
   background-size: 7px 512px;
   padding-top: 12px;
 }
+.editView .list-item {
+  clear: left;
+  min-height: 42px;
+}
+.editView .list-item:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 .editView .list-label {
-  border-right: 1px solid;
+  float: left;
+  padding-right: 0;
+}
+.editView .list-data {
+  display: block;
+  float: left;
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
+}
+.editView .list-data input {
+  display: block;
+  width: auto;
+}
+.editView .list-data select {
+  max-width: 150px;
 }
 .editView .list-item.transparent .list-label {
   border-right: none;
@@ -505,4 +535,7 @@ input {
 .users.listView .search-field > input[type=search] {
   margin: 0;
   font-size: 16px;
+  border-color: #a9acaf;
+  width: 100%;
+  background: #fff;
 }
