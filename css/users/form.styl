@@ -1,15 +1,38 @@
 .editView
+  .list-item
+    clear:left
+    min-height:42px
+
+    &:after
+      content: "."
+      display: block
+      height: 0
+      clear: both
+      visibility: hidden
+
   .list-label
-    border-right: 1px solid
+    float:left;
+    padding-right:0
+
+  .list-data
+    display:block
+    float:left
+    padding-left:10px
+    border-left:1px solid #ccc
+
+    input
+      display:block
+      width:auto
+
+    select
+      max-width:150px
 
   .list-item.transparent
     .list-label
       border-right: none
 
     .list-data
-       background: #fff
-       border-radius: 8px
-       line-height: lineHeight
-       border: 1px solid #A9ACAF
-
-
+      background: #fff
+      border-radius: 8px
+      line-height: lineHeight
+      border: 1px solid #A9ACAF

@@ -138,7 +138,9 @@ label
   span::after
     content: ':'
 
-select, input
+select, input[type=text],
+input[type=tel], input[type=email],
+input[type=url], input[type=date]
   color: inherit
   font-size: inherit
   font-weight: inherit
@@ -149,9 +151,10 @@ select, input
   //margin: 5px 0 0 0
   //border-box()
   border: none
-  background: transparent
+  outline:none
   width: 100%
   height: lineHeight
+  background:transparent
 
 .hide
   display:none
