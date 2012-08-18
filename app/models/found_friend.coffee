@@ -74,16 +74,27 @@ class FoundFriend extends UserCollection
 #      new @(objects)
 
   @fetch: ->
-    # If no geolocation interface on this browser
-    return super unless navigator.geolocation?
-    navigator.geolocation.getCurrentPosition((location) =>
-      location.created_at = new Date()
-      Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
-      super
-      console.log 'Retrieved location', location
-    , ((error) ->
-      console.log 'Could not get location'
-      super
-      ))
+    if Config.env=='ios'
+      forge.geolocation.getCurrentPosition((location) =>
+        location.created_at = new Date()
+        Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
+        super
+        console.log 'Retrieved location', location
+      , (error) ->
+        console.log 'Could not get location'
+        super
+      , enableHighAccuracy: true)
+    else
+      # If no geolocation interface on this browser
+      return super unless navigator.geolocation?
+      navigator.geolocation.getCurrentPosition( (location) =>
+        location.created_at = new Date()
+        Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
+        super
+        console.log 'Retrieved location', location
+      , (error) ->
+        console.log 'Could not get location'
+        super
+      )
 
 module.exports = FoundFriend
