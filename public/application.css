@@ -98,7 +98,7 @@ body.stage > footer .nav-item .icon {
   width: 30px;
   height: 30px;
   margin: 0 auto;
-  -webkit-mask-image: url("/images/tabbar-icons.png");
+  -webkit-mask-image: url("images/tabbar-icons.png");
   -webkit-mask-size: 90px 30px;
   -webkit-mask-repeat: no-repeat;
   background: -webkit-linear-gradient(top, rgba(255,255,255,0.60) 25%, rgba(255,255,255,0.40) 75%);
