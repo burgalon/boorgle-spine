@@ -20,7 +20,7 @@ else if document.location.href.match(/file:\/\//)
     host: 'http://www.boorgle.com/api/v1'
     clientId: 'boorgle-iphone'
     oauthEndpoint: 'http://www.boorgle.com/oauth/'
-    oauthRedirectUri: 'boorgle://index'
+    oauthRedirectUri: 'boorgle:///'
 
 else
   # Production
