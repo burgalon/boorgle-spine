@@ -374,16 +374,19 @@ input[type=date] {
   border-radius: 2px;
 }
 .list-group {
-  margin: 5px 0;
+  margin: 15px 0;
   text-shadow: 0 1px 0 rgba(255,255,255,0.50);
 }
 .list-group .list-item {
   background: #f6f6f7;
   margin: 0 12px 0;
-  border: 1px solid #a9acaf;
+  border-bottom: 1px solid #a9acaf;
+  border-right: 1px solid #a9acaf;
+  border-left: 1px solid #a9acaf;
   font-size: 14px;
 }
 .list-group .list-item:first-child {
+  border-top: 1px solid #a9acaf;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
@@ -473,7 +476,7 @@ input[type=date] {
 }
 .editView .list-data input {
   display: block;
-  width: auto;
+  width: 100%;
 }
 .editView .list-data select {
   max-width: 150px;
@@ -538,4 +541,43 @@ input[type=date] {
   border-color: #a9acaf;
   width: 100%;
   background: #fff;
+}
+.please_login > article {
+  background: #013739 url("images/connect-bg.jpg");
+  text-align: center;
+}
+.please_login > article h1 {
+  background: transparent url("images/logo.png");
+  width: 325px;
+  height: 155px;
+  margin: 90px auto 40px auto;
+  text-indent: -999px;
+}
+.please_login > article h2 {
+  color: #fff;
+  font-weight: lighter;
+  text-shadow: 0px 1px 3px #020202;
+  font-size: 30px;
+  margin-bottom: 90px;
+}
+.please_login > article .desc {
+  color: #001b1c;
+  text-shadow: 0px 1px 2px #568b92;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 20px auto 0 auto;
+  width: 400px;
+}
+.please_login > article .login-button {
+  background: transparent url("/images/login-button.png");
+  width: 475px;
+  height: 94px;
+  border: none;
+  margin: 0 auto;
+}
+.please_login > article .login-button:hover {
+  background-position: 0 -94px;
+}
+.please_login > article .login-button span {
+  display: none;
 }
