@@ -67,7 +67,6 @@ class App extends Stage.Global
     button
 
   fetchData: =>
-    alert('fetchData')
     FoundFriend.fetch()
     if Authorization.is_loggedin()
       MyUser.fetch()
