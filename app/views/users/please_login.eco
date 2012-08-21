@@ -1,2 +1,6 @@
-<h1>Sign In</h1>
-<button class="login-button">Connect with GMail</button>
+<h1>Boorgle</h1>
+<h2>Stay updated with your contacts</h2>
+<button class="login-button" ><span>Connect with GMail</span></button>
+<div class="desc">
+	We use google to help you manage your contacts, not to spam you.
+</div>
