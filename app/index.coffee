@@ -29,11 +29,9 @@ class App extends Stage.Global
 
     Authorization.setup()
 
-    # Models
-    FoundFriend.fetch()
-    if Authorization.is_loggedin()
-      MyUser.fetch()
-      Friend.fetch()
+    # Reload data when resumed
+    forge.event.appResumed.addListener(@fetchData) if Config.env=='ios'
+    @fetchData()
 
     # Controllers
     @user_edit = new UserEdit
@@ -67,6 +65,13 @@ class App extends Stage.Global
     wrapper.tap(@proxy(callback))
     @footer.append(wrapper)
     button
+
+  fetchData: =>
+    alert('fetchData')
+    FoundFriend.fetch()
+    if Authorization.is_loggedin()
+      MyUser.fetch()
+      Friend.fetch()
 
   setupAJAX: ->
     el = $('<div id="loading">Loading</div>').appendTo($('body'))
