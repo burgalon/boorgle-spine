@@ -1,5 +1,6 @@
 node_modules
 development
+release
 .template
 src
 local_config.json
