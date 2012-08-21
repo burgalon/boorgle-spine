@@ -8,11 +8,13 @@ if document.location.href.match(/localhost|192./)
 #     oauthRedirectUri: 'http://localhost:9294'
 
   # Development against production
- Config =
+  Config =
    env: 'development'
    host: 'http://www.boorgle.com/api/v1'
    clientId: 'boorgle-web-mobile-localhost'
    oauthEndpoint: 'http://www.boorgle.com/oauth/'
+   oauthRedirectUri: 'http://localhost:9294'
+
 else if document.location.href.match(/file:\/\//)
   # iPhone Native
   Config =
