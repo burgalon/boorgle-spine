@@ -33,4 +33,5 @@ else
     oauthEndpoint: 'http://www.boorgle.com/oauth/'
     oauthRedirectUri: 'http://m.boorgle.com'
 
+Config['version'] = 0.1
 module.exports = Config

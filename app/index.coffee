@@ -19,6 +19,7 @@ Notifications = require('controllers/notifications')
 
 #Spine.Model.host = if document.location.href.match(/localhost|192./) then "http://localhost:3000/api/v1" else "http://www.boorgle.com/api/v1"
 Spine.Model.host = Config.host
+Spine.Ajax.defaults.headers['X-Version'] = Config.version
 
 class App extends Stage.Global
   Authorization: Authorization
