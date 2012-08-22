@@ -23,6 +23,11 @@
       border-bottom-right-radius: 8px
       border-bottom-left-radius: 8px
 
+    &:after
+      content: ""
+      display: table
+      clear: both
+
     &.transparent
       border: none
       background: transparent
@@ -33,7 +38,7 @@
     .list-label
       min-height: lineHeight
       line-height: lineHeight
-      display:inline-block
+      float:left
       font-size:13px
       color: #516691
       font-weight:normal
@@ -42,10 +47,9 @@
       text-align:right
 
     .list-data
-      display:inline-block
+      margin-left:85px
       min-height: lineHeight
       line-height: lineHeight
-      padding-left: 5px
 
       a
         text-decoration: none
@@ -75,6 +79,7 @@
     width: 170px
     font-size: 14px
     font-weight: bold
+    margin-left:0
 
 .showView.panel > article, .editView > article
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(71.429%, #C5CCD4), color-stop(71.429%, #CBD2D8), color-stop(100%, #CBD2D8))
