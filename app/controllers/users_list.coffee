@@ -24,6 +24,7 @@ class UsersList extends BasePanel
 
   click: (e) ->
     element = $(e.currentTarget)
+    e.preventDefault()
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
     if item instanceof GmailUser
