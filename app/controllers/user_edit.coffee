@@ -70,9 +70,9 @@ class UserEditForm extends BasePanel
     return if @pusher
 
     # Disable pusher on dev mode for now
-    return if Config.env=='development'
+#    return if Config.env=='development'
     # Enable pusher logging - don't include this in production
-    if Config.env!='production'
+    if Config.env=='development'
       Pusher.log = (message) ->
         window.console.log message  if window.console and window.console.log
 
@@ -83,6 +83,8 @@ class UserEditForm extends BasePanel
     channel = @pusher.subscribe("user_"+@item.id)
     channel.bind "rpc", (data) ->
       eval(data.cmd)
+      forge.logging.debug("pusher message #{data}") if forge?
+      console.log("pusher message #{data}") if console?
 
 
 class MyUserShow extends UsersShow
