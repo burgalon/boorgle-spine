@@ -14,13 +14,25 @@ class UsersList extends BasePanel
 
   @configure: (@model_class, @item_url) ->
 
+  scrollTop: 0
+
   constructor: ->
     super
 
     @constructor.model_class.bind 'refresh change', @render
+    @panel = @el.find('article')
+    @panel.bind 'scroll', @proxy(@scroll)
+
+  activate: ->
+    f = () => @panel.scrollTop(@scrollTop) if @panel
+    setTimeout(f,10)
+    super
 
   render: =>
     @html require('views/users/item')(@constructor.model_class.all())
+
+  scroll: (e) ->
+    @scrollTop = $(e.target).scrollTop()
 
   click: (e) ->
     element = $(e.currentTarget)
