@@ -51,6 +51,19 @@ class App extends Stage.Global
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
     @navigate '/found_friends' unless document.location.hash && !document.location.hash.match('#access_token')
+    @setupLinks()
+
+  setupLinks: ->
+    cb = (e) ->
+      el = $(e.target)
+      prev_ev = el.data('ev')
+      if e.type is 'click' and prev_ev isnt 'tap'
+        e.preventDefault()
+        e.stopPropagation()
+      el.data('ev', e.type )
+
+    $('body').delegate('a', 'tap click', cb)
+
 
   activateTab: (tabClass) ->
     $('footer .nav-item').removeClass('active')
@@ -77,11 +90,11 @@ class App extends Stage.Global
     el = $('<div id="loading">Loading</div>').appendTo($('body'))
     el.ajaxStart(
       () ->
-        el.addClass('loading')
+        #el.addClass('loading')
     ).ajaxStop(
       () ->
-        f = -> el.removeClass('loading')
-        setTimeout(f,500)
+        #f = -> el.removeClass('loading')
+        #setTimeout(f,500)
     )
 
 module.exports = App

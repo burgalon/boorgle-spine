@@ -35,8 +35,8 @@ class UsersList extends BasePanel
     @scrollTop = $(e.target).scrollTop()
 
   click: (e) ->
-    element = $(e.currentTarget)
     e.preventDefault()
+    element = $(e.currentTarget)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
     if item instanceof GmailUser
