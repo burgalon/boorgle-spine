@@ -63,11 +63,11 @@ body {
   background: #fff;
 }
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0.00);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 body.stage > header {
   height: 42px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.3)), color-stop(0.5, rgba(255,255,255,0.1)), color-stop(0.5, rgba(255,255,255,0))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
 }
 body.stage > article {
   bottom: 49px;
@@ -101,7 +101,7 @@ body.stage > footer .nav-item .icon {
   -webkit-mask-image: url("images/tabbar-icons.png");
   -webkit-mask-size: 90px 30px;
   -webkit-mask-repeat: no-repeat;
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0.60) 25%, rgba(255,255,255,0.40) 75%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.4) 75%);
 }
 body.stage > footer .nav-item .icon.contacts {
   -webkit-mask-position: -30px 0;
@@ -114,7 +114,7 @@ body.stage > footer .active.nav-item {
   background: rgba(255,255,255,0.13);
 }
 body.stage > footer .active.nav-item .icon {
-  background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0.00) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
+  background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
 }
 .panel > header {
   height: 42px;
@@ -126,7 +126,7 @@ body.stage > footer .active.nav-item .icon {
   padding: 0;
   text-align: center;
   color: #fffeff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   font-weight: normal;
 }
 .panel > header button {
@@ -134,14 +134,14 @@ body.stage > footer .active.nav-item .icon {
   left: 0;
   top: 0;
   color: #fff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   font-size: 13px;
   font-weight: 700;
   background-repeat: repeat-x;
   background-color: #4a6c9b;
 /*change this and the background color for the :before element*/
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 50%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
+  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.3) 100%);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.3), inset 0 1px 1px 0 rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.4);
   margin: 6px;
   height: 30px;
   min-width: 60px;
@@ -152,7 +152,7 @@ body.stage > footer .active.nav-item .icon {
   border-radius: 5px;
 }
 .panel > header button:active {
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40), inset 0 0 20px rgba(255,255,255,0.20);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.3), inset 0 1px 1px 0 rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.2);
 }
 .panel > header button.right {
   left: auto;
@@ -174,10 +174,10 @@ body.stage > footer .active.nav-item .icon {
   border-radius: 6px;
   -webkit-border-top-left-radius: 10px 15px;
   -webkit-border-bottom-left-radius: 10px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.30);
-  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
-  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
-  box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
+  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
+  box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
   font-size: 11px;
   display: block;
   text-align: center;
@@ -193,7 +193,7 @@ body.stage > footer .active.nav-item .icon {
   background-position: -2px -1.5px;
   background-color: #4a6c9b;
 /*change to the same as the main element*/
-  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0.00)), color-stop(0.5, rgba(0,0,0,0.00)), color-stop(0.5, rgba(255,255,255,0.10)), to(rgba(255,255,255,0.30)));
+  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0)), color-stop(0.5, rgba(255,255,255,0.1)), to(rgba(255,255,255,0.3)));
   height: 25px;
   width: 25px;
   -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
@@ -203,22 +203,22 @@ body.stage > footer .active.nav-item .icon {
   -webkit-border-bottom-left-radius: 40px 100px;
   z-index: 1;
   content: ' ';
-  border-left: 1.5px solid rgba(255,255,255,0.30);
-  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
-  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
+  border-left: 1.5px solid rgba(255,255,255,0.3);
+  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
+  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(0.33, #000), color-stop(0.5, transparent), to(transparent));
 }
 .button {
   color: #fff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   font-size: 13px;
   font-weight: 700;
   background-repeat: repeat-x;
   background-color: #4a6c9b;
 /*change this and the background color for the :before element*/
-  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 50%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.30) 100%);
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40);
+  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.3) 100%);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.3), inset 0 1px 1px 0 rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.4);
   margin: 6px;
   height: 30px;
   min-width: 60px;
@@ -229,7 +229,7 @@ body.stage > footer .active.nav-item .icon {
   border-radius: 5px;
 }
 .button:active {
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.30), inset 0 1px 1px 0 rgba(0,0,0,0.60), 0 1px 0 rgba(255,255,255,0.40), inset 0 0 20px rgba(255,255,255,0.20);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.3), inset 0 1px 1px 0 rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.2);
 }
 .button.right {
   left: auto;
@@ -251,10 +251,10 @@ body.stage > footer .active.nav-item .icon {
   border-radius: 6px;
   -webkit-border-top-left-radius: 10px 15px;
   -webkit-border-bottom-left-radius: 10px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.30);
-  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
-  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
-  box-shadow: -1px -1px 0px rgba(0,0,0,0.20) inset, 0 1px 2px rgba(0,0,0,0.80) inset;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
+  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
+  box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
   font-size: 11px;
   display: block;
   text-align: center;
@@ -270,7 +270,7 @@ body.stage > footer .active.nav-item .icon {
   background-position: -2px -1.5px;
   background-color: #4a6c9b;
 /*change to the same as the main element*/
-  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0.00)), color-stop(0.5, rgba(0,0,0,0.00)), color-stop(0.5, rgba(255,255,255,0.10)), to(rgba(255,255,255,0.30)));
+  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0)), color-stop(0.5, rgba(255,255,255,0.1)), to(rgba(255,255,255,0.3)));
   height: 25px;
   width: 25px;
   -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
@@ -280,10 +280,10 @@ body.stage > footer .active.nav-item .icon {
   -webkit-border-bottom-left-radius: 40px 100px;
   z-index: 1;
   content: ' ';
-  border-left: 1.5px solid rgba(255,255,255,0.30);
-  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
-  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.20) inset, -1px 1px 1px rgba(0,0,0,0.50) inset;
+  border-left: 1.5px solid rgba(255,255,255,0.3);
+  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
+  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(0.33, #000), color-stop(0.5, transparent), to(transparent));
 }
 .list .item {
@@ -304,11 +304,11 @@ body.stage > footer .active.nav-item .icon {
 }
 .list .item:active {
   background: #f6f6f7;
-  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
-  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
-  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
-  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 form {
   margin: 10px;
@@ -345,12 +345,12 @@ input[type=date] {
 }
 #loading {
   height: 42px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.30)), color-stop(0.5, rgba(255,255,255,0.10)), color-stop(0.5, rgba(255,255,255,0.00))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.3)), color-stop(0.5, rgba(255,255,255,0.1)), color-stop(0.5, rgba(255,255,255,0))), -webkit-gradient(linear, left top, left bottom, from(#7189a6), to(#6a83a1));
   margin: 0;
   padding: 0;
   text-align: center;
   color: #fffeff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.50);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   font-weight: normal;
   line-height: 39.9px;
   position: fixed;
@@ -375,7 +375,7 @@ input[type=date] {
 }
 .list-group {
   margin: 15px 0;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.50);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 .list-group .list-item {
   background: #f6f6f7;
@@ -502,7 +502,7 @@ input[type=date] {
   -moz-box-shadow: inset 0 1px 0 #a1adb6;
   -webkit-box-shadow: inset 0 1px 0 #a1adb6;
   box-shadow: inset 0 1px 0 #a1adb6;
-  text-shadow: 0 1px 1px rgba(100,100,100,0.80);
+  text-shadow: 0 1px 1px rgba(100,100,100,0.8);
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -543,40 +543,62 @@ input[type=date] {
   background: #fff;
 }
 .please_login > article {
-  background: #013739 url("images/connect-bg.jpg");
+  background: #013739;
+  background-image: url("images/connect-bg.jpg");
   text-align: center;
 }
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article {
+    background-image: url("images/connect-bg@2x.jpg");
+    background-size: auto auto;
+  }
+}
 .please_login > article h1 {
-  background: transparent url("images/logo.png");
-  width: 325px;
-  height: 155px;
-  margin: 90px auto 40px auto;
-  text-indent: -999px;
+  background: transparent;
+  background-image: url("images/logo.png");
+  width: 163px;
+  height: 78px;
+  margin: 45px auto 20px auto;
+  text-indent: -9999px;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article h1 {
+    background-image: url("images/logo@2x.png");
+    background-size: auto auto;
+  }
 }
 .please_login > article h2 {
   color: #fff;
   font-weight: lighter;
   text-shadow: 0px 1px 3px #020202;
-  font-size: 30px;
-  margin-bottom: 90px;
+  font-size: 15px;
+  margin-bottom: 45px;
 }
 .please_login > article .desc {
   color: #001b1c;
   text-shadow: 0px 1px 2px #568b92;
   font-weight: normal;
-  font-size: 20px;
-  margin: 20px auto 0 auto;
-  width: 400px;
+  font-size: 12px;
+  margin: 10px auto 0 auto;
+  width: 200px;
 }
 .please_login > article .login-button {
-  background: transparent url("/images/login-button.png");
-  width: 475px;
-  height: 94px;
+  background: transparent;
+  background-image: url("images/login-button.png");
+  width: 238px;
+  height: 46px;
   border: none;
   margin: 0 auto;
 }
-.please_login > article .login-button:hover {
-  background-position: 0 -94px;
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .login-button {
+    background-image: url("images/login-button@2x.png");
+    background-size: auto auto;
+  }
+}
+.please_login > article .login-button:hover,
+.please_login > article .login-button:active {
+  background-position: 0 -47px;
 }
 .please_login > article .login-button span {
   display: none;
