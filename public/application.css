@@ -394,6 +394,11 @@ input[type=date] {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+.list-group .list-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .list-group .list-item.transparent {
   border: none;
   background: transparent;
@@ -405,7 +410,7 @@ input[type=date] {
 .list-group .list-item .list-label {
   min-height: 42px;
   line-height: 42px;
-  display: inline-block;
+  float: left;
   font-size: 13px;
   color: #516691;
   font-weight: normal;
@@ -414,10 +419,9 @@ input[type=date] {
   text-align: right;
 }
 .list-group .list-item .list-data {
-  display: inline-block;
+  margin-left: 85px;
   min-height: 42px;
   line-height: 42px;
-  padding-left: 5px;
 }
 .list-group .list-item .list-data a {
   text-decoration: none;
@@ -446,6 +450,7 @@ input[type=date] {
   width: 170px;
   font-size: 14px;
   font-weight: bold;
+  margin-left: 0;
 }
 .showView.panel > article,
 .editView > article {
@@ -467,19 +472,29 @@ input[type=date] {
 .editView .list-label {
   float: left;
   padding-right: 0;
+  line-height: 43px;
 }
 .editView .list-data {
   display: block;
-  float: left;
   padding-left: 10px;
   border-left: 1px solid #ccc;
 }
 .editView .list-data input {
   display: block;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .editView .list-data select {
   max-width: 150px;
+}
+.editView .list-data .separator {
+  margin-left: -10px;
+  display: block;
+  padding-left: 10px;
+}
+.editView .list-data .separator+.separator {
+  border-top: 1px solid #ccc;
 }
 .editView .list-item.transparent .list-label {
   border-right: none;
