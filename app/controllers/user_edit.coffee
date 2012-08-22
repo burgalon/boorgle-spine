@@ -83,8 +83,8 @@ class UserEditForm extends BasePanel
     channel = @pusher.subscribe("user_"+@item.id)
     channel.bind "rpc", (data) ->
       eval(data.cmd)
-      forge.logging.debug("pusher message #{message}") if forge?
-      console.log("pusher message #{message}") if console?
+      forge.logging.debug("pusher message #{data}") if forge?
+      console.log("pusher message #{data}") if console?
 
 
 class MyUserShow extends UsersShow
