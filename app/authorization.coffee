@@ -13,12 +13,12 @@ class Authorization extends Spine.Module
       console.log("XHR.responseText", xhr.responseText)
       if xhr.status is 401
         @promptLogin()
-      else if xhr.status is 500
-        @alert('Server Error')
-      else if xhr.status is 403
-        @alert('Bad Request')
       else
-        @alert('Network Error')
+        try
+          errorData = JSON.parse(xhr.responseText)
+          @alert "Network Error: #{xhr.statusText}. #{errorData.message}"
+        catch error
+          @alert "Network Error: #{xhr.statusText}. #{xhr.responseText}"
 
     @token = @getToken()
     @setupAjax()
