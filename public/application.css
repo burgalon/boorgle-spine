@@ -545,6 +545,7 @@ input[type=date] {
 .please_login > article {
   background: #013739;
   background-image: url("images/connect-bg.jpg");
+  background-position: 50% 0;
   text-align: center;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
@@ -564,7 +565,7 @@ input[type=date] {
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .please_login > article h1 {
     background-image: url("images/logo@2x.png");
-    background-size: auto auto;
+    background-size: 163px 78px;
   }
 }
 .please_login > article h2 {
@@ -593,7 +594,7 @@ input[type=date] {
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .please_login > article .login-button {
     background-image: url("images/login-button@2x.png");
-    background-size: auto auto;
+    background-size: 238px 94px;
   }
 }
 .please_login > article .login-button:hover,
