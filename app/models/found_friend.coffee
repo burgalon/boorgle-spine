@@ -80,7 +80,7 @@ class FoundFriend extends UserCollection
         Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
         super
         console.log 'Retrieved location', location
-      , (error) ->
+      , (error) =>
         console.log 'Could not get location'
         super
       , enableHighAccuracy: true)
@@ -92,7 +92,7 @@ class FoundFriend extends UserCollection
         Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
         super
         console.log 'Retrieved location', location
-      , (error) ->
+      , (error) =>
         console.log 'Could not get location'
         super
       )
