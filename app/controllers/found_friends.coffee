@@ -28,6 +28,7 @@ class FoundFriendsList extends UsersList
   collection_types: FoundFriend.collection_types
   search_collection_types: SearchFriend.collection_types
   events:
+    'tap .invite': 'invite'
     'tap .item': 'click'
     'input input': 'search'
   elements:

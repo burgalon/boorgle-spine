@@ -6,6 +6,7 @@ GmailUser = require('models/gmail_user')
 
 class UsersList extends BasePanel
   events:
+    'tap .invite': 'invite'
     'tap .item': 'click'
 
   title: 'Abstract List'
@@ -43,7 +44,11 @@ class UsersList extends BasePanel
     return if item instanceof GmailUser
     @navigate(@constructor.item_url, item.id, trans: 'right')
 
-  invite: (item) ->
+  invite: (e) ->
+    e.preventDefault()
+    element = $(e.currentTarget).parents('.item')
+    item = element.data('item')
+    console.log('item', item)
     return unless confirm("Would you like to invite #{item.name} (#{item.email}}")
     Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
     Authorization.friendAjax('invites', item.id)

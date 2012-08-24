@@ -6,6 +6,6 @@
         </div>
     </div>
     <div class="actions">
-        <button class="button">Invite</button>
+        <button class="button invite">Invite</button>
     </div>
 </div>
