@@ -39,13 +39,12 @@ class UsersList extends BasePanel
     element = $(e.currentTarget)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
-    if item instanceof GmailUser
-      if confirm("Would you like to invite #{item.name} (#{item.email}}")
-        @invite(item)
-      return
+    # Do not go into detail view for GmailUsers. We don't have enough details to show anything interesting
+    return if item instanceof GmailUser
     @navigate(@constructor.item_url, item.id, trans: 'right')
 
   invite: (item) ->
+    return unless confirm("Would you like to invite #{item.name} (#{item.email}}")
     Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
     Authorization.friendAjax('invites', item.id)
 
