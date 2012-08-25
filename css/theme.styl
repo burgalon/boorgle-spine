@@ -160,18 +160,20 @@ input[type=url], input[type=date]
   display:none
 
 #loading
-  ios-header()
-  ios-header-text()
-  line-height:headerSize*.95
-  position: fixed
-  top: -(headerSize)
-  left:0
-  right:0
-  opacity:0
-  -webkit-transition: all 0.25s linear
-  transition: all 0.25s linear
-  z-index:100
+  position: fixed;
+  top: 39px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 100
+  background-color:#3290d3
 
-  &.loading
-    opacity:1
-    top:0
+  -webkit-animation:move 2s linear infinite
+  -moz-animation:move 2s linear infinite
+  -ms-animation:move 2s linear infinite
+  animation:move 2s linear infinite
+  overflow: hidden
+
+@keyframes move
+  0% {width: 0}
+  100% {width: 100%}

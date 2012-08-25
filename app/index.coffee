@@ -57,16 +57,6 @@ class App extends Stage.Global
     $('a').live('tap', (e) ->
       window.location = $(e.currentTarget).attr('href')
     )
-#    cb = (e) ->
-#      el = $(e.target)
-#      prev_ev = el.data('ev')
-#      if e.type is 'click' and prev_ev isnt 'tap'
-#        e.preventDefault()
-#        e.stopPropagation()
-#      el.data('ev', e.type )
-#
-#    $('body').delegate('a', 'tap click', cb)
-
 
   activateTab: (tabClass) ->
     $('footer .nav-item').removeClass('active')
@@ -90,14 +80,11 @@ class App extends Stage.Global
       Friend.fetch()
 
   setupAJAX: ->
-    el = $('<div id="loading">Loading</div>').appendTo($('body'))
-    el.ajaxStart(
-      () ->
-        #el.addClass('loading')
-    ).ajaxStop(
-      () ->
-        #f = -> el.removeClass('loading')
-        #setTimeout(f,500)
+    el = $('<div id="loading"></div>').prependTo($('body'))
+    el.ajaxStart( ->
+      el.show()
+    ).ajaxStop( =>
+      el.hide()
     )
 
 module.exports = App
