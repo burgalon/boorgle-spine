@@ -17,6 +17,11 @@ class FoundFriendShow extends UsersShow
   @configure FoundFriend
   tab: 'explore'
 
+  change: (params) =>
+    @item_id = params.id if params.id
+    @item = FoundFriend.exists(@item_id) || SearchFriend.exists(@item_id)
+    @render()
+
   back: ->
     @navigate('/found_friends', trans: 'left')
 
