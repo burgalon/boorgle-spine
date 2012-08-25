@@ -54,15 +54,18 @@ class App extends Stage.Global
     @setupLinks()
 
   setupLinks: ->
-    cb = (e) ->
-      el = $(e.target)
-      prev_ev = el.data('ev')
-      if e.type is 'click' and prev_ev isnt 'tap'
-        e.preventDefault()
-        e.stopPropagation()
-      el.data('ev', e.type )
-
-    $('body').delegate('a', 'tap click', cb)
+    $('a').live('tap', (e) ->
+      window.location = $(e.currentTarget).attr('href')
+    )
+#    cb = (e) ->
+#      el = $(e.target)
+#      prev_ev = el.data('ev')
+#      if e.type is 'click' and prev_ev isnt 'tap'
+#        e.preventDefault()
+#        e.stopPropagation()
+#      el.data('ev', e.type )
+#
+#    $('body').delegate('a', 'tap click', cb)
 
 
   activateTab: (tabClass) ->
