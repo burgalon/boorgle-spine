@@ -1,11 +1,11 @@
 if document.location.href.match(/localhost|192./)
-#   # Development
-#   Config =
-#     env: 'development'
-#     host: 'http://localhost:3000/api/v1'
-#     clientId: 'boorgle-web-mobile-localhost'
-#     oauthEndpoint: 'http://localhost:3000/oauth/'
-#     oauthRedirectUri: 'http://localhost:9294'
+   # Development
+  Config =
+    env: 'development'
+    host: 'http://localhost:3000/api/v1'
+    clientId: 'boorgle-web-mobile-localhost'
+    oauthEndpoint: 'http://localhost:3000/oauth/'
+    oauthRedirectUri: 'http://localhost:9294'
 
   # Development against production
   Config =
