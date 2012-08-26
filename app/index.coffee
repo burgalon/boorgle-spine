@@ -31,7 +31,7 @@ class App extends Stage.Global
     Authorization.setup()
 
     # Reload data when resumed
-    forge.event.appResumed.addListener(@fetchData) if Config.env=='ios'
+    forge.event.appResumed.addListener(@appResumed) if Config.env=='ios'
     @fetchData()
 
     # Controllers
@@ -52,6 +52,10 @@ class App extends Stage.Global
 #    @navigate '/user/edit'
     @navigate '/found_friends' unless document.location.hash && !document.location.hash.match('#access_token')
     @setupLinks()
+
+  appResumed: =>
+    @fetchData()
+    Spine.trigger 'appResumed'
 
   setupLinks: ->
     $('a').live('tap', (e) ->

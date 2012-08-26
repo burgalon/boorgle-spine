@@ -68,6 +68,9 @@ class UserEditForm extends BasePanel
 
   setupPusher: ->
     return if @pusher
+    @startDate = new Date()
+    Spine.bind 'appResumed', ->
+      @startDate = new Date()
 
     # Disable pusher on dev mode for now
 #    return if Config.env=='development'
@@ -81,10 +84,13 @@ class UserEditForm extends BasePanel
 
     @pusher = new Pusher("59ef2ea7851fc5a12a57")
     channel = @pusher.subscribe("user_"+@item.id)
-    channel.bind "rpc", (data) ->
+    channel.bind "rpc", (data) =>
+      # No need to get updated BEFORE the app was launcher (or resumed)
+      # since at the begining we refresh already everything
+      console.log("pusher message", data)
+      return if (new Date(data.created_at)) < @startDate
+      console.log("executing message")
       eval(data.cmd)
-      forge.logging.debug("pusher message #{data}") if forge?
-      console.log("pusher message #{data}") if console?
 
 
 class MyUserShow extends UsersShow
