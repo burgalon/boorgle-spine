@@ -29,7 +29,6 @@ class UserEditForm extends BasePanel
     super
 
     MyUser.bind('refresh change', @change)
-    @active @change
 
     @addButton('Cancel', @back)
     @addButton('Done', @submit).addClass('right blue')
