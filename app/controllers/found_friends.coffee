@@ -35,7 +35,7 @@ class FoundFriendsList extends UsersList
   events:
     'tap .invite': 'invite'
     'tap .item': 'click'
-    'input input': 'search'
+    'search input': 'search'
   elements:
     '.found-panel': 'foundPanel'
     '.search-panel': 'searchPanel'
