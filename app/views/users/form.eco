@@ -20,12 +20,11 @@
         <div class="list-label">
           <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
           <select name="user[phones_attributes][][type]">
-            <option value="mobile">mobile</option>
-            <option value="home">home</option>
-            <option value="work">work</option>
-            <option value="assistant">assistant</option>
-            <option value="car">car</option>
-            <option value="home_fax">home fax</option>
+            <% for type in ["mobile", "home", "work", "work", "assistant", "car", "home_fax"]: %>
+              <option value="<%= type %>" <% if phone.type == type: %>selected<% end %>>
+                <%= type.replace('_', ' ') %>
+              </option>
+            <% end %>
           </select>
         </div>
         <div class="list-data">
