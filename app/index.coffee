@@ -51,16 +51,10 @@ class App extends Stage.Global
 #    @navigate '/found_friends'
 #    @navigate '/user/edit'
     @navigate '/found_friends' unless document.location.hash && !document.location.hash.match('#access_token')
-    @setupLinks()
 
   appResumed: =>
     @fetchData()
     Spine.trigger 'appResumed'
-
-  setupLinks: ->
-    $('a').live('tap', (e) ->
-      window.location = $(e.currentTarget).attr('href')
-    )
 
   activateTab: (tabClass) ->
     $('footer .nav-item').removeClass('active')
