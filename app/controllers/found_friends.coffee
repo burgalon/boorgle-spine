@@ -5,6 +5,8 @@ List    = require('spine/lib/list')
 Authorization = require('authorization')
 
 # Models
+Friend = require('models/friend')
+MyUser = require('models/my_user')
 FoundFriend = require('models/found_friend')
 SearchFriend = require('models/search_friend')
 
@@ -19,7 +21,8 @@ class FoundFriendShow extends UsersShow
 
   change: (params) =>
     @item_id = params.id if params.id
-    @item = FoundFriend.exists(@item_id) || SearchFriend.exists(@item_id)
+    @navigate('/user/edit/show') if MyUser.first()?.id == @item_id
+    @item = Friend.exists(@item_id) || FoundFriend.exists(@item_id) || SearchFriend.exists(@item_id)
     @render()
 
   back: ->
