@@ -79,7 +79,8 @@ class App extends Stage.Global
 
   setupAJAX: ->
     el = $('<div id="loading"></div>').prependTo($('body'))
-    el.ajaxStart( ->
+    el.ajaxSend( (e, xhr, options) ->
+      return unless options.url.match(Spine.Model.host)
       el.show()
     ).ajaxStop( =>
       el.hide()
