@@ -73,24 +73,25 @@ class UserEditForm extends BasePanel
 
     # Disable pusher on dev mode for now
 #    return if Config.env=='development'
-    # Enable pusher logging - don't include this in production
-    if Config.env=='development'
-      Pusher.log = (message) ->
-        window.console.log message  if window.console and window.console.log
 
-      # Flash fallback logging - don't include this in production
-      WEB_SOCKET_DEBUG = true
+    @pusher = pubnub = PUBNUB(
+      publish_key: 'pub-5a3df701-1680-461d-93bd-82243e1e0219',
+      subscribe_key: 'sub-c84a4505-ef49-11e1-b9bf-9fa4c00b78db',
+      ssl: false,
+      origin: 'pubsub.pubnub.com'
+    )
 
-    @pusher = new Pusher("59ef2ea7851fc5a12a57")
-    channel = @pusher.subscribe("user_"+@item.id)
-    channel.bind "rpc", (data) =>
-      # No need to get updated BEFORE the app was launcher (or resumed)
-      # since at the begining we refresh already everything
-      console.log("pusher message", data)
-      return if (new Date(data.created_at)) < @startDate
-      console.log("executing message")
-      eval(data.cmd)
-
+    pubnub.subscribe(
+      restore: true,
+      channel: "user_"+@item.id,
+      callback : (message) ->
+        console.log("pusher message", message)
+        return if (new Date(message.created_at)) < @startDate
+        console.log("executing message")
+        eval(message.cmd)
+      disconnect : ->
+          console.log("Connection Lost")
+    )
 
 class MyUserShow extends UsersShow
   title: 'Info'
