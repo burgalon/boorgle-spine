@@ -62,10 +62,10 @@ class UserEditForm extends BasePanel
 
   change: =>
     @item = MyUser.first()
-    @setupPusher()
+    setTimeout(@setupPusher, 3000)
     @render()
 
-  setupPusher: ->
+  setupPusher: =>
     return if @pusher
     @startDate = new Date()
     Spine.bind 'appResumed', ->
