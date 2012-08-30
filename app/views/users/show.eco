@@ -48,5 +48,11 @@
 <% end %>
 
 <% if @constructor.className == 'Pending': %>
-  Pending Request
+<div class="list-group">
+  <div class="list-item">
+    <div class="list-data">
+      Pending Request
+    </div>
+  </div>
+</div>
 <% end %>
