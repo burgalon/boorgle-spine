@@ -22,7 +22,6 @@ class UsersList extends BasePanel
 
     @constructor.model_class.bind 'refresh change', @render
     @panel = @el.find('article')
-    @panel.bind 'scroll', @proxy(@scroll)
 
   activate: ->
     f = () => @panel.scrollTop(@scrollTop) if @panel
@@ -32,10 +31,11 @@ class UsersList extends BasePanel
   render: =>
     @html require('views/users/item')(@constructor.model_class.all())
 
-  scroll: (e) ->
-    @scrollTop = $(e.target).scrollTop()
+  saveScroll: (e) ->
+    @scrollTop = @panel.scrollTop()
 
   click: (e) ->
+    @saveScroll()
     e.preventDefault()
     element = $(e.currentTarget)
     item = element.data('item')
