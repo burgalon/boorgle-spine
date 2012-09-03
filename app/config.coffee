@@ -7,15 +7,15 @@ if document.location.href.match(/localhost|192./)
     oauthEndpoint: 'http://localhost:3000/oauth/'
     oauthRedirectUri: 'http://localhost:9294'
 
-  # Development against production
-  Config =
-   env: 'development'
-   host: 'http://www.boorgle.com/api/v1'
-   clientId: 'boorgle-web-mobile-localhost'
-   oauthEndpoint: 'http://www.boorgle.com/oauth/'
-   oauthRedirectUri: 'http://localhost:9294'
+#  # Development against production
+#  Config =
+#   env: 'development'
+#   host: 'http://www.boorgle.com/api/v1'
+#   clientId: 'boorgle-web-mobile-localhost'
+#   oauthEndpoint: 'http://www.boorgle.com/oauth/'
+#   oauthRedirectUri: 'http://localhost:9294'
 
-else if document.location.href.match(/file:\/\//)
+else if forge?
   # iPhone Native
   Config =
     env: 'ios'
