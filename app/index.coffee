@@ -78,7 +78,7 @@ class App extends Stage.Global
       Friend.fetch()
 
   setupAJAX: ->
-    el = $('<div id="loading"></div>').prependTo($('body'))
+    el = $('<div id="loading"></div>').prependTo($('body')).hide()
     el.ajaxSend( (e, xhr, options) ->
       return unless options.url.match(Spine.Model.host)
       el.show()
