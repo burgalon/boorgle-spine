@@ -32,7 +32,7 @@ class App extends Stage.Global
 
     # Reload data when resumed
     forge.event.appResumed.addListener(@appResumed) if Config.env=='ios'
-    @fetchData()
+    setTimeout(@fetchData, 50)
 
     # Controllers
     @user_edit = new UserEdit
