@@ -6,4 +6,4 @@ cp public/index.html src/index.html
 cp -r public/images src/
 forge build
 rm public/application.css public/application.js
-forge run ios
+#forge run ios

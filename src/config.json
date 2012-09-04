@@ -1,0 +1,63 @@
+{
+	"author": "burgalon@gmail.com", 
+	"config_version": "3", 
+	"description": "Social Addressbook", 
+	"homepage": "http://www.boorgle.com/", 
+	"modules": {
+		"contact": true, 
+		"display": {
+			"orientations": {
+				"android": "portrait", 
+				"ipad": "portrait", 
+				"iphone": "portrait"
+			}
+		}, 
+		"event": true, 
+		"file": true, 
+		"geolocation": true, 
+		"icons": {
+			"ios": {
+        "114": "icon114.png",
+        "144": "icon144.png",
+        "512": "icon512.png",
+        "57": "icon57.png",
+        "72": "icon72-ios.png",
+        "prerendered": true
+			}
+		}, 
+		"is": true, 
+		"launchimage": {
+			"android": "splash/iphone.png", 
+			"android-landscape": "splash/iphone.png", 
+			"ipad": "splash/iphone.png", 
+			"ipad-landscape": "splash/iphone.png", 
+			"ipad-landscape-retina": "splash/iphone.png", 
+			"ipad-retina": "splash/iphone.png", 
+			"iphone": "splash/iphone.png", 
+			"iphone-retina": "splash/iphone.png"
+		}, 
+		"logging": {
+			"level": "DEBUG"
+		}, 
+		"media": true, 
+		"notification": true, 
+		"package_names": {
+			"android": "com.boorgle.app", 
+			"ios": "com.boorgle.boorgle"
+		}, 
+		"parameters": {}, 
+		"prefs": true, 
+		"reload": false,
+		"request": {
+			"permissions": [
+				"http://*/*", 
+				"https://*/*"
+			]
+		}, 
+		"tabs": true, 
+		"tools": true
+	}, 
+	"name": "Boorgle", 
+	"platform_version": "v1.4", 
+	"version": "0.1"
+}
