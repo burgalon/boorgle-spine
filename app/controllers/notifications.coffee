@@ -11,8 +11,8 @@ class Notifications extends Spine.Controller
 
   render: (item) =>
     @html require('views/notifications/show')(item)
-    @el.addClass('active').gfxFadeIn().delay(500).gfxFadeOut().queueNext =>
-      @el.removeClass('active')
+    @el.addClass('on').delay(1000).queueNext =>
+      @el.removeClass('on')
 
 
 module.exports = Notifications
