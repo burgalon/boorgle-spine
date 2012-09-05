@@ -11,7 +11,7 @@ class Notifications extends Spine.Controller
 
   render: (item) =>
     @html require('views/notifications/show')(item)
-    @el.addClass('on').delay(1000).queueNext =>
+    @el.addClass('on').on 'tap', =>
       @el.removeClass('on')
 
 
