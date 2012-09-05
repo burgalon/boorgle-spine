@@ -24,6 +24,14 @@ else if forge?
     oauthEndpoint: 'http://www.boorgle.com/oauth/'
     oauthRedirectUri: 'boorgle:///'
 
+#  # iPhone Native local
+#  Config =
+#    env: 'ios'
+#    host: 'http://localhost:3000/api/v1'
+#    clientId: 'boorgle-iphone'
+#    oauthEndpoint: 'http://localhost:3000/oauth/'
+#    oauthRedirectUri: 'boorgle:///'
+
 else
   # Production
   Config =
