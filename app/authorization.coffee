@@ -41,30 +41,36 @@ class Authorization extends Spine.Module
     @saveToken token
 
   @logout: ->
-    delete localStorage['access_token']
-    @token = null
-    window.location.reload()
+    console.log('url', Config.oauthEndpoint.replace('/oauth/', '/accounts/signout'));
+    if forge?
+      forge.tabs.openWithOptions
+        url: Config.oauthEndpoint.replace('/oauth/','/account/signout/')
+        pattern: Config.oauthEndpoint.replace('/oauth/','/')
+        title: 'Connect with GMail'
+        (data) =>
+          @token = null
+          delete localStorage['access_token']
+          window.location.reload()
+    else
+      window.location.reload()
 
   @login: =>
     if Config.env=='ios'
-      forge.tabs.openWithOptions(
+      forge.tabs.openWithOptions
         url: @::oauthEndPoint
         pattern: 'boorgle://*'
         title: 'Connect with GMail'
-      , (data) =>
-        @token = data.url.match(/access_token=(\w+)/)?[1]
-        @saveToken @token
-        window.location.reload()
-      )
+        (data) =>
+          @token = data.url.match(/access_token=(\w+)/)?[1]
+          @saveToken @token
+          window.location.reload()
     else
       window.location = @::oauthEndPoint
 
   @promptLogin: ->
     delete localStorage['access_token']
-    if confirm("Invalid login. Singin again?")
-      @login()
-    else
-      window.location = '/'
+    @alert "Invalid login. Please sign in again"
+    @login()
 
   @is_loggedin: ->
     !!@token
