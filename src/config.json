@@ -17,12 +17,12 @@
 		"geolocation": true, 
 		"icons": {
 			"ios": {
-        "114": "icon114.png",
-        "144": "icon144.png",
-        "512": "icon512.png",
-        "57": "icon57.png",
-        "72": "icon72-ios.png",
-        "prerendered": true
+				"114": "icon114.png", 
+				"144": "icon144.png", 
+				"512": "icon512.png", 
+				"57": "icon57.png", 
+				"72": "icon72-ios.png", 
+				"prerendered": true
 			}
 		}, 
 		"is": true, 
@@ -47,7 +47,7 @@
 		}, 
 		"parameters": {}, 
 		"prefs": true, 
-		"reload": false,
+		"reload": true, 
 		"request": {
 			"permissions": [
 				"http://*/*", 
