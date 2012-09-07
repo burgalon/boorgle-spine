@@ -5,4 +5,7 @@ class BasePanel extends Panel
     super
     Spine.trigger 'activateTab', @tab
 
+  addButton: (text, callback) ->
+    super.addClass('button')
+
 module.exports = BasePanel
