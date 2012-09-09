@@ -54,7 +54,6 @@ body.stage > footer {
 }
 body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: bold;
   overflow-x: hidden;
   -webkit-user-select: none;
   margin: 0;
@@ -164,54 +163,6 @@ body.stage > footer .active.nav-item .icon {
 .panel > header button.disabled {
   opacity: 0.7;
 }
-.panel > header button.blue {
-  background-color: #325fd1;
-}
-.panel > header button.back {
-  left: 5px;
-/*change the position*/
-  position: absolute;
-  z-index: 0;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-border-top-left-radius: 10px 15px;
-  -webkit-border-bottom-left-radius: 10px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  font-size: 11px;
-  display: block;
-  text-align: center;
-  color: #fff;
-  line-height: 30px;
-  -webkit-background-size: 30px;
-}
-.panel > header button.back:before {
-  position: absolute;
-  top: 9.9%;
-  left: -5px;
-  -webkit-background-size: 22px 22px;
-  background-position: -2px -1.5px;
-  background-color: #4a6c9b;
-/*change to the same as the main element*/
-  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0)), color-stop(0.5, rgba(255,255,255,0.1)), to(rgba(255,255,255,0.3)));
-  height: 25px;
-  width: 25px;
-  -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
-  -webkit-border-top-right-radius: 100px 40px;
-  -webkit-border-top-left-radius: 30px 2px;
-  -webkit-border-bottom-right-radius: 2px 30px;
-  -webkit-border-bottom-left-radius: 40px 100px;
-  z-index: 1;
-  content: ' ';
-  border-left: 1.5px solid rgba(255,255,255,0.3);
-  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(0.33, #000), color-stop(0.5, transparent), to(transparent));
-}
 .button {
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
@@ -243,6 +194,9 @@ body.stage > footer .active.nav-item .icon {
 }
 .button.blue {
   background-color: #325fd1;
+}
+.button.red {
+  background-color: #bd1520;
 }
 .button.back {
   left: 5px;
@@ -614,40 +568,72 @@ input[type=date] {
   width: 100%;
   background: #fff;
 }
+.users.listView .hide-button {
+  display: none;
+}
+.users.listView .swiped .hide-button {
+  display: block;
+}
+.users.listView .swiped .invite {
+  display: none;
+}
 .please_login > article {
-  background: #013739;
-  background-image: url("images/connect-bg.jpg");
-  background-position: 50% 0;
+  background: #e1e1e1;
+  color: #404040;
+  text-shadow: 0 1px #fff;
+}
+.please_login > article h3 {
   text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 0;
+}
+.please_login > article strong {
+  color: #08777a;
+}
+.please_login > article > div {
+  padding: 20px 30px;
+}
+.please_login .connect {
+  text-align: center;
+  background-image: url("images/connect-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 100% 334px !important;
+  height: 236px;
+  border-bottom: 4px solid #0b8886;
+  padding-top: 25px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article {
+  .please_login .connect {
     background-image: url("images/connect-bg@2x.jpg");
     background-size: auto auto;
   }
 }
-.please_login > article h1 {
+.please_login .connect h1 {
   background: transparent;
   background-image: url("images/logo.png");
+  background-repeat: no-repeat;
   width: 163px;
   height: 78px;
-  margin: 45px auto 20px auto;
+  margin: 0px auto;
   text-indent: -9999px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article h1 {
+  .please_login .connect h1 {
     background-image: url("images/logo@2x.png");
     background-size: 163px 78px;
   }
 }
-.please_login > article h2 {
+.please_login .connect h2 {
   color: #fff;
   font-weight: lighter;
   text-shadow: 0px 1px 3px #020202;
   font-size: 15px;
-  margin-bottom: 45px;
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
-.please_login > article .desc {
+.please_login .connect .desc {
   color: #001b1c;
   text-shadow: 0px 1px 2px #568b92;
   font-weight: normal;
@@ -655,24 +641,127 @@ input[type=date] {
   margin: 10px auto 0 auto;
   width: 200px;
 }
-.please_login > article .login-button {
+.please_login .connect .login-button {
   background: transparent;
   background-image: url("images/login-button.png");
+  background-repeat: no-repeat;
   width: 238px;
   height: 46px;
   border: none;
   margin: 0 auto;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article .login-button {
+  .please_login .connect .login-button {
     background-image: url("images/login-button@2x.png");
     background-size: 238px 94px;
   }
 }
-.please_login > article .login-button:hover,
-.please_login > article .login-button:active {
+.please_login .connect .login-button:hover,
+.please_login .connect .login-button:active {
   background-position: 0 -47px;
 }
-.please_login > article .login-button span {
+.please_login .connect .login-button span {
   display: none;
+}
+.please_login .arrowdown,
+.please_login .arrowup {
+  width: 21px;
+  height: 20px;
+  background-image: url("images/arrowdown.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .arrowdown,
+  .please_login .arrowup {
+    background-image: url("images/arrowdown@2x.png");
+    background-size: 21px 20px;
+  }
+}
+.please_login .arrowup {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.please_login .what-is .arrowdown {
+  margin-bottom: 20px;
+}
+.please_login .how-works {
+  background: #cac8c8;
+}
+.please_login .how-works ul {
+  list-style: none;
+  padding: 0;
+}
+.please_login .how-works li {
+  padding: 5px 0;
+  position: relative;
+}
+.please_login .secure .lock-wrapper {
+  margin-top: 20px;
+}
+.please_login .start {
+  background: #cac8c8;
+}
+.please_login .icon {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background-position: center;
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+.please_login .icon-at {
+  background-image: url("images/icon-at.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .icon-at {
+    background-image: url("images/icon-at@2x.png");
+    background-size: 14px 14px;
+  }
+}
+.please_login .icon-gmail {
+  background-image: url("images/icon-gmail.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .icon-gmail {
+    background-image: url("images/icon-gmail@2x.png");
+    background-size: 14px 14px;
+  }
+}
+.please_login .icon-lock {
+  background-image: url("images/icon-lock.png");
+  background-repeat: no-repeat;
+  float: left;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .icon-lock {
+    background-image: url("images/icon-lock@2x.png");
+    background-size: 13px 15px;
+  }
+}
+.please_login .icon-near {
+  background-image: url("images/icon-near.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .icon-near {
+    background-image: url("images/icon-near@2x.png");
+    background-size: 11px 15px;
+  }
+}
+.please_login .icon-recently {
+  background-image: url("images/icon-recently.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login .icon-recently {
+    background-image: url("images/icon-recently@2x.png");
+    background-size: 17px 15px;
+  }
 }
