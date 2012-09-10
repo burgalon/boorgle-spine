@@ -150,18 +150,18 @@ tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
   color: #292D39
   text-shadow: 0 1px 0 white
   background: #F6F6F7
-  //background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(0.5, rgba(255, 255, 255, 0.4)), color-stop(0.5, rgba(255, 255, 255, 0))), #F6F6F7
-  
+
+  &:hover, &:active
+    color: white
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#058cf5), color-stop(50%,#0375ed), color-stop(58%,#036fec), color-stop(100%,#015ee6)); /* Chrome,Safari4+ */
+
+
   img
     float: right
     max-width: 30px
     max-height: 30px
     display: inline-block
     margin: 10px 0
-
-  &:active
-    background: #F6F6F7
-    inset-box-shadow(0, 1px, 3px, rgba(0, 0, 0, 0.1))
 
 form
   margin: 10px
