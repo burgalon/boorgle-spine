@@ -42,9 +42,12 @@ class Authorization extends Spine.Module
 
   @logout: ->
     console.log('url', Config.oauthEndpoint.replace('/oauth/', '/accounts/signout'));
+    @token = null
+    delete localStorage['access_token']
+    window.location.reload()
     if forge?
       forge.tabs.openWithOptions
-        url: Config.oauthEndpoint.replace('/oauth/','/account/signout/')
+        url: Config.oauthEndpoint.replace('/oauth/','/accounts/signout/')
         pattern: Config.oauthEndpoint.replace('/oauth/','/')
         title: 'Connect with GMail'
         (data) =>
@@ -52,6 +55,8 @@ class Authorization extends Spine.Module
           delete localStorage['access_token']
           window.location.reload()
     else
+      @token = null
+      delete localStorage['access_token']
       window.location.reload()
 
   @login: =>
