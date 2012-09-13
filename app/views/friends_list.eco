@@ -1,2 +1,17 @@
-<h2>You have still not synched any friends</h2>
-<p>Click the <b>Explore<b/> tab to sync new contacts</p>
+<h2>Your contacts list is currently empty</h2>
+<div class="steps">
+  <div>
+    <div class="icon explore"></div>
+    <div class="text-wrapper">
+      <div class="bullet">1</div>
+      <div class="text">Use the Explore Tab to find people you know</div>
+    </div>
+  </div>
+  <div>
+    <div class="icon contacts"></div>
+    <div class="text-wrapper">
+      <div class="bullet">2</div>
+      <div class="text">Contacts tab will always stay updated with the most recent and full details.</div>
+    </div>
+  </div>
+</div>

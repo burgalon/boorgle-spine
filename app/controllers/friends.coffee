@@ -21,6 +21,7 @@ class FriendShow extends UsersShow
 class FriendsList extends UsersList
   title: 'Contacts'
   tab: 'contacts'
+  className: 'users list listView friends_list'
   @configure Friend, '/friends'
 
   render: =>
