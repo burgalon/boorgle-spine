@@ -4,10 +4,10 @@
       <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
       <div class="list-data">
         <span class="separator">
-          <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
+          <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>">
         </span>
         <span class="separator">
-          <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>">
+          <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
         </span>
       </div>
     </div>

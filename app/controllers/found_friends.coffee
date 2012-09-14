@@ -35,6 +35,7 @@ class FoundFriendsList extends UsersList
   @configure FoundFriend, '/found_friends'
   collection_types: FoundFriend.collection_types
   search_collection_types: SearchFriend.collection_types
+  collections_header: {'Confirm': 'Confirm', 'Near': 'Near', 'Gmail': 'Gmail', 'GmailInvite': 'Invite', 'Recent': 'Recent', 'Pending': 'Pending', 'IgnoredConfirm': 'Ignored Confirm', 'IgnoredFound': 'Ignored Found'}
   events:
     'tap .invite': 'invite'
     'tap .item': 'click'
