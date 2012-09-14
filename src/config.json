@@ -16,25 +16,30 @@
 		"file": true, 
 		"geolocation": true, 
 		"icons": {
+			"android": {
+				"36": "icon36.png", 
+				"48": "icon48.png", 
+				"72": "icon72.png"
+			}, 
 			"ios": {
 				"114": "icon114.png", 
 				"144": "icon144.png", 
 				"512": "icon512.png", 
 				"57": "icon57.png", 
-				"72": "icon72-ios.png", 
+				"72": "icon72.png", 
 				"prerendered": true
 			}
 		}, 
 		"is": true, 
 		"launchimage": {
-			"android": "splash/iphone.png", 
-			"android-landscape": "splash/iphone.png", 
-			"ipad": "splash/iphone.png", 
-			"ipad-landscape": "splash/iphone.png", 
-			"ipad-landscape-retina": "splash/iphone.png", 
-			"ipad-retina": "splash/iphone.png", 
-			"iphone": "splash/iphone.png", 
-			"iphone-retina": "splash/iphone.png"
+			"android": "splash/splash@2x.jpg", 
+			"android-landscape": "splash/splash@2x.jpg", 
+			"ipad": "splash/splash@2x.jpg", 
+			"ipad-landscape": "splash/splash@2x.jpg", 
+			"ipad-landscape-retina": "splash/splash@2x.jpg", 
+			"ipad-retina": "splash/splash@2x.jpg", 
+			"iphone": "splash/splash@2x.jpg", 
+			"iphone-retina": "splash/splash@2x.jpg"
 		}, 
 		"logging": {
 			"level": "DEBUG"
