@@ -28,8 +28,10 @@ class FriendsList extends UsersList
     items = @constructor.model_class.all()
     if items.length
       @html require('views/users/item')(items)
+      @el.removeClass('empty')
     else
       @html require('views/friends_list')()
+      @el.addClass('empty')
 
 
 class Friends extends Spine.Controller
