@@ -4,7 +4,7 @@
 	"description": "Social Addressbook", 
 	"homepage": "http://www.boorgle.com/", 
 	"modules": {
-		"contact": true, 
+		"contact": false,
 		"display": {
 			"orientations": {
 				"android": "portrait", 
