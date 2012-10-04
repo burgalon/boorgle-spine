@@ -39,8 +39,9 @@
 			"ipad-landscape-retina": "splash/splash@2x.jpg", 
 			"ipad-retina": "splash/splash@2x.jpg", 
 			"iphone": "splash/splash@2x.jpg", 
-			"iphone-retina": "splash/splash@2x.jpg"
-		}, 
+			"iphone-retina": "splash/splash@2x.jpg",
+			"iphone-retina4": "splash/splash@2x.jpg"
+		},
 		"logging": {
 			"level": "DEBUG"
 		}, 
