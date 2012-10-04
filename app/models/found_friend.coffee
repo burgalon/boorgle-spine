@@ -18,9 +18,6 @@ class Gmail extends UserCollection
   @configure 'Gmail'
 # Users found from your gmail account and are NOT on Boorgle (need invite)
 class GmailInvite extends GmailUser
-# Users who signed up to the system recently
-class Recent extends UserCollection
-  @configure 'Recent'
 # User you requested to connect with
 class Pending extends UserCollection
   @configure 'Pending'
@@ -38,11 +35,10 @@ class FoundFriend extends UserCollection
   @url: ->
     Spine.Model.host + "/found_friends"
 
-  @collection_types: ['Confirm', 'Near', 'Gmail', 'GmailInvite', 'Recent', 'Pending', 'IgnoredConfirm', 'IgnoredFound']
+  @collection_types: ['Confirm', 'Near', 'Gmail', 'GmailInvite', 'Pending', 'IgnoredConfirm', 'IgnoredFound']
   # Collections that are updated as a result
   @Confirm: Confirm
   @Near: Near
-  @Recent: Recent
   @IgnoredConfirm: IgnoredConfirm
   @IgnoredFound: IgnoredFound
   @Gmail: Gmail
