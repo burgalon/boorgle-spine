@@ -80,6 +80,9 @@ class FoundFriend extends UserCollection
         console.log 'Could not get location'
         super()
       )
+      # Bug in Android 2.2/3 that getCurrentPosition does not call callback
+      if forge.is.android()
+        super()
     else
       # If no geolocation interface on this browser
       return super unless navigator.geolocation?
