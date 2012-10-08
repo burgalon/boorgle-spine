@@ -21,6 +21,21 @@ Notifications = require('controllers/notifications')
 Spine.Model.host = Config.host
 Spine.Ajax.defaults.headers['X-Version'] = Config.version
 
+if Config.env=='ios'
+  $.ajax = (options) ->
+    # console.log 'forge ajax', options
+    dfd = jQuery.Deferred()
+    options.success = (data) ->
+      # console.log "forge ajax resolve", data
+      dfd.resolve data
+
+    options.error = (error) ->
+      # console.log "forge ajax reject", error
+      dfd.reject error
+
+    forge.ajax options
+    dfd.promise()
+
 class App extends Stage.Global
   Authorization: Authorization
 
