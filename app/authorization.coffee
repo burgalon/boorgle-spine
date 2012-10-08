@@ -81,18 +81,7 @@ class Authorization extends Spine.Module
     !!@token
 
   @ajaxSettings: (params, defaults) ->
-    params = $.extend({}, defaults, params)
-    params.data = $.extend(params.data, params.headers)
-    console.log 'data', params.data
-    delete params['headers']
-    if params.data['Authorization']
-      params.data['oauth_token']=params.data['Authorization']
-      delete params.data['Authorization']
-    params['processData'] = true
-    params['dataType'] = 'json'
-    delete params.data['X-Requested-With']
-    delete params['contentType'] if params['type']=='GET' || !params['type']
-    return params
+    $.extend({}, defaults, params)
 
   @ajax: (params) ->
     $.ajax(@ajaxSettings(params, Spine.Ajax.defaults))

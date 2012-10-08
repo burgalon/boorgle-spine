@@ -11,8 +11,8 @@ class Notifications extends Spine.Controller
 
   render: (item) =>
     @html require('views/notifications/show')(item)
-    @el.addClass('on').on 'tap', =>
-      @el.removeClass('on')
+    @el.fadeIn().on 'tap', =>
+      @el.fadeOut()
 
 
 module.exports = Notifications
