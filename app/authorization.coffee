@@ -13,6 +13,14 @@ class Authorization extends Spine.Module
       console.log("XHR.responseText", xhr.responseText)
       if xhr.status is 401
         @promptLogin()
+      else if xhr.status is 422
+        try
+          strings = []
+          for key, value of JSON.parse(xhr.responseText)
+            strings.push key + ": " + value.join(', ')
+          @alert strings.join ". "
+        catch error
+          @alert "Network Error: #{xhr.statusText}. #{xhr.responseText}"
       else
         try
           errorData = JSON.parse(xhr.responseText)
