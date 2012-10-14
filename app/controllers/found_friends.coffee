@@ -21,7 +21,7 @@ class FoundFriendShow extends UsersShow
 
   change: (params) =>
     @item_id = params.id if params.id
-    @navigate('/user/edit/show') if MyUser.first()?.id == @item_id
+    @navigate('/user/edit/show') if @item_id && MyUser.first()?.id == @item_id
     @item = Friend.exists(@item_id) || FoundFriend.exists(@item_id) || SearchFriend.exists(@item_id)
     @render()
 
