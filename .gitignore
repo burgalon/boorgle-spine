@@ -1,5 +1,8 @@
 node_modules
 development
+
+# Trigger.io
 release
 .template
 local_config.json
+.lib
