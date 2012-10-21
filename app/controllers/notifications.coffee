@@ -11,7 +11,10 @@ class Notifications extends Spine.Controller
 
   render: (item) =>
     @html require('views/notifications/show')(item)
-    @el.fadeIn().on 'tap', =>
+    @el.fadeIn()
+    $('body').one 'tap', @hideNotification
+
+  hideNotification: =>
       @el.fadeOut()
 
 
