@@ -7,7 +7,6 @@ Authorization = require('authorization')
 Friend = require('models/friend')
 
 # Controllers
-PleaseLogin = require('controllers/please_login')
 UsersShow = require('controllers/users_show')
 UsersList = require('controllers/users_list')
 
@@ -40,12 +39,8 @@ class Friends extends Spine.Controller
   constructor: ->
     super
 
-    if Authorization.is_loggedin()
-      @list = new FriendsList
-      @show = new FriendShow
-    else
-      @list = new PleaseLogin('Contacts', 'contacts')
-      @show = new PleaseLogin('Contacts', 'contacts')
+    @list = new FriendsList
+    @show = new FriendShow
 
     @routes
       '/friends/:id': (params) -> @show.active(params)

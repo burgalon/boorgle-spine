@@ -1,118 +1,54 @@
 .please_login
+  header
+    display: none !important
+
   > article
-    background: lightGrayBg
     color: #404040
     text-shadow: 0 1px #fff
+    text-align: center
+    image: 'images/connect-bg.jpg'
+    background-position: 50% 0
+    background-size: 100% auto !important
+    border-bottom: 4px solid #0b8886
+    padding-top: 25px
+    text-transform: uppercase
 
-    h3
-      text-align: center
-      text-transform: uppercase
-      font-size: 16px
-      margin-top: 0
+    h1
+      background: transparent
+      image: 'images/logo.png' 163px 78px
+      width: 163px
+      height: 78px
+      margin: 0px auto
 
-    strong
-      color: #08777a
+    h2
+      color: white
+      font-weight: lighter
+      text-shadow: 0px 1px 3px #020202
+      font-size: 15px
+      margin: 30px 0 10px 0
 
-    // All subpanel
-    > div
-      padding: 20px 30px
+    .signup, .login
+      width: 238px
+      height: 46px
+      margin: 0
 
-    .connect
-      text-align: center
-      image: 'images/connect-bg.jpg'
-      background-position: 50% 0
-      background-size: 100% 334px !important
-      height: 236px
-      border-bottom: 4px solid #0b8886
-      padding-top: 25px
+    .login
+      background-color: #dcdfe0
+      color: #8a9397
+      text-shadow: 0 1px 0 white
 
 
-      h1
-        background: transparent
-        image: 'images/logo.png' 163px 78px
-        width: 163px
-        height: 78px
-        margin: 0px auto
-        text-indent: -9999px
 
-      h2
-        color: white
-        font-weight: lighter
-        text-shadow: 0px 1px 3px #020202
-        font-size: 15px
-        margin-bottom: 30px
-        margin-top: 5px
+    .gmail
+      background: transparent
+      image: 'images/login-button.png' 238px 94px
+      width: 238px
+      height: 46px
+      border: none
+      margin: 0 auto
 
-      .desc
-        color: #001b1c
-        text-shadow: 0px 1px 2px #568B92
-        font-weight: normal
-        font-size: 12px
-        margin: 10px auto 0 auto
-        width: 200px
+      &:hover, &:active
+        background-position: 0 -47px
 
-      .login-button
-        background: transparent
-        image: 'images/login-button.png' 238px 94px
-        width: 238px
-        height: 46px
-        border: none
-        margin: 0 auto
-
-        &:hover, &:active
-          background-position: 0 -47px
-
-        span
-          display: none
-
-  .arrowdown, .arrowup
-    width: 21px
-    height: 20px;
-    image: 'images/arrowdown.png' 21px 20px
-    margin: 0 auto
-
-  .arrowup
-    transform:rotate(180deg)
-
-  .what-is
-    .arrowdown
-      margin-bottom: 20px
-
-  .how-works
-    background: darkGrayBg
-
-    ul
-      list-style: none
-      padding: 0
-    li
-      padding: 5px 0
-      position: relative
-
-  .secure
-    .lock-wrapper
-      margin-top: 20px
-
-  .start
-    background: darkGrayBg
-
-  .icon
-    width: 17px
-    height: 17px
-    display: inline-block
-    background-position: center
-    margin-right: 10px
-    position: relative
-    top: 2px
-
-  .icon-at
-    image: 'images/icon-at.png' 14px 14px
-
-  .icon-gmail
-    image: 'images/icon-gmail.png' 14px 14px
-  .icon-lock
-    image: 'images/icon-lock.png' 13px 15px
-    float: left
-  .icon-near
-    image: 'images/icon-near.png' 11px 15px
-  .icon-recently
-    image: 'images/icon-recently.png' 17px 15px
+      span
+        display: none

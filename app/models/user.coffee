@@ -29,6 +29,8 @@ class User extends Model
 
   picture_url: ->
     ret = @picture
+    unless @picture
+      return Config.host.replace('/api/v1', '') + '/assets/user.gif'
     ret+='?oauth_token='+ Authorization.getToken() if ret.match('localhost|boorgle')
     ret
 

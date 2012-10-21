@@ -70,12 +70,6 @@ class FoundFriendsList extends UsersList
 
     SearchFriend.bind 'refresh change', @renderSearch
 
-    # Login button
-    unless Authorization.is_loggedin()
-      @addButton('Login', ->
-        @navigate('/user/edit', trans: 'left')
-      ).addClass('right')
-
   # Renders sub-views
   render: =>
     for key in @collection_types

@@ -12,6 +12,7 @@ FoundFriend = require('models/found_friend')
 MyUser = require('models/my_user')
 
 # Controllers
+PleaseLogin = require('controllers/please_login')
 FoundFriends = require('controllers/found_friends')
 Friends = require('controllers/friends')
 UserEdit = require('controllers/user_edit')
@@ -59,13 +60,23 @@ class App extends Stage.Global
     @addTab('Contacts', -> @navigate '/friends')
     @addTab('Account', -> @navigate '/user/edit/show')
 
+    @please_login = new PleaseLogin()
+    @routes
+      '/please_login': (params) -> @please_login.active(params)
+
+    unless Authorization.is_loggedin()
+      @el.addClass('loggedout')
+
     # General initializations
     Spine.bind 'notify', @notify
     Spine.bind 'activateTab', @activateTab
     Spine.Route.setup()#shim:true)
-#    @navigate '/found_friends'
-#    @navigate '/user/edit'
-    @navigate '/found_friends' unless document.location.hash && !document.location.hash.match('#access_token')
+
+    unless document.location.hash && !document.location.hash.match('#access_token')
+      if Authorization.is_loggedin()
+        @navigate '/found_friends'
+      else
+        @navigate '/please_login'
 
   appResumed: =>
     @fetchData()

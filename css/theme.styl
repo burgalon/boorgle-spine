@@ -72,6 +72,12 @@ body.stage
       .icon
         background-image: -webkit-linear-gradient(276deg, white 0%, #7DB9EE 52%, rgba(125, 185, 238, 0) 52%), -webkit-linear-gradient(top, #0429E4 0%, #40CEFB 100%)
 
+body.stage.loggedout
+  footer
+    display: none !important
+  >article
+    bottom: 0
+
 tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
   .icon
     -webkit-mask-image: image-url($image)
@@ -139,6 +145,10 @@ tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
     border-left : 1.5px solid rgba(255,255,255,0.3);
     box-shadow :  1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset; -webkit-mask-image : -webkit-gradient(linear, left top, right bottom, from(#000000), color-stop(0.33,#000000), color-stop(0.5, transparent), to(transparent));
 
+  &.disabled
+    color: c7ccd3
+    background-color: rgba(74,108,155,1)
+
 .list
   // overflow: auto
   // -webkit-overflow-scrolling: touch
@@ -185,7 +195,7 @@ label
   span::after
     content: ':'
 
-select, input[type=text],
+select, input[type=text], input[type=password],
 input[type=tel], input[type=email],
 input[type=url], input[type=date]
   color: inherit

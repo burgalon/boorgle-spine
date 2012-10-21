@@ -12,7 +12,9 @@ class Authorization extends Spine.Module
       console.log("XHR.status", xhr.status)
       console.log("XHR.responseText", xhr.responseText)
       if xhr.status is 401
-        @promptLogin()
+        # This return status could be fired while trying to login,
+        # in which case the controller (PleaseLogin) will handle this
+        @promptLogin() if @is_loggedin()
       else if xhr.status is 422
         try
           strings = []
@@ -28,8 +30,7 @@ class Authorization extends Spine.Module
         catch error
           @alert "Network Error: #{xhr.statusText}. #{xhr.responseText}"
 
-    @token = @getToken()
-    @setupAjax()
+    @loadToken()
 
   @setupAjax: ->
     if @token
@@ -40,18 +41,28 @@ class Authorization extends Spine.Module
   @alert: (msg) ->
     Spine.trigger 'notify', msg: msg
 
-  @saveToken: (token) ->
-    localStorage['access_token'] = token if token
-    localStorage['access_token'] || null
-
-  @getToken: ->
-    token = document.location.hash.match(/access_token=(\w+)/)?[1]
-    @saveToken token
-
-  @logout: ->
-    console.log('url', Config.oauthEndpoint.replace('/oauth/', '/accounts/signout'));
+  @deleteToken: ->
     @token = null
     delete localStorage['access_token']
+    @setupAjax()
+
+  @saveToken: (token) ->
+    if token
+      @token = localStorage['access_token'] = token
+      @setupAjax()
+    else
+      return null
+
+  @loadToken: ->
+    token = document.location.hash.match(/access_token=(\w+)/)?[1]
+    token = localStorage['access_token'] if localStorage['access_token']
+    @saveToken token
+
+  @getToken: ->
+    @token
+
+  @logout: ->
+    @deleteToken()
     window.location.reload()
     if forge?
       forge.tabs.openWithOptions
@@ -59,31 +70,28 @@ class Authorization extends Spine.Module
         pattern: Config.oauthEndpoint.replace('/oauth/','/')
         title: 'Connect with GMail'
         (data) =>
-          @token = null
-          delete localStorage['access_token']
+          @deleteToken()
           window.location.reload()
     else
-      @token = null
-      delete localStorage['access_token']
+      @deleteToken()
       window.location.reload()
 
-  @login: =>
+  @connectGmail: =>
     if Config.env=='ios'
       forge.tabs.openWithOptions
         url: @::oauthEndPoint
         pattern: 'boorgle://*'
         title: 'Connect with GMail'
         (data) =>
-          @token = data.url.match(/access_token=(\w+)/)?[1]
-          @saveToken @token
+          @saveToken data.url.match(/access_token=(\w+)/)?[1]
           window.location.reload()
     else
       window.location = @::oauthEndPoint
 
   @promptLogin: ->
-    delete localStorage['access_token']
+    @deleteToken()
     @alert "Invalid login. Please sign in again"
-    @login()
+    Spine.Route.navigate '/please_login'
 
   @is_loggedin: ->
     !!@token

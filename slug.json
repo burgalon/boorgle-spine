@@ -12,5 +12,7 @@
     "spine/lib/list",
     "spine.mobile"
   ],
-  "libs": []
+  "libs": [
+    "lib/base64.js"
+  ]
 }

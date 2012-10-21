@@ -10,8 +10,90 @@ FoundFriend = require('models/found_friend')
 Friend = require('models/friend')
 
 # Controllers
-PleaseLogin = require('controllers/please_login')
 UsersShow = require('controllers/users_show')
+
+class About extends BasePanel
+  title: 'About'
+  tab: 'account'
+  className: 'about'
+
+  constructor: ->
+    super
+    @addButton('Back', -> @navigate '/please_login', trans: 'left')
+    @render()
+
+  render: =>
+    @html require('views/users/about')
+
+class Login extends BasePanel
+  title: 'Log In'
+  tab: 'account'
+
+  elements:
+    'form': 'form'
+
+  events:
+    'submit form': 'submit'
+    'change input': 'checkValidity'
+    'keyup input': 'checkValidity'
+    'tap .forgot-password': 'forgotPassword'
+
+  className: 'users editView login'
+
+  constructor: ->
+    super
+
+    @addButton('Cancel', -> @navigate '/please_login', trans: 'left')
+    @doneButton = @addButton('Log In', @submit).addClass('right blue')
+
+    @render()
+
+  render: =>
+    @html require('views/users/login')
+    @checkValidity()
+
+  submit: (e) ->
+    #    return @log 'UserEditForm.submit - invalid form' if @doneButton.attr('disabled')
+    e.preventDefault()
+    basic_auth = @form.serializeArray().map((el) -> el.value)
+    @log 'basic_auth', basic_auth
+    basic_auth = basic_auth.join ':'
+    @log 'basic_auth', basic_auth
+    basic_auth = Base64.encode basic_auth
+    @log 'basic_auth', basic_auth
+    Authorization.ajax(
+      data: "commit=true&client_id=#{Config.clientId}&response_type=token&redirect_uri=#{Config.oauthRedirectUri}",
+      headers: {"Authorization": "Basic #{basic_auth}"}
+      url: Config.oauthEndpoint + 'authorize.json',
+      type: 'POST',
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+    ).done( (data) =>
+      Authorization.saveToken(data.access_token)
+      FoundFriend.fetch()
+      MyUser.fetch()
+      Friend.fetch()
+      $('body').removeClass('loggedout')
+      @navigate '/found_friends'
+    ).fail ( (xhr) =>
+      if xhr.status is 401
+        msg = "Could not find email or password is incorrect"
+      else
+        msg = "Network Error: #{xhr.statusText} (#{xhr.status}). #{xhr.responseText}"
+      Spine.trigger 'notify', msg: msg
+    )
+
+  checkValidity: ->
+    if @form[0].checkValidity()
+      @doneButton.removeClass 'disabled'
+    else
+      @doneButton.addClass 'disabled'
+
+  deactivate: ->
+    super
+    @form.blur()
+
+  forgotPassword: ->
+    window.open Config.host.replace('/api/v1', '') + '/accounts/password/new'
 
 class UserEditForm extends BasePanel
   title: 'Info'
@@ -22,39 +104,55 @@ class UserEditForm extends BasePanel
 
   events:
     'submit form': 'submit'
+    'change input': 'checkValidity'
+    'keyup input': 'checkValidity'
 
   className: 'users editView'
 
   constructor: ->
     super
-
+    @item = new MyUser()
     MyUser.bind('refresh change', @change)
 
     @addButton('Cancel', @back)
-    @addButton('Done', @submit).addClass('right blue')
+    @doneButton = @addButton('Done', @submit).addClass('right blue')
 
-    @active @render
+    @render()
 
   render: =>
-    if @item
-      @html require('views/users/form')(@item)
-    else
-      @html require('views/users/please_login')()
+    @html require('views/users/form')(@item)
+    @checkValidity()
 
   submit: (e) ->
     e.preventDefault()
     Authorization.ajax(
-      data: @form.serialize(),
+      data: @form.serialize() + "&client_id=#{Config.clientId}&response_type=token&redirect_uri=#{Config.oauthRedirectUri}",
       url: MyUser.url(),
-      type: 'PUT',
+      type: if @item.isNew() then 'POST' else 'PUT',
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     ).done( (data) =>
-      MyUser.refresh(data)
+      # Implies signup
+      if data.access_token
+        Authorization.saveToken(data.access_token)
+        MyUser.refresh(data.user)
+        $('body').removeClass('loggedout')
+        @navigate '/found_friends'
+      else
+        @navigate '/user/edit/show'
+    ).fail ( (data) =>
     )
-    @navigate('/user/edit/show', trans: 'left')
+
+  checkValidity: ->
+    if @form[0].checkValidity()
+      @doneButton.removeClass 'disabled'
+    else
+      @doneButton.addClass 'disabled'
 
   back: ->
-    @navigate('/user/edit/show', trans: 'left')
+    if @item.id
+      @navigate('/user/edit/show', trans: 'left')
+    else
+      @navigate('/please_login', trans: 'left')
 
   deactivate: ->
     super
@@ -107,6 +205,7 @@ class MyUserShow extends UsersShow
     @navigate('/user/edit', trans: 'right')
 
   logout: ->
+    @navigate '/please_login'
     Authorization.logout()
 
   change: (params) =>
@@ -116,15 +215,15 @@ class UserEdit extends Spine.Controller
   constructor: ->
     super
 
-    if Authorization.is_loggedin()
-      @form = new UserEditForm
-      @show = new MyUserShow
-    else
-      @form = new PleaseLogin('Info', 'account')
-      @show = new PleaseLogin('Info', 'account')
+    @form = new UserEditForm
+    @show = new MyUserShow
+    @login = new Login
+    @about = new About
 
     @routes
       '/user/edit/show': (params) -> @show.active(params)
       '/user/edit': (params) -> @form.active(params)
+      '/user/login': (params) -> @login.active(params)
+      '/about': (params) -> @about.active(params)
 
 module.exports = UserEdit

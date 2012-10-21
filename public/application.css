@@ -72,6 +72,7 @@ body.stage > article {
   bottom: 49px;
 }
 body.stage > footer {
+  background-color: #000;
   background: -webkit-linear-gradient(top, #1c1c1c 0%, #1c1c1c 2%, #575757 2%, #303030 5%, #141414 51%, #000 51%, #000 100%);
 }
 body.stage > footer {
@@ -100,6 +101,7 @@ body.stage > footer .nav-item .icon {
   -webkit-mask-image: url("images/tabbar-icons.png");
   -webkit-mask-size: 90px 30px;
   -webkit-mask-repeat: no-repeat;
+  background-color: #fff;
   background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.4) 75%);
 }
 body.stage > footer .nav-item .icon.explore {
@@ -117,6 +119,12 @@ body.stage > footer .active.nav-item {
 }
 body.stage > footer .active.nav-item .icon {
   background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
+}
+body.stage.loggedout footer {
+  display: none !important;
+}
+body.stage.loggedout >article {
+  bottom: 0;
 }
 .panel > header {
   height: 42px;
@@ -243,6 +251,10 @@ body.stage > footer .active.nav-item .icon {
   box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(0.33, #000), color-stop(0.5, transparent), to(transparent));
 }
+.button.disabled {
+  color: c7ccd3;
+  background-color: #4a6c9b;
+}
 .list .item {
   padding: 0 15px;
   height: 50px;
@@ -281,6 +293,7 @@ label span::after {
 }
 select,
 input[type=text],
+input[type=password],
 input[type=tel],
 input[type=email],
 input[type=url],
@@ -321,15 +334,11 @@ input[type=date] {
   top: auto;
   right: 0;
   left: 0;
-  bottom: -45px;
-  display: block !important;
+  bottom: 0;
   -webkit-transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   transition: all 0.2s linear;
-}
-.notifications.on {
-  bottom: 0;
 }
 @-moz-keyframes move {
   0% {
@@ -571,40 +580,40 @@ input[type=date] {
   width: 100%;
   background: #fff;
 }
-.please_login > article {
+.about > article {
   background: #e1e1e1;
   color: #404040;
   text-shadow: 0 1px #fff;
 }
-.please_login > article h3 {
+.about > article h3 {
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
   margin-top: 0;
 }
-.please_login > article strong {
+.about > article strong {
   color: #08777a;
 }
-.please_login > article > div {
+.about > article > div {
   padding: 20px 30px;
 }
-.please_login > article .connect {
+.about > article .connect {
   text-align: center;
   background-image: url("images/connect-bg.jpg");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 100% 334px !important;
-  height: 236px;
+  height: 273px;
   border-bottom: 4px solid #0b8886;
   padding-top: 25px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article .connect {
+  .about > article .connect {
     background-image: url("images/connect-bg@2x.jpg");
     background-size: auto auto;
   }
 }
-.please_login > article .connect h1 {
+.about > article .connect h1 {
   background: transparent;
   background-image: url("images/logo.png");
   background-repeat: no-repeat;
@@ -614,12 +623,12 @@ input[type=date] {
   text-indent: -9999px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article .connect h1 {
+  .about > article .connect h1 {
     background-image: url("images/logo@2x.png");
     background-size: 163px 78px;
   }
 }
-.please_login > article .connect h2 {
+.about > article .connect h2 {
   color: #fff;
   font-weight: lighter;
   text-shadow: 0px 1px 3px #020202;
@@ -627,7 +636,7 @@ input[type=date] {
   margin-bottom: 30px;
   margin-top: 5px;
 }
-.please_login > article .connect .desc {
+.about > article .connect .desc {
   color: #001b1c;
   text-shadow: 0px 1px 2px #568b92;
   font-weight: normal;
@@ -635,7 +644,15 @@ input[type=date] {
   margin: 10px auto 0 auto;
   width: 200px;
 }
-.please_login > article .connect .login-button {
+.about > article .connect .signup,
+.about > article .connect .signin {
+  display: block;
+  width: 238px;
+  height: 46px;
+  border: none;
+  margin: 10px auto;
+}
+.about > article .connect .login-button {
   background: transparent;
   background-image: url("images/login-button.png");
   background-repeat: no-repeat;
@@ -645,20 +662,20 @@ input[type=date] {
   margin: 0 auto;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login > article .connect .login-button {
+  .about > article .connect .login-button {
     background-image: url("images/login-button@2x.png");
     background-size: 238px 94px;
   }
 }
-.please_login > article .connect .login-button:hover,
-.please_login > article .connect .login-button:active {
+.about > article .connect .login-button:hover,
+.about > article .connect .login-button:active {
   background-position: 0 -47px;
 }
-.please_login > article .connect .login-button span {
+.about > article .connect .login-button span {
   display: none;
 }
-.please_login .arrowdown,
-.please_login .arrowup {
+.about .arrowdown,
+.about .arrowup {
   width: 21px;
   height: 20px;
   background-image: url("images/arrowdown.png");
@@ -666,40 +683,40 @@ input[type=date] {
   margin: 0 auto;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .arrowdown,
-  .please_login .arrowup {
+  .about .arrowdown,
+  .about .arrowup {
     background-image: url("images/arrowdown@2x.png");
     background-size: 21px 20px;
   }
 }
-.please_login .arrowup {
+.about .arrowup {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.please_login .what-is .arrowdown {
+.about .what-is .arrowdown {
   margin-bottom: 20px;
 }
-.please_login .how-works {
+.about .how-works {
   background: #cac8c8;
 }
-.please_login .how-works ul {
+.about .how-works ul {
   list-style: none;
   padding: 0;
 }
-.please_login .how-works li {
+.about .how-works li {
   padding: 5px 0;
   position: relative;
 }
-.please_login .secure .lock-wrapper {
+.about .secure .lock-wrapper {
   margin-top: 20px;
 }
-.please_login .start {
+.about .start {
   background: #cac8c8;
 }
-.please_login .icon {
+.about .icon {
   width: 17px;
   height: 17px;
   display: inline-block;
@@ -708,56 +725,135 @@ input[type=date] {
   position: relative;
   top: 2px;
 }
-.please_login .icon-at {
+.about .icon-at {
   background-image: url("images/icon-at.png");
   background-repeat: no-repeat;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .icon-at {
+  .about .icon-at {
     background-image: url("images/icon-at@2x.png");
     background-size: 14px 14px;
   }
 }
-.please_login .icon-gmail {
+.about .icon-gmail {
   background-image: url("images/icon-gmail.png");
   background-repeat: no-repeat;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .icon-gmail {
+  .about .icon-gmail {
     background-image: url("images/icon-gmail@2x.png");
     background-size: 14px 14px;
   }
 }
-.please_login .icon-lock {
+.about .icon-lock {
   background-image: url("images/icon-lock.png");
   background-repeat: no-repeat;
   float: left;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .icon-lock {
+  .about .icon-lock {
     background-image: url("images/icon-lock@2x.png");
     background-size: 13px 15px;
   }
 }
-.please_login .icon-near {
+.about .icon-near {
   background-image: url("images/icon-near.png");
   background-repeat: no-repeat;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .icon-near {
+  .about .icon-near {
     background-image: url("images/icon-near@2x.png");
     background-size: 11px 15px;
   }
 }
-.please_login .icon-recently {
+.about .icon-recently {
   background-image: url("images/icon-recently.png");
   background-repeat: no-repeat;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .please_login .icon-recently {
+  .about .icon-recently {
     background-image: url("images/icon-recently@2x.png");
     background-size: 17px 15px;
   }
+}
+.login .forgot-password {
+  text-align: center;
+  font-size: 12px;
+}
+.please_login header {
+  display: none !important;
+}
+.please_login > article {
+  color: #404040;
+  text-shadow: 0 1px #fff;
+  text-align: center;
+  background-image: url("images/connect-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 100% auto !important;
+  border-bottom: 4px solid #0b8886;
+  padding-top: 25px;
+  text-transform: uppercase;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article {
+    background-image: url("images/connect-bg@2x.jpg");
+    background-size: auto auto;
+  }
+}
+.please_login > article h1 {
+  background: transparent;
+  background-image: url("images/logo.png");
+  background-repeat: no-repeat;
+  width: 163px;
+  height: 78px;
+  margin: 0px auto;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article h1 {
+    background-image: url("images/logo@2x.png");
+    background-size: 163px 78px;
+  }
+}
+.please_login > article h2 {
+  color: #fff;
+  font-weight: lighter;
+  text-shadow: 0px 1px 3px #020202;
+  font-size: 15px;
+  margin: 30px 0 10px 0;
+}
+.please_login > article .signup,
+.please_login > article .login {
+  width: 238px;
+  height: 46px;
+  margin: 0;
+}
+.please_login > article .login {
+  background-color: #dcdfe0;
+  color: #8a9397;
+  text-shadow: 0 1px 0 #fff;
+}
+.please_login > article .gmail {
+  background: transparent;
+  background-image: url("images/login-button.png");
+  background-repeat: no-repeat;
+  width: 238px;
+  height: 46px;
+  border: none;
+  margin: 0 auto;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .gmail {
+    background-image: url("images/login-button@2x.png");
+    background-size: 238px 94px;
+  }
+}
+.please_login > article .gmail:hover,
+.please_login > article .gmail:active {
+  background-position: 0 -47px;
+}
+.please_login > article .gmail span {
+  display: none;
 }
 .friends_list.empty > article {
   background: #e1e1e1;

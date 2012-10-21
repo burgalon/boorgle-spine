@@ -1,0 +1,19 @@
+<form>
+  <div class="list-group">
+    <div class="list-item">
+      <div class="list-label">email</div>
+      <div class="list-data"><input placeholder="email" type="email" name="user[email]" value="<%= @email %>" required="required" pattern=".+@.+\..+"></div>
+    </div>
+  </div>
+
+  <div class="list-group">
+    <div class="list-item">
+      <div class="list-label">password</div>
+      <div class="list-data"><input placeholder="password (at least 6 characters)" type="password" name="user[password]" value="<%= @email %>" required="required" pattern=".{6,}"></div>
+    </div>
+  </div>
+
+  <div class="list-group forgot-password">
+      Forgot your password?
+  </div>
+</form>
