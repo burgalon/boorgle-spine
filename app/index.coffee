@@ -23,6 +23,7 @@ Spine.Model.host = Config.host
 Spine.Ajax.defaults.headers['X-Version'] = Config.version
 
 if Config.env=='ios'
+  # This monkey-patch is necessary for Android 2.2 where COR is having problems with Authorization headers
   $.ajax = (options) ->
     # console.log 'forge ajax', options
     dfd = jQuery.Deferred()
@@ -31,8 +32,13 @@ if Config.env=='ios'
       dfd.resolve data
 
     options.error = (error) ->
-      # console.log "forge ajax reject", error
-      dfd.reject error
+      console.log "forge ajax reject", error
+      error.responseText = error.content
+      error.statusText = error.message
+      error.status = parseInt(error.statusCode)
+      # arguments: event, xhr, ajaxSettings, thrownError
+      dfd.reject event, error
+      $(document).trigger 'ajaxError', error
 
     forge.ajax options
     dfd.promise()
