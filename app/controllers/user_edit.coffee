@@ -56,11 +56,8 @@ class Login extends BasePanel
     #    return @log 'UserEditForm.submit - invalid form' if @doneButton.attr('disabled')
     e.preventDefault()
     basic_auth = @form.serializeArray().map((el) -> el.value)
-    @log 'basic_auth', basic_auth
     basic_auth = basic_auth.join ':'
-    @log 'basic_auth', basic_auth
     basic_auth = Base64.encode basic_auth
-    @log 'basic_auth', basic_auth
     Authorization.ajax(
       data: "commit=true&client_id=#{Config.clientId}&response_type=token&redirect_uri=#{Config.oauthRedirectUri}",
       headers: {"Authorization": "Basic #{basic_auth}"}
