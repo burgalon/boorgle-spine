@@ -1,2 +1,3 @@
 #!/bin/sh
-hem build && cp public/application.css src/application.css && cp public/application.js src/application.js && $HOME/Library/Trigger\ Toolkit/forge build $1 && $HOME/Library/Trigger\ Toolkit/forge run $1
+env=${1:-ios}
+hem build && cp public/application.css src/application.css && cp public/application.js src/application.js && $HOME/Library/Trigger\ Toolkit/forge build $env && $HOME/Library/Trigger\ Toolkit/forge run $env
