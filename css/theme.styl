@@ -47,42 +47,37 @@ body.stage
         width: 30px
         height: 30px
         margin: 0 auto
-        //background: red
-        -webkit-mask-image: url(images/tabbar-icons.png)
-        -webkit-mask-size: 90px 30px
-        -webkit-mask-repeat: no-repeat
-        //background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.296875) 25%, rgba(255, 255, 255, 0) 75%)
-        background-color: white
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, .4) 75%)
-        //background: white
+        background: url(images/tabbar-icons.png)
+        background-size: 90px 60px
 
         &.explore
-          -webkit-mask-position: 0 0 !important
+          background-position: 0 0 !important
 
         &.contacts
-          -webkit-mask-position: -30px 0 !important
+          background-position: -30px 0 !important
 
         &.account
-          -webkit-mask-position: -60px 0 !important
+          background-position: -60px 0 !important
 
     .active.nav-item
       color: #FFF
       background: rgba(255,255,255,0.13)
 
       .icon
-        background-image: -webkit-linear-gradient(276deg, white 0%, #7DB9EE 52%, rgba(125, 185, 238, 0) 52%), -webkit-linear-gradient(top, #0429E4 0%, #40CEFB 100%)
+        &.explore
+          background-position: 0 30px !important
+
+        &.contacts
+          background-position: -30px 30px !important
+
+        &.account
+          background-position: -60px 30px !important
 
 body.stage.loggedout
   footer
     display: none !important
   >article
     bottom: 0
-
-tabbar-image($image, $size= 30px 30px, $position= 50% 0%)
-  .icon
-    -webkit-mask-image: image-url($image)
-    -webkit-mask-size: $size
-    -webkit-mask-position: $position
 
 .panel
   > header
