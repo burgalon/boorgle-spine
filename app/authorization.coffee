@@ -22,13 +22,13 @@ class Authorization extends Spine.Module
             strings.push key + ": " + value.join(', ')
           @alert strings.join ". "
         catch error
-          @alert "Network Error: #{xhr.statusText}. #{xhr.responseText}"
+          @alert "Network Error (1): #{xhr.statusText}. #{xhr.responseText}"
       else
         try
           errorData = JSON.parse(xhr.responseText)
-          @alert "Network Error: #{xhr.statusText}. #{errorData.message}"
+          @alert "Network Error (2): #{xhr.statusText}. #{errorData.message}"
         catch error
-          @alert "Network Error: #{xhr.statusText}. #{xhr.responseText}"
+          @alert "Network Error (3): #{xhr.statusText}. #{xhr.responseText}"
 
     @loadToken()
 
