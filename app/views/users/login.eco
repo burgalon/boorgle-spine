@@ -9,7 +9,7 @@
   <div class="list-group">
     <div class="list-item">
       <div class="list-label">password</div>
-      <div class="list-data"><input placeholder="at least 6 characters" type="password" name="user[password]" value="<%= @email %>" required="required" pattern=".{6,}"></div>
+      <div class="list-data"><input placeholder="at least 6 characters" class="password" type="password" name="user[password]" value="<%= @email %>" required="required" pattern=".{6,}"></div>
     </div>
   </div>
 

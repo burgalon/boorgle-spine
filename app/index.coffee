@@ -37,7 +37,7 @@ if Config.env=='ios'
       error.statusText = error.message
       error.status = parseInt(error.statusCode)
       # arguments: event, xhr, ajaxSettings, thrownError
-      dfd.reject event, error
+      dfd.reject error
       $(document).trigger 'ajaxError', error
 
     forge.ajax options

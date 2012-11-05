@@ -8,7 +8,6 @@ class PleaseLogin extends BasePanel
     'tap .gmail': 'gmailButton'
     'tap .signup': 'signupButton'
     'tap .login': 'loginButton'
-    'tap h1': 'about'
 
   constructor: ->
     super
@@ -19,9 +18,6 @@ class PleaseLogin extends BasePanel
 
   gmailButton: ->
     Authorization.connectGmail()
-
-  about: ->
-    @navigate '/about', trans: 'right'
 
   signupButton: ->
     @navigate '/user/edit', trans: 'right'

@@ -12,25 +12,13 @@ Friend = require('models/friend')
 # Controllers
 UsersShow = require('controllers/users_show')
 
-class About extends BasePanel
-  title: 'About'
-  tab: 'account'
-  className: 'about'
-
-  constructor: ->
-    super
-    @addButton('Back', -> @navigate '/please_login', trans: 'left')
-    @render()
-
-  render: =>
-    @html require('views/users/about')
-
 class Login extends BasePanel
   title: 'Log In'
   tab: 'account'
 
   elements:
     'form': 'form'
+    '.password': 'password'
 
   events:
     'submit form': 'submit'
@@ -55,6 +43,8 @@ class Login extends BasePanel
   submit: (e) ->
     #    return @log 'UserEditForm.submit - invalid form' if @doneButton.attr('disabled')
     e.preventDefault()
+    return @alert 'Please fill form' unless @form[0].checkValidity()
+
     basic_auth = @form.serializeArray().map((el) -> el.value)
     basic_auth = basic_auth.join ':'
     basic_auth = Base64.encode basic_auth
@@ -72,12 +62,17 @@ class Login extends BasePanel
       $('body').removeClass('loggedout')
       @navigate '/found_friends'
     ).fail ( (xhr) =>
+      @log 'login fail', arguments
       if xhr.status is 401
-        msg = "Password incorrect"
+        msg = "Could not find user/password"
       else
         msg = "Network Error: #{xhr.statusText} (#{xhr.status}). #{xhr.responseText}"
-      Spine.trigger 'notify', msg: msg
+      @alert msg
     )
+
+  alert: (msg) ->
+    @hideKeyboard()
+    Spine.trigger 'notify', msg: msg
 
   checkValidity: ->
     if @form[0].checkValidity()
@@ -207,12 +202,10 @@ class UserEdit extends Spine.Controller
     @form = new UserEditForm
     @show = new MyUserShow
     @login = new Login
-    @about = new About
 
     @routes
       '/user/edit/show': (params) -> @show.active(params)
       '/user/edit': (params) -> @form.active(params)
       '/user/login': (params) -> @login.active(params)
-      '/about': (params) -> @about.active(params)
 
 module.exports = UserEdit
