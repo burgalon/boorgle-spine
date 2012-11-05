@@ -71,7 +71,7 @@ class Login extends BasePanel
       Friend.fetch()
       $('body').removeClass('loggedout')
       @navigate '/found_friends'
-    ).fail ( (event, xhr) =>
+    ).fail ( (xhr) =>
       if xhr.status is 401
         msg = "Password incorrect"
       else
