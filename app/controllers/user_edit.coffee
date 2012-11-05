@@ -85,10 +85,6 @@ class Login extends BasePanel
     else
       @doneButton.addClass 'disabled'
 
-  deactivate: ->
-    super
-    @form.blur()
-
   forgotPassword: ->
     window.open Config.host.replace('/api/v1', '') + '/accounts/password/new'
 
@@ -150,10 +146,6 @@ class UserEditForm extends BasePanel
       @navigate('/user/edit/show', trans: 'left')
     else
       @navigate('/please_login', trans: 'left')
-
-  deactivate: ->
-    super
-    @form.blur()
 
   change: =>
     @item = MyUser.first()

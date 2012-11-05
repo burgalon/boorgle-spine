@@ -8,4 +8,11 @@ class BasePanel extends Panel
   addButton: (text, callback) ->
     super.addClass('button')
 
+  activate: ->
+    # Hide keyboard if was open
+    document.activeElement.blur();
+    $("input").blur();
+    super
+
+
 module.exports = BasePanel
