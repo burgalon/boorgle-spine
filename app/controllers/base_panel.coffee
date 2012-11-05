@@ -2,6 +2,7 @@
 
 class BasePanel extends Panel
   activate: ->
+    @hideKeyboard()
     super
     Spine.trigger 'activateTab', @tab
 
@@ -11,10 +12,5 @@ class BasePanel extends Panel
   hideKeyboard: ->
     document.activeElement.blur();
     $("input").blur();
-
-  activate: ->
-    @hideKeyboard()
-    super
-
 
 module.exports = BasePanel
