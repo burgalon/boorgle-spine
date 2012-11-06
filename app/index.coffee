@@ -29,6 +29,7 @@ if Config.env=='ios'
     dfd = jQuery.Deferred()
     options.success = (data) ->
       # console.log "forge ajax resolve", data
+      $(document).trigger 'ajaxStop', [null, options]
       dfd.resolve data
 
     options.error = (error) ->
@@ -36,10 +37,14 @@ if Config.env=='ios'
       error.responseText = error.content
       error.statusText = error.message
       error.status = parseInt(error.statusCode)
+
+      $(document).trigger 'ajaxStop', [null, options]
+
       # arguments: event, xhr, ajaxSettings, thrownError
       dfd.reject error
       $(document).trigger 'ajaxError', error
 
+    $(document).trigger 'ajaxSend', [null, options]
     forge.ajax options
     dfd.promise()
 
@@ -111,7 +116,7 @@ class App extends Stage.Global
 
   setupAJAX: ->
     el = $('<div id="loading"></div>').prependTo($('body')).hide()
-    el.ajaxSend( (e, xhr, options) ->
+    $(document).ajaxSend( (e, xhr, options) ->
       return unless options.url.match(Spine.Model.host)
       el.show()
     ).ajaxStop( =>
