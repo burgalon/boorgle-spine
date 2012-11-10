@@ -98,27 +98,30 @@ body.stage > footer .nav-item .icon {
   width: 30px;
   height: 30px;
   margin: 0 auto;
-  -webkit-mask-image: url("images/tabbar-icons.png");
-  -webkit-mask-size: 90px 30px;
-  -webkit-mask-repeat: no-repeat;
-  background-color: #fff;
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.4) 75%);
+  background: url("images/tabbar-icons.png");
+  background-size: 90px 60px;
 }
 body.stage > footer .nav-item .icon.explore {
-  -webkit-mask-position: 0 0 !important;
+  background-position: 0 0 !important;
 }
 body.stage > footer .nav-item .icon.contacts {
-  -webkit-mask-position: -30px 0 !important;
+  background-position: -30px 0 !important;
 }
 body.stage > footer .nav-item .icon.account {
-  -webkit-mask-position: -60px 0 !important;
+  background-position: -60px 0 !important;
 }
 body.stage > footer .active.nav-item {
   color: #fff;
   background: rgba(255,255,255,0.13);
 }
-body.stage > footer .active.nav-item .icon {
-  background-image: -webkit-linear-gradient(276deg, #fff 0%, #7db9ee 52%, rgba(125,185,238,0) 52%), -webkit-linear-gradient(top, #0429e4 0%, #40cefb 100%);
+body.stage > footer .active.nav-item .icon.explore {
+  background-position: 0 30px !important;
+}
+body.stage > footer .active.nav-item .icon.contacts {
+  background-position: -30px 30px !important;
+}
+body.stage > footer .active.nav-item .icon.account {
+  background-position: -60px 30px !important;
 }
 body.stage.loggedout footer {
   display: none !important;
@@ -580,202 +583,6 @@ input[type=date] {
   width: 100%;
   background: #fff;
 }
-.about > article {
-  background: #e1e1e1;
-  color: #404040;
-  text-shadow: 0 1px #fff;
-}
-.about > article h3 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-top: 0;
-}
-.about > article strong {
-  color: #08777a;
-}
-.about > article > div {
-  padding: 20px 30px;
-}
-.about > article .connect {
-  text-align: center;
-  background-image: url("images/connect-bg.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: 100% 334px !important;
-  height: 273px;
-  border-bottom: 4px solid #0b8886;
-  padding-top: 25px;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about > article .connect {
-    background-image: url("images/connect-bg@2x.jpg");
-    background-size: auto auto;
-  }
-}
-.about > article .connect h1 {
-  background: transparent;
-  background-image: url("images/logo.png");
-  background-repeat: no-repeat;
-  width: 163px;
-  height: 78px;
-  margin: 0px auto;
-  text-indent: -9999px;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about > article .connect h1 {
-    background-image: url("images/logo@2x.png");
-    background-size: 163px 78px;
-  }
-}
-.about > article .connect h2 {
-  color: #fff;
-  font-weight: lighter;
-  text-shadow: 0px 1px 3px #020202;
-  font-size: 15px;
-  margin-bottom: 30px;
-  margin-top: 5px;
-}
-.about > article .connect .desc {
-  color: #001b1c;
-  text-shadow: 0px 1px 2px #568b92;
-  font-weight: normal;
-  font-size: 12px;
-  margin: 10px auto 0 auto;
-  width: 200px;
-}
-.about > article .connect .signup,
-.about > article .connect .signin {
-  display: block;
-  width: 238px;
-  height: 46px;
-  border: none;
-  margin: 10px auto;
-}
-.about > article .connect .login-button {
-  background: transparent;
-  background-image: url("images/login-button.png");
-  background-repeat: no-repeat;
-  width: 238px;
-  height: 46px;
-  border: none;
-  margin: 0 auto;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about > article .connect .login-button {
-    background-image: url("images/login-button@2x.png");
-    background-size: 238px 94px;
-  }
-}
-.about > article .connect .login-button:hover,
-.about > article .connect .login-button:active {
-  background-position: 0 -47px;
-}
-.about > article .connect .login-button span {
-  display: none;
-}
-.about .arrowdown,
-.about .arrowup {
-  width: 21px;
-  height: 20px;
-  background-image: url("images/arrowdown.png");
-  background-repeat: no-repeat;
-  margin: 0 auto;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .arrowdown,
-  .about .arrowup {
-    background-image: url("images/arrowdown@2x.png");
-    background-size: 21px 20px;
-  }
-}
-.about .arrowup {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-.about .what-is .arrowdown {
-  margin-bottom: 20px;
-}
-.about .how-works {
-  background: #cac8c8;
-}
-.about .how-works ul {
-  list-style: none;
-  padding: 0;
-}
-.about .how-works li {
-  padding: 5px 0;
-  position: relative;
-}
-.about .secure .lock-wrapper {
-  margin-top: 20px;
-}
-.about .start {
-  background: #cac8c8;
-}
-.about .icon {
-  width: 17px;
-  height: 17px;
-  display: inline-block;
-  background-position: center;
-  margin-right: 10px;
-  position: relative;
-  top: 2px;
-}
-.about .icon-at {
-  background-image: url("images/icon-at.png");
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .icon-at {
-    background-image: url("images/icon-at@2x.png");
-    background-size: 14px 14px;
-  }
-}
-.about .icon-gmail {
-  background-image: url("images/icon-gmail.png");
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .icon-gmail {
-    background-image: url("images/icon-gmail@2x.png");
-    background-size: 14px 14px;
-  }
-}
-.about .icon-lock {
-  background-image: url("images/icon-lock.png");
-  background-repeat: no-repeat;
-  float: left;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .icon-lock {
-    background-image: url("images/icon-lock@2x.png");
-    background-size: 13px 15px;
-  }
-}
-.about .icon-near {
-  background-image: url("images/icon-near.png");
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .icon-near {
-    background-image: url("images/icon-near@2x.png");
-    background-size: 11px 15px;
-  }
-}
-.about .icon-recently {
-  background-image: url("images/icon-recently.png");
-  background-repeat: no-repeat;
-}
-@media all and (-webkit-min-device-pixel-ratio: 1.5) {
-  .about .icon-recently {
-    background-image: url("images/icon-recently@2x.png");
-    background-size: 17px 15px;
-  }
-}
 .login .forgot-password {
   text-align: center;
   font-size: 12px;
@@ -790,10 +597,9 @@ input[type=date] {
   background-image: url("images/connect-bg.jpg");
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-size: 100% auto !important;
+  background-size: 100% 100% !important;
   border-bottom: 4px solid #0b8886;
-  padding-top: 25px;
-  text-transform: uppercase;
+  padding-top: 18px;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
   .please_login > article {
@@ -816,11 +622,12 @@ input[type=date] {
   }
 }
 .please_login > article h2 {
-  color: #fff;
+  color: #cdc;
   font-weight: lighter;
   text-shadow: 0px 1px 3px #020202;
-  font-size: 15px;
-  margin: 30px 0 10px 0;
+  font-size: 13px;
+  margin: 15px 0 10px 0;
+  text-transform: uppercase;
 }
 .please_login > article .signup,
 .please_login > article .login {
@@ -832,6 +639,7 @@ input[type=date] {
   background-color: #dcdfe0;
   color: #8a9397;
   text-shadow: 0 1px 0 #fff;
+  margin-bottom: 10px;
 }
 .please_login > article .gmail {
   background: transparent;
@@ -854,6 +662,202 @@ input[type=date] {
 }
 .please_login > article .gmail span {
   display: none;
+}
+.please_login > article .about {
+  background: #e1e1e1;
+  color: #404040;
+  text-shadow: 0 1px #fff;
+}
+.please_login > article .about h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 0;
+}
+.please_login > article .about strong {
+  color: #08777a;
+}
+.please_login > article .about > div {
+  padding: 20px 30px;
+}
+.please_login > article .about .connect {
+  text-align: center;
+  background-image: url("images/connect-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 100% 334px !important;
+  height: 273px;
+  border-bottom: 4px solid #0b8886;
+  padding-top: 25px;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .about .connect {
+    background-image: url("images/connect-bg@2x.jpg");
+    background-size: auto auto;
+  }
+}
+.please_login > article .about .connect h1 {
+  background: transparent;
+  background-image: url("images/logo.png");
+  background-repeat: no-repeat;
+  width: 163px;
+  height: 78px;
+  margin: 0px auto;
+  text-indent: -9999px;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .about .connect h1 {
+    background-image: url("images/logo@2x.png");
+    background-size: 163px 78px;
+  }
+}
+.please_login > article .about .connect h2 {
+  color: #fff;
+  font-weight: lighter;
+  text-shadow: 0px 1px 3px #020202;
+  font-size: 15px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+.please_login > article .about .connect .desc {
+  color: #001b1c;
+  text-shadow: 0px 1px 2px #568b92;
+  font-weight: normal;
+  font-size: 12px;
+  margin: 10px auto 0 auto;
+  width: 200px;
+}
+.please_login > article .about .connect .signup,
+.please_login > article .about .connect .signin {
+  display: block;
+  width: 238px;
+  height: 46px;
+  border: none;
+  margin: 10px auto;
+}
+.please_login > article .about .connect .login-button {
+  background: transparent;
+  background-image: url("images/login-button.png");
+  background-repeat: no-repeat;
+  width: 238px;
+  height: 46px;
+  border: none;
+  margin: 0 auto;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .about .connect .login-button {
+    background-image: url("images/login-button@2x.png");
+    background-size: 238px 94px;
+  }
+}
+.please_login > article .about .connect .login-button:hover,
+.please_login > article .about .connect .login-button:active {
+  background-position: 0 -47px;
+}
+.please_login > article .about .connect .login-button span {
+  display: none;
+}
+.please_login > article .arrowdown,
+.please_login > article .arrowup {
+  width: 21px;
+  height: 20px;
+  background-image: url("images/arrowdown.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .arrowdown,
+  .please_login > article .arrowup {
+    background-image: url("images/arrowdown@2x.png");
+    background-size: 21px 20px;
+  }
+}
+.please_login > article .arrowup {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.please_login > article .what-is .arrowdown {
+  margin-bottom: 20px;
+}
+.please_login > article .how-works {
+  background: #cac8c8;
+}
+.please_login > article .how-works ul {
+  list-style: none;
+  padding: 0;
+}
+.please_login > article .how-works li {
+  padding: 5px 0;
+  position: relative;
+}
+.please_login > article .secure .lock-wrapper {
+  margin-top: 20px;
+}
+.please_login > article .start {
+  background: #cac8c8;
+}
+.please_login > article .icon {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background-position: center;
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+.please_login > article .icon-at {
+  background-image: url("images/icon-at.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .icon-at {
+    background-image: url("images/icon-at@2x.png");
+    background-size: 14px 14px;
+  }
+}
+.please_login > article .icon-gmail {
+  background-image: url("images/icon-gmail.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .icon-gmail {
+    background-image: url("images/icon-gmail@2x.png");
+    background-size: 14px 14px;
+  }
+}
+.please_login > article .icon-lock {
+  background-image: url("images/icon-lock.png");
+  background-repeat: no-repeat;
+  float: left;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .icon-lock {
+    background-image: url("images/icon-lock@2x.png");
+    background-size: 13px 15px;
+  }
+}
+.please_login > article .icon-near {
+  background-image: url("images/icon-near.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .icon-near {
+    background-image: url("images/icon-near@2x.png");
+    background-size: 11px 15px;
+  }
+}
+.please_login > article .icon-recently {
+  background-image: url("images/icon-recently.png");
+  background-repeat: no-repeat;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+  .please_login > article .icon-recently {
+    background-image: url("images/icon-recently@2x.png");
+    background-size: 17px 15px;
+  }
 }
 .friends_list.empty > article {
   background: #e1e1e1;
@@ -887,18 +891,16 @@ input[type=date] {
   max-width: 210px;
 }
 .friends_list.empty > article .icon {
-  -webkit-mask-image: url("images/tabbar-icons.png");
-  -webkit-mask-size: 90px 30px;
-  -webkit-mask-repeat: no-repeat;
+  background: url("images/tabbar-icons.png");
+  background-size: 90px 60px;
   width: 30px;
   height: 30px;
-  background: #999;
   margin: 30px auto 10px;
   clear: left;
 }
 .friends_list.empty > article .icon.explore {
-  -webkit-mask-position: 0 0 !important;
+  background-position: 0 0 !important;
 }
 .friends_list.empty > article .icon.contacts {
-  -webkit-mask-position: -30px 0 !important;
+  background-position: -30px 0 !important;
 }
