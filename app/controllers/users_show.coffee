@@ -52,11 +52,16 @@ class UsersShow extends BasePanel
       @addButton('Add', @add).addClass('right')
 
   delete: ->
-    Authorization.friendAjax('friends/'+ @item.id, @item.id, type: 'DELETE').done( =>
-              FoundFriend.fetch()
-              Friend.fetch()
-              @navigate '/friends'
-            )
+    # _method: 'DELETE' is a hack because forge.ajax which sends DELETE requests as GET
+    Authorization.friendAjax('friends/'+ @item.id, @item.id,
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+      data: $.param
+        _method: 'DELETE'
+        friend_id: @item.id
+    ).done =>
+      FoundFriend.fetch()
+      Friend.fetch()
+      @navigate '/friends'
 
   # Confirm pending request
   confirm: ->
