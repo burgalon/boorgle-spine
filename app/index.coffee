@@ -24,12 +24,15 @@ Spine.Ajax.defaults.headers['X-Version'] = Config.version
 
 if window.forge
   # This monkey-patch is necessary for Android 2.2 where COR is having problems with Authorization headers
+  ajaxCounter = 0
   $.ajax = (options) ->
     # console.log 'forge ajax', options
     dfd = jQuery.Deferred()
     options.success = (data) ->
       # console.log "forge ajax resolve", data
-      $(document).trigger 'ajaxStop', [null, options]
+      ajaxCounter--
+      unless ajaxCounter
+        $(document).trigger 'ajaxStop', [null, options]
       dfd.resolve data
 
     options.error = (error) ->
@@ -38,13 +41,16 @@ if window.forge
       error.statusText = error.message
       error.status = parseInt(error.statusCode)
 
-      $(document).trigger 'ajaxStop', [null, options]
+      ajaxCounter--
+      unless ajaxCounter
+        $(document).trigger 'ajaxStop', [null, options]
 
       # arguments: event, xhr, ajaxSettings, thrownError
       dfd.reject error
       $(document).trigger 'ajaxError', error
 
     $(document).trigger 'ajaxSend', [null, options]
+    ajaxCounter++
     forge.ajax options
     dfd.promise()
 
@@ -126,12 +132,9 @@ class App extends Stage.Global
     el = $('<div id="loading"></div>').prependTo($('body')).hide()
     counter=0
     $(document).ajaxSend( (e, xhr, options) ->
-      counter++
-      return unless options.url.match(Spine.Model.host)
-      el.show()
+      el.show() if options.url.match(Spine.Model.host)
     ).ajaxStop( =>
-      counter--
-      el.hide() unless counter
+      el.hide()
     )
 
 module.exports = App
