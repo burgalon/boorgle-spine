@@ -84,7 +84,7 @@ class Authorization extends Spine.Module
         title: 'Connect with GMail'
         (data) =>
           @saveToken data.url.match(/access_token=(\w+)/)?[1]
-          window.location.reload()
+          Spine.trigger 'login'
     else
       window.location = @::oauthEndPoint
 

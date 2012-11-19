@@ -22,7 +22,7 @@ Notifications = require('controllers/notifications')
 Spine.Model.host = Config.host
 Spine.Ajax.defaults.headers['X-Version'] = Config.version
 
-if Config.env=='ios'
+if window.forge
   # This monkey-patch is necessary for Android 2.2 where COR is having problems with Authorization headers
   $.ajax = (options) ->
     # console.log 'forge ajax', options
@@ -58,8 +58,11 @@ class App extends Stage.Global
     Authorization.setup()
 
     # Reload data when resumed
-    forge.event.appResumed.addListener(@appResumed) if Config.env=='ios'
+    if window.forge
+      @el.addClass(if forge.is.ios() then 'ios' else 'android')
+      forge.event.appResumed.addListener(@appResumed)
     setTimeout(@fetchData, 500)
+    Spine.bind 'login', @onLogin
 
     # Controllers
     @user_edit = new UserEdit
@@ -109,18 +112,26 @@ class App extends Stage.Global
     button
 
   fetchData: =>
+    return unless Authorization.is_loggedin()
     FoundFriend.fetch()
-    if Authorization.is_loggedin()
-      MyUser.fetch()
-      Friend.fetch()
+    MyUser.fetch()
+    Friend.fetch()
+
+  onLogin: =>
+    @fetchData()
+    $('body').removeClass('loggedout')
+    @navigate '/found_friends'
 
   setupAJAX: ->
     el = $('<div id="loading"></div>').prependTo($('body')).hide()
+    counter=0
     $(document).ajaxSend( (e, xhr, options) ->
+      counter++
       return unless options.url.match(Spine.Model.host)
       el.show()
     ).ajaxStop( =>
-      el.hide()
+      counter--
+      el.hide() unless counter
     )
 
 module.exports = App

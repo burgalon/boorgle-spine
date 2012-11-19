@@ -56,11 +56,7 @@ class Login extends BasePanel
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     ).done( (data) =>
       Authorization.saveToken(data.access_token)
-      FoundFriend.fetch()
-      MyUser.fetch()
-      Friend.fetch()
-      $('body').removeClass('loggedout')
-      @navigate '/found_friends'
+      Spine.trigger 'login'
     ).fail ( (xhr) =>
       @log 'login fail', arguments
       if xhr.status is 401
