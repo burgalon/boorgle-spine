@@ -8,6 +8,11 @@ class UsersList extends BasePanel
   events:
     'tap .invite': 'invite'
     'tap .item': 'click'
+    'touchstart .item': 'touch'
+    'touchend .item': 'touchend'
+    'touchcancel .item': 'touchend'
+    'touchmove .item': 'touchend'
+    'touchleave .item': 'touchend'
 
   title: 'Abstract List'
 
@@ -33,6 +38,12 @@ class UsersList extends BasePanel
 
   saveScroll: (e) ->
     @scrollTop = @panel.scrollTop()
+
+  touch: (e) ->
+    $(e.currentTarget).addClass('active')
+
+  touchend: (e) ->
+    $(e.currentTarget).removeClass('active')
 
   click: (e) ->
     @saveScroll()
