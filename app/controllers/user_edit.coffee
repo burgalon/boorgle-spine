@@ -101,6 +101,8 @@ class UserEditForm extends BasePanel
     @addButton('Cancel', @back)
     @doneButton = @addButton('Done', @submit).addClass('right blue')
 
+    # When activating tab, render the view in order to revert any canceled former editing
+    @active => @render()
     @render()
 
   render: =>
@@ -115,10 +117,10 @@ class UserEditForm extends BasePanel
       type: if @item.isNew() then 'POST' else 'PUT',
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     ).done( (data) =>
+      MyUser.refresh(if data.user then data.user else data)
       # Implies signup
       if data.access_token
         Authorization.saveToken(data.access_token)
-        MyUser.refresh(data.user)
         $('body').removeClass('loggedout')
         @navigate '/found_friends'
       else
