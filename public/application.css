@@ -209,50 +209,13 @@ body.stage.loggedout >article {
 .button.red {
   background-color: #bd1520;
 }
-.button.back {
-  left: 5px;
-/*change the position*/
-  position: absolute;
-  z-index: 0;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-border-top-left-radius: 10px 15px;
-  -webkit-border-bottom-left-radius: 10px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  -moz-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  -webkit-box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  box-shadow: -1px -1px 0px rgba(0,0,0,0.2) inset, 0 1px 2px rgba(0,0,0,0.8) inset;
-  font-size: 11px;
-  display: block;
-  text-align: center;
-  color: #fff;
-  line-height: 30px;
-  -webkit-background-size: 30px;
-}
-.button.back:before {
-  position: absolute;
-  top: 9.9%;
-  left: -5px;
-  -webkit-background-size: 22px 22px;
-  background-position: -2px -1.5px;
-  background-color: #4a6c9b;
-/*change to the same as the main element*/
-  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,0,0)), color-stop(0.5, rgba(0,0,0,0)), color-stop(0.5, rgba(255,255,255,0.1)), to(rgba(255,255,255,0.3)));
-  height: 25px;
-  width: 25px;
-  -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
-  -webkit-border-top-right-radius: 100px 40px;
-  -webkit-border-top-left-radius: 30px 2px;
-  -webkit-border-bottom-right-radius: 2px 30px;
-  -webkit-border-bottom-left-radius: 40px 100px;
-  z-index: 1;
-  content: ' ';
-  border-left: 1.5px solid rgba(255,255,255,0.3);
-  -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.2) inset, -1px 1px 1px rgba(0,0,0,0.5) inset;
-  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(0.33, #000), color-stop(0.5, transparent), to(transparent));
+.button.back,
+.button.back:active {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -webkit-border-image: url("images/back.png") 1 10 2 18;
+  border-width: 0px 8px 0px 15px;
 }
 .button.disabled {
   color: c7ccd3;
@@ -267,7 +230,7 @@ body.stage.loggedout >article {
   text-shadow: 0 1px 0 #fff;
   background: #fff;
 }
-.list .item:active {
+.list .item.active {
   color: #fff;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #058cf5), color-stop(50%, #0375ed), color-stop(58%, #036fec), color-stop(100%, #015ee6));
 /* Chrome,Safari4+ */
