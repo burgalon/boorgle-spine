@@ -66,7 +66,7 @@ class Authorization extends Spine.Module
     window.location.reload()
     if forge?
       forge.tabs.openWithOptions
-        url: Config.oauthEndpoint.replace('/oauth/','/accounts/signout/')
+        url: Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
         pattern: Config.oauthEndpoint.replace('/oauth/','/')
         title: 'Connect with GMail'
         (data) =>
