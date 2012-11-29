@@ -4,7 +4,6 @@
 	"description": "Social Addressbook", 
 	"homepage": "http://www.boorgle.com/", 
 	"modules": {
-		"contact": false,
 		"display": {
 			"orientations": {
 				"android": "portrait", 
@@ -14,6 +13,10 @@
 		}, 
 		"event": true, 
 		"file": true, 
+		"flurry": {
+			"android_api_key": "KGXRYJH42BZBR7XXDMTC", 
+			"ios_api_key": "7Z5QQJ92C7TSQ7CHKM5H"
+		}, 
 		"geolocation": true, 
 		"icons": {
 			"android": {
@@ -65,5 +68,5 @@
 	}, 
 	"name": "Boorgle", 
 	"platform_version": "v1.4", 
-	"version": "0.1"
+	"version": "0.2"
 }
