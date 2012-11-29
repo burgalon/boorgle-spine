@@ -98,6 +98,8 @@ class App extends Stage.Global
       else
         @navigate '/please_login'
 
+    forge.launchimage.hide() if window.forge
+
   appResumed: =>
     @fetchData()
     Spine.trigger 'appResumed'
