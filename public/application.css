@@ -129,6 +129,10 @@ body.stage.loggedout footer {
 body.stage.loggedout >article {
   bottom: 0;
 }
+.overthrow-enabled .overthrow {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .panel > header {
   height: 42px;
   line-height: 42px;
