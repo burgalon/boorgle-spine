@@ -13,11 +13,7 @@
 		}, 
 		"event": true, 
 		"file": true, 
-		"flurry": {
-			"android_api_key": "KGXRYJH42BZBR7XXDMTC", 
-			"ios_api_key": "7Z5QQJ92C7TSQ7CHKM5H"
-		}, 
-		"geolocation": true, 
+		"geolocation": true,
 		"icons": {
 			"android": {
 				"36": "icon36.png", 
@@ -68,5 +64,5 @@
 	}, 
 	"name": "Boorgle", 
 	"platform_version": "v1.4", 
-	"version": "0.2"
+	"version": "0.3"
 }
