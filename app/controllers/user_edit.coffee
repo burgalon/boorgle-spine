@@ -90,6 +90,8 @@ class UserEditForm extends BasePanel
     'submit form': 'submit'
     'change input': 'checkValidity'
     'keyup input': 'checkValidity'
+    'focus .input-phone': 'onFocusPhone'
+    'blur .input-phone': 'onBlurPhone'
 
   className: 'users editView'
 
@@ -133,6 +135,16 @@ class UserEditForm extends BasePanel
       @doneButton.removeClass 'disabled'
     else
       @doneButton.addClass 'disabled'
+
+  onFocusPhone: (e) ->
+    input = $(e.currentTarget)
+    unless input.val()
+      input.val('+1')
+
+  onBlurPhone: (e) ->
+    input = $(e.currentTarget)
+    if input.val().length<3
+      input.val('')
 
   back: ->
     if @item.id
