@@ -120,10 +120,10 @@ class UserEditForm extends BasePanel
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     ).done( (data) =>
       MyUser.refresh(if data.user then data.user else data)
+      $('body').removeClass('loggedout')
       # Implies signup
       if data.access_token
         Authorization.saveToken(data.access_token)
-        $('body').removeClass('loggedout')
         @navigate '/found_friends'
       else
         @navigate '/user/edit/show'

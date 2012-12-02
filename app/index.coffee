@@ -84,19 +84,19 @@ class App extends Stage.Global
     @routes
       '/please_login': (params) -> @please_login.active(params)
 
-    unless Authorization.is_loggedin()
-      @el.addClass('loggedout')
+    # Start by default from loggedout state
+    # once MyUser is refreshed and valid, we will remove this class which hides the tabbar
+    @el.addClass('loggedout')
 
     # General initializations
     Spine.bind 'notify', @notify
     Spine.bind 'activateTab', @activateTab
     Spine.Route.setup()#shim:true)
 
-    unless document.location.hash && !document.location.hash.match('#access_token')
-      if Authorization.is_loggedin()
-        @navigate '/found_friends'
-      else
-        @navigate '/please_login'
+    if Authorization.is_loggedin()
+      Spine.trigger 'login'
+    else
+      @navigate '/please_login'
 
     forge.launchimage.hide() if window.forge
 
@@ -121,14 +121,19 @@ class App extends Stage.Global
 
   fetchData: =>
     return unless Authorization.is_loggedin()
-    FoundFriend.fetch()
     MyUser.fetch()
+    FoundFriend.fetch()
     Friend.fetch()
 
   onLogin: =>
-    @fetchData()
-    $('body').removeClass('loggedout')
     @navigate '/found_friends'
+    MyUser.one 'refresh', =>
+      # Let user edit his profile if he is missing details
+      if MyUser.exists(@item_id).validate()
+        @navigate '/user/edit'
+      else
+        $('body').removeClass('loggedout')
+    @fetchData()
 
   setupAJAX: ->
     el = $('<div id="loading"></div>').prependTo($('body')).hide()

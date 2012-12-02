@@ -18,4 +18,8 @@ class MyUser extends User
   @find: ->
     @first()
 
+  validate: ->
+    for fieldName in ['email', 'first_name', 'last_name', 'zipcode', 'phones']
+      return "Missing #{fieldName}" unless this[fieldName]
+
 module.exports = MyUser
