@@ -184,7 +184,7 @@ class MyUserShow extends UsersShow
     @addButton('Log Out', @logout).addClass('right')
 
   back: ->
-    @navigate('/user/edit', trans: 'right')
+    @navigate '/user/edit', trans: 'right'
 
   logout: ->
     @navigate '/please_login'
