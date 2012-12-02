@@ -4,16 +4,16 @@
       <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
       <div class="list-data">
         <span class="separator">
-          <input placeholder="First" type="text" name="user[first_name]" value="<%= @first_name %>" required="required">
+          <input placeholder="First (required)" type="text" name="user[first_name]" value="<%= @first_name %>" required="required">
         </span>
         <span class="separator">
-          <input placeholder="Last" type="text" name="user[last_name]" value="<%= @last_name %>" required="required">
+          <input placeholder="Last (required)" type="text" name="user[last_name]" value="<%= @last_name %>" required="required">
         </span>
         <span class="separator">
-          <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>" required="required">
+          <input placeholder="Job Title" type="text" name="user[title]" value="<%= @title %>">
         </span>
         <span class="separator">
-          <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>" required="required">
+          <input placeholder="Company" type="text" name="user[company]" value="<%= @company %>">
         </span>
       </div>
     </div>
@@ -23,7 +23,7 @@
   <div class="list-group">
     <div class="list-item">
       <div class="list-label">email</div>
-      <div class="list-data"><input placeholder="email" type="email" name="user[email]" value="<%= @email %>" required="required" pattern=".+@.+\..+"></div>
+      <div class="list-data"><input placeholder="email (required)" type="email" name="user[email]" value="<%= @email %>" required="required" pattern=".+@.+\..+"></div>
     </div>
   </div>
 
@@ -36,27 +36,34 @@
   <% end %>
 
   <div class="list-group">
+    <div class="list-item">
+      <div class="list-label">home page</div>
+      <div class="list-data"><input placeholder="URL" type="url" name="user[website]" value="<%= @website %>"></div>
+    </div>
+  </div>
+
+  <div class="list-group">
     <% if @phones: %>
     <% for i, phone of @phones: %>
-      <div class="list-item">
-        <div class="list-label">
-          <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
-          <select name="user[phones_attributes][][type]">
-            <% for type in ["mobile", "home", "work", "work", "assistant", "car", "home_fax"]: %>
-              <option value="<%= type %>" <% if phone.type == type: %>selected<% end %>>
-                <%= type.replace('_', ' ') %>
-              </option>
-            <% end %>
-          </select>
-        </div>
-        <div class="list-data">
-          <% if i>0: %>
-            <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>">
-          <% else: %>
-            <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>" required="true">
+    <div class="list-item">
+      <div class="list-label">
+        <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
+        <select name="user[phones_attributes][][type]">
+          <% for type in ["mobile", "home", "work", "work", "assistant", "car", "home_fax"]: %>
+          <option value="<%= type %>" <% if phone.type == type: %>selected<% end %>>
+          <%= type.replace('_', ' ') %>
+          </option>
           <% end %>
-        </div>
+        </select>
       </div>
+      <div class="list-data">
+        <% if i>0: %>
+        <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>">
+        <% else: %>
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" name="user[phones_attributes][][number]" type="tel" value="<%= phone.number %>" required="true">
+        <% end %>
+      </div>
+    </div>
     <% end %>
     <% end %>
     <% if !@phones || @phones.length<5: %>
@@ -73,9 +80,9 @@
       </div>
       <div class="list-data">
         <% if @phones && @phones.length: %>
-          <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" value="+1" class="">
+        <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" value="+1" class="">
         <% else: %>
-          <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" value="+1" class="" required="true">
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" type="tel" name="user[phones_attributes][][number]" value="+1" class="" required="true">
         <% end %>
       </div>
     </div>
@@ -84,36 +91,29 @@
 
   <div class="list-group">
     <div class="list-item">
-      <div class="list-label">home page</div>
-      <div class="list-data"><input placeholder="URL" type="url" name="user[website]" value="<%= @website %>"></div>
-    </div>
-  </div>
-
-  <div class="list-group">
-    <div class="list-item">
       <div class="list-label">home</div>
       <div class="list-data">
         <span class="separator">
-          <input placeholder="Street" type="text" name="user[street]" value="<%= @street %>" required="required">
+          <input placeholder="Street" type="text" name="user[street]" value="<%= @street %>">
         </span>
         <span class="separator">
-          <input placeholder="Apartment" type="text" name="user[apartment]" value="<%= @apartment %>" required="required">
+          <input placeholder="Apartment" type="text" name="user[apartment]" value="<%= @apartment %>">
         </span>
         <span class="separator">
-          <input placeholder="City" type="text" name="user[city]" value="<%= @city %>" required="required">
+          <input placeholder="City" type="text" name="user[city]" value="<%= @city %>">
         </span>
         <span class="separator">
           <input placeholder="State" type="text" name="user[region]" value="<%= @region %>">
         </span>
         <span class="separator">
-          <input placeholder="ZIP" type="tel" name="user[zipcode]" value="<%= @zipcode %>" required="required">
+          <input placeholder="ZIP (required)" type="tel" name="user[zipcode]" value="<%= @zipcode %>" required="required">
         </span>
         <span class="separator">
           <select class="country" name="user[country]" value="<%= @country %>" required="required">
             <% for key, value of @country_codes(): %>
-              <option value="<%= key %>" <% if @country == key: %>selected<% end %>>
-                <%= value %>
-              </option>
+            <option value="<%= key %>" <% if @country == key: %>selected<% end %>>
+            <%= value %>
+            </option>
             <% end %>
           </select>
         </span>
@@ -124,7 +124,7 @@
   <div class="list-group">
     <div class="list-item">
       <div class="list-label">birthday</div>
-      <div class="list-data"><input type="date" name="user[birthday]" value="<%= @birthday %>" required="required"></div>
+      <div class="list-data"><input type="date" name="user[birthday]" value="<%= @birthday %>"></div>
     </div>
   </div>
 </form>
