@@ -58,13 +58,13 @@
 </div>
 <% end %>
 
-<% if @constructor.className in ['Pending', 'FoundFriend', 'Confirm']: %>
+<% if @constructor.className in ['Pending', 'FoundFriend', 'Near', 'SearchFriend', 'Confirm']: %>
 <div class="list-group">
   <div class="list-item">
     <div class="list-data multiline">
       <% if @constructor.className == 'Pending': %>
         Pending Request
-      <% else if @constructor.className == 'FoundFriend': %>
+      <% else if @constructor.className in ['FoundFriend', 'Near', 'SearchFriend']: %>
         Click the 'Add' button to connect and share contact details.
       <% else if @constructor.className == 'Confirm': %>
         Once you click 'Confirm', you and <%= @first_name %> will be able to see each other contact details.
