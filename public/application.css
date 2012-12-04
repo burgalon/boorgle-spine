@@ -407,8 +407,11 @@ input[type=date] {
 }
 .list-group .list-item .list-data {
   margin-left: 85px;
-  min-height: 42px;
   line-height: 42px;
+}
+.list-group .list-item .list-data.multiline {
+  line-height: 24px;
+  margin: 10px 33px;
 }
 .list-group .list-item .list-data a {
   text-decoration: none;
