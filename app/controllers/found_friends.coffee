@@ -37,8 +37,6 @@ class FoundFriendsList extends UsersList
   search_collection_types: SearchFriend.collection_types
   collections_header: {'Confirm': 'Confirm', 'Near': 'Near', 'Gmail': 'Gmail', 'GmailInvite': 'Invite', 'Pending': 'Pending', 'IgnoredConfirm': 'Ignored Confirm', 'IgnoredFound': 'Ignored Found'}
   events:
-    'tap .invite': 'invite'
-    'tap .item': 'click'
     'search input': 'search'
   elements:
     '.found-panel': 'foundPanel'

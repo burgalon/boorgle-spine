@@ -5,15 +5,6 @@ Authorization = require('authorization')
 GmailUser = require('models/gmail_user')
 
 class UsersList extends BasePanel
-  events:
-    'tap .invite': 'invite'
-    'tap .item': 'click'
-    'touchstart .item': 'touch'
-    'touchend .item': 'touchend'
-    'touchcancel .item': 'touchend'
-    'touchmove .item': 'touchend'
-    'touchleave .item': 'touchend'
-
   title: 'Abstract List'
 
   className: 'users list listView'
@@ -23,6 +14,15 @@ class UsersList extends BasePanel
   scrollTop: 0
 
   constructor: ->
+    @events = $.extend @events || {},
+      'tap .invite': 'invite'
+      'tap .item': 'click'
+      'touchstart .item': 'touch'
+      'touchend .item': 'touchend'
+      'touchcancel .item': 'touchend'
+      'touchmove .item': 'touchend'
+      'touchleave .item': 'touchend'
+
     super
 
     @constructor.model_class.bind 'refresh change', @render
