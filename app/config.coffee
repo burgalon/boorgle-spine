@@ -40,15 +40,15 @@ else if forge?
 #    oauthEndpoint: 'http://localhost:3000/oauth/'
 #    oauthRedirectUri: 'boorgle:///'
 
-  #  # !!!!!!!!!!!!!BEWARE!!!!!!!!!!!!!
-  #  # Do not publish staging environment to production app
-  #  # Staging
-  #  Config =
-  #    env: 'staging'
-  #    host: 'http://boorgle-staging.herokuapp.com/api/v1'
-  #    clientId: 'boorgle-web-mobile'
-  #    oauthEndpoint: 'http://boorgle-staging.herokuapp.com/oauth/'
-  #    oauthRedirectUri: 'http://m.boorgle.com'
+#  # !!!!!!!!!!!!!BEWARE!!!!!!!!!!!!!
+#  # Do not publish staging environment to production app
+#  # Staging
+#  Config =
+#    env: 'staging'
+#    host: 'http://boorgle-staging.herokuapp.com/api/v1'
+#    clientId: 'boorgle-iphone'
+#    oauthEndpoint: 'http://boorgle-staging.herokuapp.com/oauth/'
+#    oauthRedirectUri: 'boorgle:///'
 
 else
   # Production
