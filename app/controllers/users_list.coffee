@@ -2,6 +2,7 @@ BasePanel = require('./base_panel')
 Authorization = require('authorization')
 
 # Model
+FoundFriend = require('models/found_friend')
 GmailUser = require('models/gmail_user')
 
 class UsersList extends BasePanel
@@ -62,7 +63,8 @@ class UsersList extends BasePanel
     console.log('item', item)
     return unless confirm("Would you like to invite #{item.name} (#{item.email}}")
     Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
-    Authorization.friendAjax('invites', item.id)
+    Authorization.friendAjax('invites', item.id).done =>
+      FoundFriend.fetch()
 
   add: ->
     @navigate('/users/create', trans: 'right')
