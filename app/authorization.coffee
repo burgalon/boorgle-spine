@@ -77,7 +77,7 @@ class Authorization extends Spine.Module
       window.location.reload()
 
   @connectGmail: =>
-    if Config.env=='ios'
+    if window.forge
       forge.tabs.openWithOptions
         url: @::oauthEndPoint
         pattern: 'boorgle://*'

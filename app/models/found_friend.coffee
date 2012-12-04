@@ -70,7 +70,7 @@ class FoundFriend extends UserCollection
 #      new @(objects)
 
   @fetch: ->
-    if Config.env=='ios'
+    if window.forge
       forge.geolocation.getCurrentPosition({enableHighAccuracy: true}, (location) =>
         location.created_at = new Date()
         Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
