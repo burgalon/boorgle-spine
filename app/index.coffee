@@ -67,6 +67,9 @@ class App extends Stage.Global
     if window.forge
       @el.addClass(if forge.is.ios() then 'ios' else 'android')
       forge.event.appResumed.addListener(@appResumed)
+      forge.event.backPressed.preventDefault =>
+        forge.logging.log('Success preventing default back button action');
+
     setTimeout(@fetchData, 500)
     Spine.bind 'login', @onLogin
 
