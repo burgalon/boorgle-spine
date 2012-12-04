@@ -6,3 +6,4 @@ cp public/index.html src/index.html
 cp -r public/images src/
 forge build android
 forge build ios
+forge package ios && forge package android
