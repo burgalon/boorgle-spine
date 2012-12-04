@@ -83,8 +83,10 @@ class Authorization extends Spine.Module
         pattern: 'boorgle://*'
         title: 'Connect with GMail'
         (data) =>
-          @saveToken data.url.match(/access_token=(\w+)/)?[1]
-          Spine.trigger 'login'
+          token = data.url.match(/access_token=(\w+)/)?[1]
+          return unless token
+          @saveToken token
+          Spine.trigger 'login' if @token
     else
       window.location = @::oauthEndPoint
 
