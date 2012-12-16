@@ -134,7 +134,8 @@ class App extends Stage.Global
     @navigate '/found_friends'
     MyUser.one 'refresh', =>
       # Let user edit his profile if he is missing details
-      if MyUser.exists(@item_id).validate()
+      myUser = MyUser.first()
+      if myUser.validate()
         @navigate '/user/edit'
       else
         $('body').removeClass('loggedout')
