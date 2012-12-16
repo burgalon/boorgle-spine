@@ -23,7 +23,7 @@ if document.location.href.match(/localhost|192./)
 #   oauthEndpoint: 'http://boorgle-staging.herokuapp.com//oauth/'
 #   oauthRedirectUri: 'http://localhost:9294'
 
-else if forge?
+else if document.URL.indexOf('http://') is -1 && document.URL.indexOf('https://') is -1
   # iPhone Native
   Config =
     env: 'ios'
