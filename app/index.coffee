@@ -69,6 +69,8 @@ class App extends Stage.Global
       forge.event.appResumed.addListener(@appResumed)
       forge.event.backPressed.preventDefault =>
         forge.logging.log('Success preventing default back button action');
+      Spine.Route.bind 'navigate', (path) ->
+        forge.flurry.customEvent 'navigate', {path: path}
 
     setTimeout(@fetchData, 500)
     Spine.bind 'login', @onLogin
@@ -136,6 +138,9 @@ class App extends Stage.Global
         @navigate '/user/edit'
       else
         $('body').removeClass('loggedout')
+      if window.forge
+        forge.flurry.setDemographics
+          user_id: myUser.id
     @fetchData()
 
   setupAJAX: ->
