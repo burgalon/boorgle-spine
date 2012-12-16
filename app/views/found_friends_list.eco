@@ -1,5 +1,5 @@
 <div class="search-field">
-  <input type="search" placeholder="search" results="0" incremental="true" autocorrect="off">
+  <input type="search" placeholder="search by name, or search by email to invite" results="0" incremental="true" autocorrect="off">
 </div>
 
 <div class="panel active found-panel">
