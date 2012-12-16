@@ -63,7 +63,9 @@ class App extends Stage.Global
 
     Authorization.setup()
 
-    # Reload data when resumed
+    if window.cordova
+      document.addEventListener 'resume', @appResumed
+
     if window.forge
       @el.addClass(if forge.is.ios() then 'ios' else 'android')
       forge.event.appResumed.addListener(@appResumed)
