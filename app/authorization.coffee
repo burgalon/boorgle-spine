@@ -64,7 +64,9 @@ class Authorization extends Spine.Module
   @logout: ->
     @deleteToken()
     window.location.reload()
-    if forge?
+    if window.cordova
+      window.location = Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
+    else if window.forge
       forge.tabs.openWithOptions
         url: Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
         pattern: Config.oauthEndpoint.replace('/oauth/','/')
@@ -89,6 +91,10 @@ class Authorization extends Spine.Module
           Spine.trigger 'login' if @token
     else
       window.location = @::oauthEndPoint
+
+  @handleOpenURL: =>
+    @loadToken()
+    Spine.trigger 'login' if @token
 
   @promptLogin: ->
     @deleteToken()

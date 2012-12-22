@@ -13,6 +13,14 @@
   <script type="text/javascript" charset="utf-8">
     var jQuery  = require("jqueryify");
     var exports = this;
+    // Cordova external url handler
+    window.handleOpenURL = function(url) {
+      setTimeout(function() {
+        console.log('url: ' + url);
+        document.location.hash = url.split('#')[1];
+        app.Authorization.handleOpenURL()
+      }, 0)
+    }
     jQuery(function(){
       var App = require("index");
       var body = $("body");

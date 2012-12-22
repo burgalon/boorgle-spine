@@ -106,6 +106,7 @@ class App extends Stage.Global
     forge.launchimage.hide() if window.forge
 
   appResumed: =>
+    @log 'appResumed'
     @fetchData()
     Spine.trigger 'appResumed'
 
