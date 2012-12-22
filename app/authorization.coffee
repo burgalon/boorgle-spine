@@ -99,6 +99,8 @@ class Authorization extends Spine.Module
     !!@token
 
   @ajaxSettings: (params, defaults) ->
+    if params.headers
+      params.headers = $.extend({}, Spine.Ajax.defaults.headers, params.headers)
     $.extend({}, defaults, params)
 
   @ajax: (params) ->
