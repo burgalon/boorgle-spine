@@ -41,4 +41,4 @@ The app has been opensourced under MIT license
 
 ## Historical note
 Boorgle contains some historical commits to suit it to [Trigger.io](https://trigger.io/) platform which enables creating native apps in the cloud.
-The last code commit which supports Trigger.io is available under the tag 'triggerio-before-phonegap'
+The last code commit which supports Trigger.io is available under the tag [triggerio-before-phonegap](https://github.com/burgalon/boorgle-spine/tree/triggerio-before-phonegap)
