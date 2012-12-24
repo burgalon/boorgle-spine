@@ -65,6 +65,8 @@ class App extends Stage.Global
 
     if window.cordova
       document.addEventListener 'resume', @appResumed
+      document.addEventListener 'backbutton', ->
+        console.log 'Success preventing default back button action'
 
     if window.forge
       @el.addClass(if forge.is.ios() then 'ios' else 'android')
@@ -104,6 +106,7 @@ class App extends Stage.Global
       @navigate '/please_login'
 
     forge.launchimage.hide() if window.forge
+    navigator.splashscreen.hide() if window.cordova
 
   appResumed: =>
     @log 'appResumed'
