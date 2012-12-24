@@ -8,11 +8,13 @@ Boorgle pushes all the updates to your GMail account so your native device addre
 Boorgle mobile app is built with [Spine](http://spinejs.com/) - a Coffeescript MVC framework.
 The app can be served as a mobile web app by pushing to a [Heroku](http://www.heroku.com/) server running [NodeJS](http://nodejs.org/).
 Alternatively, that app can be wrapped with [Cordova](http://docs.phonegap.com/en/2.2.0/index.html) (formely known as Phonegap) to create native iOS iTunes applications or Android Google play.
-The Phonegap wrappers are also available as opensource here:
-iOS - https://github.com/burgalon/boorgle-cordova-ios - [Download from iTunes](https://itunes.apple.com/us/app/boorgle/id579190662?ls=1&mt=8)
-Android - https://github.com/burgalon/boorgle-cordova-android - [Download from Google Play](http://play.google.com/store/apps/details?id=com.boorgle.app)
 
-## Here are some of the features which you might find helpful to re-use:
+The Phonegap wrappers are also available as opensource here:
+* iOS - https://github.com/burgalon/boorgle-cordova-ios - [Download from iTunes](https://itunes.apple.com/us/app/boorgle/id579190662?ls=1&mt=8)
+* Android - https://github.com/burgalon/boorgle-cordova-android - [Download from Google Play](http://play.google.com/store/apps/details?id=com.boorgle.app)
+
+## Notable code
+Here are some of the features which you might find helpful to re-use:
 * [OAuth authentication](https://github.com/burgalon/boorgle-spine/blob/master/app/authorization.coffee) (see note below) and error handling
 * Model hooks and RESTful API
 * iOS look and feel
@@ -27,12 +29,12 @@ Android - https://github.com/burgalon/boorgle-cordova-android - [Download from G
 * Corodova (Phonegap)
 
 ## Installation
-  git clone git@github.com:burgalon/boorgle-spine.git
-  cd boorgle-spine
-  npm install
+    git clone git@github.com:burgalon/boorgle-spine.git
+    cd boorgle-spine
+    npm install
 
 ## Running
-  hem server
+    hem server
 
 ## Opensource
 The app has been opensourced under MIT license
