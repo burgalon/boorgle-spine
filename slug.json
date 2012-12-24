@@ -13,7 +13,7 @@
     "spine.mobile"
   ],
   "libs": [
-    "lib/cordova-2.2.0.js",
+    "lib/cordova-2.2.0-android.js",
     "lib/base64.js",
     "lib/overthrow.js",
     "lib/pubnub-3.1.min.js"
