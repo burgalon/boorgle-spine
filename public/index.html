@@ -8,16 +8,27 @@
   <meta name="format-detection" content="telephone=no" />
   
   <link rel="stylesheet" href="application.css" type="text/css" charset="utf-8">
-  <!--<script src="https://trigger.io/catalyst/target/target-script-min.js#6293CE9E-3C76-4569-B1D2-479ED05040D6"></script>-->
+  <!--<script src="http://192.168.1.7:8080/target/target-script-min.js#boorgle"></script>-->
   <script src="application.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
     var jQuery  = require("jqueryify");
     var exports = this;
-    jQuery(function(){
+    // Cordova external url handler
+    window.handleOpenURL = function(url) {
+      setTimeout(function() {
+        console.log('url: ' + url);
+        document.location.hash = url.split('#')[1];
+        app.Authorization.handleOpenURL()
+      }, 0)
+    }
+    onReady = function(){
+      // onReady is called everytime the app is resumed
+      if(exports.app) return;
+      console.log('onReady');
       var App = require("index");
-      var body = $("body");
-      exports.app = new App({el: body});
-    });
+      exports.app = new App({el: $("body")});
+    };
+    window.cordova ? document.addEventListener("deviceready", onReady, false) : jQuery(onReady);
   </script>
 
 </head>

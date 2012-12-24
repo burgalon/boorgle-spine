@@ -70,22 +70,22 @@ class FoundFriend extends UserCollection
 #      new @(objects)
 
   @fetch: ->
+    # Fetch friends without location first
+    # Since many times the getCurrentPosition() just not returns callback
+    super()
     if window.forge
       forge.geolocation.getCurrentPosition({enableHighAccuracy: true}, (location) =>
         location.created_at = new Date()
         Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
         super()
         console.log 'Retrieved location', location
+        forge.flurry.setLocation(location.coords)
       , (error) =>
         console.log 'Could not get location'
-        super()
       )
-      # Bug in Android 2.2/3 that getCurrentPosition does not call callback
-      if forge.is.android()
-        super()
     else
       # If no geolocation interface on this browser
-      return super unless navigator.geolocation?
+      return super() unless navigator.geolocation?
       navigator.geolocation.getCurrentPosition( (location) =>
         location.created_at = new Date()
         Spine.Ajax.defaults.headers['X-Location'] = [location.coords.latitude, location.coords.longitude, location.coords.accuracy].join(',')
@@ -93,7 +93,7 @@ class FoundFriend extends UserCollection
         console.log 'Retrieved location', location
       , (error) =>
         console.log 'Could not get location'
-        super()
+      { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }
       )
 
 module.exports = FoundFriend
