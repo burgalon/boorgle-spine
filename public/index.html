@@ -21,11 +21,14 @@
         app.Authorization.handleOpenURL()
       }, 0)
     }
-    jQuery(function(){
+    onReady = function(){
+      // onReady is called everytime the app is resumed
+      if(exports.app) return;
+      console.log('onReady');
       var App = require("index");
-      var body = $("body");
-      exports.app = new App({el: body});
-    });
+      exports.app = new App({el: $("body")});
+    };
+    window.cordova ? document.addEventListener("deviceready", onReady, false) : jQuery(onReady);
   </script>
 
 </head>
