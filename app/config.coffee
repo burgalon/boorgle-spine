@@ -35,9 +35,9 @@ else if document.URL.indexOf('http://') is -1 && document.URL.indexOf('https://'
 #  # iPhone Native local
 #  Config =
 #    env: 'ios'
-#    host: 'http://localhost:3000/api/v1'
+#    host: 'http://192.168.1.7:3000/api/v1'
 #    clientId: 'boorgle-iphone'
-#    oauthEndpoint: 'http://localhost:3000/oauth/'
+#    oauthEndpoint: 'http://192.168.1.7:3000/oauth/'
 #    oauthRedirectUri: 'boorgle:///'
 
 #  # !!!!!!!!!!!!!BEWARE!!!!!!!!!!!!!
