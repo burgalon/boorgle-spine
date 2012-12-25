@@ -76,7 +76,6 @@ class App extends Stage.Global
       Spine.Route.bind 'navigate', (path) ->
         forge.flurry.customEvent 'navigate', {path: path}
 
-    setTimeout(@fetchData, 500)
     Spine.bind 'login', @onLogin
 
     # Controllers
