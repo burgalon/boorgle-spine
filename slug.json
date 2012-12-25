@@ -2,7 +2,6 @@
   "dependencies": [
     "es5-shimify", 
     "json2ify", 
-    "jqueryify", 
     "gfx",
     "spine",
     "spine/lib/local",
@@ -13,6 +12,7 @@
     "spine.mobile"
   ],
   "libs": [
+    "lib/zepto.min.js",
     "lib/cordova-2.2.0-android.js",
     "lib/base64.js",
     "lib/overthrow.js",
