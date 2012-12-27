@@ -93,8 +93,11 @@ class Authorization extends Spine.Module
       window.location = @::oauthEndPoint
 
   @handleOpenURL: =>
+    # This is being checked by appResumed since handleOpenURL is fired together with appResumed
+    window.handleOpenURLProcessing = true
     @loadToken()
     Spine.trigger 'login' if @token
+    setTimeout (-> delete window.handleOpenURLProcessing), 5000
 
   @promptLogin: ->
     @deleteToken()

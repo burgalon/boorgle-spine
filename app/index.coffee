@@ -121,6 +121,7 @@ class App extends Stage.Global
       window._gaq.push(['_trackPageview', path]);
 
   appResumed: =>
+    return if window.handleOpenURLProcessing
     @log 'appResumed'
     @fetchData()
     Spine.trigger 'appResumed'
