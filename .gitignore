@@ -6,3 +6,7 @@ release
 .template
 local_config.json
 .lib
+
+# hem build in /public
+public/application.js
+public/application.css
