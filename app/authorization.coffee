@@ -7,7 +7,7 @@ class Authorization extends Spine.Module
   oauthEndPoint: "#{Config.oauthEndpoint}authorize?client_id=#{@::clientId}&response_type=token&redirect_uri=#{Config.oauthRedirectUri}"
 
   @setup: ->
-    $(document).ajaxError (event, xhr, ajaxSettings, thrownError) =>
+    $(document).on 'ajaxError', (event, xhr, ajaxSettings, thrownError) =>
       console.log("Global ajaxError", arguments)
       console.log("XHR.status", xhr.status)
       console.log("XHR.responseText", xhr.responseText)
@@ -62,10 +62,11 @@ class Authorization extends Spine.Module
     @token
 
   @logout: ->
-    @deleteToken()
-    window.location.reload()
     if window.cordova
-      window.location = Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
+      if window.device.platform.indexOf('Android')!=-1
+        navigator.app.loadUrl Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
+      else
+        window.location = Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
     else if window.forge
       forge.tabs.openWithOptions
         url: Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
@@ -89,6 +90,11 @@ class Authorization extends Spine.Module
           return unless token
           @saveToken token
           Spine.trigger 'login' if @token
+    else if window.cordova
+      if window.device.platform.indexOf('Android')!=-1
+        navigator.app.loadUrl @::oauthEndPoint
+      else
+        window.location = @::oauthEndPoint
     else
       window.location = @::oauthEndPoint
 
