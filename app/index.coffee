@@ -113,12 +113,13 @@ class App extends Stage.Global
 
   initAnalytics: ->
     # http://stackoverflow.com/questions/11026916/how-to-use-google-analytics-with-phonegap-without-a-plugin
-    window._gaq = window._gaq || [];
-    window._gaq.push(['_setAccount', 'UA-22130486-3']);
-    window._gaq.push(['_setDomainName', 'native.boorgle.com']);
-    _gaq.push(['_trackPageview', Spine.Route.path]);
-    Spine.Route.bind 'navigate', (path) ->
-      window._gaq.push(['_trackPageview', path]);
+    if window.cordova
+      if window.device.platform.indexOf('Android')!=-1
+        window.plugins.analytics.start()
+        Spine.Route.bind 'navigate', (path) -> window.plugins.analytics.trackPageView(path)
+      else if window.device.platform.indexOf('iPhone')!=-1
+        window.GA.trackerWithTrackingId 'UA-22130486-4'
+        Spine.Route.bind 'navigate', (path) -> window.GA.trackView path
 
   appResumed: =>
     return if window.handleOpenURLProcessing

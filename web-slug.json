@@ -1,0 +1,21 @@
+{
+  "dependencies": [
+    "es5-shimify",
+    "json2ify",
+    "gfx",
+    "spine",
+    "spine/lib/local",
+    "spine/lib/ajax",
+    "spine/lib/route",
+    "spine/lib/manager",
+    "spine/lib/list",
+    "spine.mobile"
+  ],
+  "libs": [
+    "lib/zepto.min.js",
+    "lib/base64.js",
+    "lib/overthrow.js",
+    "lib/pubnub-3.1.min.js",
+    "lib/ga.js"
+  ]
+}
