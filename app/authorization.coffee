@@ -63,6 +63,7 @@ class Authorization extends Spine.Module
 
   @logout: ->
     if window.cordova
+      @deleteToken()
       if window.device.platform.indexOf('Android')!=-1
         navigator.app.loadUrl Config.oauthEndpoint.replace('/oauth/','/accounts/sign_out/')
       else
