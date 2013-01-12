@@ -10,3 +10,7 @@ local_config.json
 # hem build in /public
 public/application.js
 public/application.css
+
+# Private scripts
+upload-testflight.bash
+staging-upload-testflight.bash
