@@ -88,7 +88,10 @@ class UsersShow extends BasePanel
         )
 
   tel: (e) ->
-    window.location.href = $(e.currentTarget).text()
+    if window.cordova && window.device.platform.indexOf('iPhone')!=-1
+      window.plugins.phoneDialer.dial $(e.currentTarget).text()
+    else
+      window.location.href = 'tel:' + $(e.currentTarget).text()
 
   email: (e) ->
     window.location.href = 'mailto:' + $(e.currentTarget).text()

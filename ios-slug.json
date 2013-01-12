@@ -17,6 +17,7 @@
     "lib/base64.js",
     "lib/overthrow.js",
     "lib/pubnub-3.1.min.js",
+    "lib/PhoneDialer.js",
     "lib/GoogleAnalyticsPlugin.js"
   ]
 }
