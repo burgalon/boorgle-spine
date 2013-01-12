@@ -95,9 +95,9 @@ class Authorization extends Spine.Module
       if window.device.platform.indexOf('Android')!=-1
         navigator.app.loadUrl @::oauthEndPoint
       else
-        window.location = @::oauthEndPoint
+        window.location.href = @::oauthEndPoint
     else
-      window.location = @::oauthEndPoint
+      window.location.href = @::oauthEndPoint
 
   @handleOpenURL: =>
     # This is being checked by appResumed since handleOpenURL is fired together with appResumed
