@@ -9,6 +9,11 @@ BasePanel = require('./base_panel')
 # Abstract
 class UsersShow extends BasePanel
   className: 'users showView'
+  events:
+    'tap .tel': 'tel'
+    'tap .email': 'email'
+    'tap .website': 'website'
+    'tap .address': 'address'
 
   @configure: (@model_class) ->
 
@@ -81,6 +86,18 @@ class UsersShow extends BasePanel
           FoundFriend.fetch()
           @navigate '/found_friends'
         )
+
+  tel: (e) ->
+    window.location.href = $(e.currentTarget).text()
+
+  email: (e) ->
+    window.location.href = 'mailto:' + $(e.currentTarget).text()
+
+  website: (e) ->
+    window.location.href = $(e.currentTarget).text()
+
+  address: (e) ->
+    window.location.href = "http://maps.google.com/maps?saddr=Current+Location&daddr=" + encodeURIComponent($(e.currentTarget).text())
 
 
 module.exports = UsersShow

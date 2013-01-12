@@ -14,7 +14,7 @@
   <% for phone in @phones: %>
   <div class="list-item">
     <div class="list-label"><%= phone.type.replace('_', ' ') %></div>
-    <div class="list-data"><a href="tel:<%= phone.number %>"><%= phone.formatted_number %></a></div>
+    <div class="list-data tel"><%= phone.formatted_number %></div>
   </div>
   <% end %>
 </div>
@@ -32,7 +32,7 @@
     <div class="list-label">email</div>
     <div class="list-data">
       <% if @email: %>
-        <a href="mailto:<%= @email %>"><%= @email %></a>
+        <span class="email"><%= @email %></span>
       <% else: %>
         protected
       <% end %>
@@ -44,7 +44,7 @@
 <div class="list-group">
   <div class="list-item">
     <div class="list-label">home page</div>
-    <div class="list-data"><a href="<%= @website %>"><%= @website %></a></div>
+    <div class="list-data website"><%= @website %></div>
   </div>
 </div>
 <% end %>
@@ -53,7 +53,7 @@
 <div class="list-group">
   <div class="list-item">
     <div class="list-label">home</div>
-    <div class="list-data"><a href="http://maps.google.com/maps?saddr=Current+Location&daddr=<%=  encodeURIComponent(@formatted_address2()) %>"><%=  @formatted_address2() %></a></div>
+    <div class="list-data address"><%=  @formatted_address2() %></div>
   </div>
 </div>
 <% end %>
