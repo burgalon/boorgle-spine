@@ -48,7 +48,6 @@ class UsersList extends BasePanel
 
   click: (e) ->
     @saveScroll()
-    e.preventDefault()
     element = $(e.currentTarget)
     item = element.data('item')
     @log 'UsersList::click ', item, item.id
@@ -57,14 +56,15 @@ class UsersList extends BasePanel
     @navigate(@constructor.item_url, item.id, trans: 'right')
 
   invite: (e) ->
-    e.preventDefault()
     element = $(e.currentTarget).parents('.item')
     item = element.data('item')
     console.log('item', item)
-    return unless confirm("Would you like to invite #{item.name} (#{item.email}}")
-    Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
-    Authorization.friendAjax('invites', item.id).done =>
-      FoundFriend.fetch()
+    @delay ->
+      return unless confirm("Would you like to invite #{item.name} (#{item.email}}")
+      Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
+      Authorization.friendAjax('invites', item.id).done =>
+        FoundFriend.fetch()
+    false
 
   add: ->
     @navigate('/users/create', trans: 'right')
