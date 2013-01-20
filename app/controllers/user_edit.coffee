@@ -167,7 +167,6 @@ class UserEditForm extends BasePanel
 #    return if Config.env=='development'
 
     @pusher = pubnub = PUBNUB(
-      publish_key: 'pub-5a3df701-1680-461d-93bd-82243e1e0219',
       subscribe_key: 'sub-c84a4505-ef49-11e1-b9bf-9fa4c00b78db',
       ssl: false,
       origin: 'pubsub.pubnub.com'
