@@ -20,7 +20,7 @@ if document.location.href.match(/localhost|192./)
 #   env: 'staging'
 #   host: 'http://boorgle-staging.herokuapp.com/api/v1'
 #   clientId: 'boorgle-web-mobile-localhost'
-#   oauthEndpoint: 'http://boorgle-staging.herokuapp.com//oauth/'
+#   oauthEndpoint: 'http://boorgle-staging.herokuapp.com/oauth/'
 #   oauthRedirectUri: 'http://localhost:9294'
 
 else if document.URL.indexOf('http://') is -1 && document.URL.indexOf('https://') is -1
