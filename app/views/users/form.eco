@@ -60,7 +60,7 @@
         <% if i>0: %>
         <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" name="user[phones_attributes][][number]" class="input-phone" type="tel" value="<%= phone.number %>">
         <% else: %>
-        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" name="user[phones_attributes][][number]" class="input-phone" type="tel" value="<%= phone.number %>" required="true">
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" name="user[phones_attributes][][number]" class="input-phone" type="tel" value="<%= phone.number %>" required="required">
         <% end %>
       </div>
     </div>
@@ -82,7 +82,7 @@
         <% if @phones && @phones.length: %>
         <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" class="input-phone">
         <% else: %>
-        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" type="tel" name="user[phones_attributes][][number]" class="input-phone" required="true">
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" type="tel" name="user[phones_attributes][][number]" class="input-phone" required="required">
         <% end %>
       </div>
     </div>

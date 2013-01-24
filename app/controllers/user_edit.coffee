@@ -68,7 +68,7 @@ class Login extends BasePanel
 
   alert: (msg) ->
     @hideKeyboard()
-    Spine.trigger 'notify', msg: msg
+    Spine.trigger 'notify', msg: msg, class: 'warn'
 
   checkValidity: ->
     if @form[0].checkValidity()
@@ -92,6 +92,8 @@ class UserEditForm extends BasePanel
     'keyup input': 'checkValidity'
     'focus .input-phone': 'onFocusPhone'
     'blur .input-phone': 'onBlurPhone'
+    'change .input-phone': 'onChangePhone'
+    'keyup .input-phone': 'onChangePhone'
 
   className: 'users editView'
 
@@ -113,6 +115,12 @@ class UserEditForm extends BasePanel
 
   submit: (e) ->
     e.preventDefault()
+    unless @form[0].checkValidity()
+      el = $($('input:invalid', @form)[0])
+      el.focus()
+      @alert el.attr('placeholder')
+      return false
+
     Authorization.ajax(
       data: @form.serialize() + "&client_id=#{Config.clientId}&response_type=token&redirect_uri=#{Config.oauthRedirectUri}",
       url: MyUser.url(),
@@ -130,6 +138,10 @@ class UserEditForm extends BasePanel
     ).fail ( (data) =>
     )
 
+  alert: (msg) ->
+    @hideKeyboard()
+    Spine.trigger 'notify', msg: msg, class: 'warn'
+
   checkValidity: ->
     if @form[0].checkValidity()
       @doneButton.removeClass 'disabled'
@@ -145,6 +157,14 @@ class UserEditForm extends BasePanel
     input = $(e.currentTarget)
     if input.val().length<3
       input.val('')
+
+  onChangePhone: (e) ->
+    input = $(e.currentTarget)
+    console.log 'onChangePhone'
+    val = input.val()
+    unless val[0]=='+'
+      Spine.trigger 'notify', msg: 'Add country code e.g: +1-212-....', class: 'warn'
+      input.val('+') unless val.length
 
   back: ->
     if @item.id
