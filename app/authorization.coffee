@@ -103,8 +103,12 @@ class Authorization extends Spine.Module
     # This is being checked by appResumed since handleOpenURL is fired together with appResumed
     window.handleOpenURLProcessing = true
     @loadToken()
-    Spine.trigger 'login' if @token
-    setTimeout (-> delete window.handleOpenURLProcessing), 5000
+    console.log 'hash', document.location.hash
+    if @token
+      Spine.trigger 'login'
+      setTimeout (-> delete window.handleOpenURLProcessing), 5000
+    else if document.location.hash.indexOf('signout')!=-1
+      window.location.reload()
 
   @promptLogin: ->
     @deleteToken()
