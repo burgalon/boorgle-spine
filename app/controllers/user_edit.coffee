@@ -11,6 +11,7 @@ Friend = require('models/friend')
 
 # Controllers
 UsersShow = require('controllers/users_show')
+Settings = require('controllers/settings')
 
 class Login extends BasePanel
   title: 'Log In'
@@ -212,17 +213,14 @@ class MyUserShow extends UsersShow
 
   add_buttons: ->
     @addButton('Edit', @back)
-    @addButton('Log Out', @logout).addClass('right')
+    @addButton('Settings', -> @navigate '/settings', trans: 'left').addClass('right')
 
   back: ->
     @navigate '/user/edit', trans: 'right'
 
-  logout: ->
-    @navigate '/please_login'
-    Authorization.logout()
-
   change: (params) =>
     super(id: 'my-user')
+
 
 class UserEdit extends Spine.Controller
   constructor: ->
@@ -231,10 +229,12 @@ class UserEdit extends Spine.Controller
     @form = new UserEditForm
     @show = new MyUserShow
     @login = new Login
+    @settings = new Settings
 
     @routes
       '/user/edit/show': (params) -> @show.active(params)
       '/user/edit': (params) -> @form.active(params)
       '/user/login': (params) -> @login.active(params)
+      '/settings': (params) -> @settings.active(params)
 
 module.exports = UserEdit
