@@ -102,7 +102,6 @@ class UserEditForm extends BasePanel
     @item = new MyUser()
     MyUser.bind('refresh change', @change)
 
-    @addButton('Cancel', @back)
     @doneButton = @addButton('Done', @submit).addClass('right blue')
 
     # When activating tab, render the view in order to revert any canceled former editing
@@ -176,6 +175,7 @@ class UserEditForm extends BasePanel
     @item = MyUser.first()
     setTimeout(@setupPusher, 3000)
     @render()
+    @addButton('Cancel', @back) unless @item.validate()
 
   setupPusher: =>
     return if @pusher
