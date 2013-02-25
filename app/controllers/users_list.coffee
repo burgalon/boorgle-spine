@@ -61,7 +61,7 @@ class UsersList extends BasePanel
     console.log('item', item)
     @delay ->
       return unless confirm("Would you like to invite #{item.name} (#{item.email})")
-      Spine.trigger 'notify', msg: 'Sending invite email to ' + item.email
+      Spine.trigger 'notify', msg: 'Inviting ' + item.email
       Authorization.friendAjax('invites', item.id).done =>
         FoundFriend.fetch()
     false
