@@ -48,7 +48,7 @@ else if document.URL.indexOf('http://') is -1 && document.URL.indexOf('https://'
 #    host: 'http://boorgle-staging.herokuapp.com/api/v1'
 #    clientId: 'boorgle-iphone'
 #    oauthEndpoint: 'http://boorgle-staging.herokuapp.com/oauth/'
-#    oauthRedirectUri: 'boorgle:///'
+#    oauthRedirectUri: 'boorglestg:///'
 
 else
   # Production
