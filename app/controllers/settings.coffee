@@ -26,7 +26,6 @@ class Settings extends BasePanel
     url = Config.host + '/user/apple_sync_profile'
     url+='?oauth_token='+ Authorization.getToken()
     if window.cordova
-      @deleteToken()
       if window.device.platform.indexOf('Android')!=-1
         navigator.app.loadUrl url
       else
