@@ -1,4 +1,4 @@
-<button class="button logout blue"> Logout </button>
+<a class="button logout red"> Logout </a>
 <% if window.cordova && window.device.platform.indexOf('iPhone')!=-1 : %>
 <button class="button sync blue"> Sync iPhone </button>
 <% end %>

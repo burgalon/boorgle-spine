@@ -10,10 +10,8 @@ class Settings extends BasePanel
 
   constructor: ->
     super
+    @addButton('Back', -> @navigate '/user/edit/show', trans: 'left')
     @active @render
-
-  add_buttons: ->
-    @addButton('Cancel', -> @navigate '/user/edit/show', trans: 'left')
 
   render: =>
     @html require('views/users/settings')()
