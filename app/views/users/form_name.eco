@@ -1,0 +1,19 @@
+<form>
+  <div class="list-group thumb-list">
+    <div class="list-item transparent">
+      <div class="list-label transparent"><img class="thumb" width="62" height="62" src="<%= @picture_url() %>"></div>
+      <div class="list-data">
+        <span class="separator">
+          <input placeholder="First (required)" type="text" name="user[first_name]" value="<%= @first_name %>" required="required">
+        </span>
+        <span class="separator">
+          <input placeholder="Last (required)" type="text" name="user[last_name]" value="<%= @last_name %>" required="required">
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="list-group instructions">
+    Only latin characters.
+  </div>
+  <input type="submit" value="submit" style="visibility: hidden;">
+</form>

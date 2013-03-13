@@ -1,0 +1,55 @@
+<form>
+  <div class="list-group">
+    <% if @phones: %>
+    <% for i, phone of @phones: %>
+    <div class="list-item">
+      <div class="list-label">
+        <input type="hidden" name="user[phones_attributes][][id]" value="<%= phone.id %>" >
+        <select name="user[phones_attributes][][type]">
+          <% for type in ["mobile", "home", "work", "work", "assistant", "car", "home_fax"]: %>
+          <option value="<%= type %>" <% if phone.type == type: %>selected<% end %>>
+          <%= type.replace('_', ' ') %>
+          </option>
+          <% end %>
+        </select>
+      </div>
+      <div class="list-data">
+        <% if i>0: %>
+        <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" name="user[phones_attributes][][number]" class="input-phone" type="tel" value="<%= phone.number %>">
+        <% else: %>
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" name="user[phones_attributes][][number]" class="input-phone" type="tel" value="<%= phone.number %>" required="required">
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% if !@phones || @phones.length<5: %>
+    <div class="list-item">
+      <div class="list-label">
+        <select name="user[phones_attributes][][type]">
+          <option value="mobile">mobile</option>
+          <option value="home">home</option>
+          <option value="work">work</option>
+          <option value="assistant">assistant</option>
+          <option value="car">car</option>
+          <option value="home_fax">home fax</option>
+        </select>
+      </div>
+      <div class="list-data">
+        <% if @phones && @phones.length: %>
+        <input pattern="\+[\d\(\)\-]{7,14}|.{0,4}" placeholder="Phone" type="tel" name="user[phones_attributes][][number]" class="input-phone">
+        <% else: %>
+        <input pattern="\+[\d\(\)\-]{7,14}" placeholder="Phone (required)" type="tel" name="user[phones_attributes][][number]" class="input-phone" required="required">
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="list-group instructions">
+    This information will be available only to users you explicitly approve.
+  </div>
+  <div class="list-group instructions">
+    Phone number must include country code.
+  </div>
+  <input type="submit" value="submit" style="visibility: hidden;">
+</form>

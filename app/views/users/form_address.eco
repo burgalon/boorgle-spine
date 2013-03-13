@@ -1,0 +1,35 @@
+<form>
+  <div class="list-group">
+    <div class="list-item">
+      <div class="list-label">home</div>
+      <div class="list-data">
+        <span class="separator">
+          <input placeholder="Street" type="text" name="user[street]" value="<%= @street %>">
+        </span>
+        <span class="separator">
+          <input placeholder="Apartment" type="text" name="user[apartment]" value="<%= @apartment %>">
+        </span>
+        <span class="separator">
+          <input placeholder="City" type="text" name="user[city]" value="<%= @city %>">
+        </span>
+        <span class="separator">
+          <input placeholder="State" type="text" name="user[region]" value="<%= @region %>">
+        </span>
+        <span class="separator">
+          <input placeholder="ZIP (required)" type="tel" name="user[zipcode]" value="<%= @zipcode %>" required="required">
+        </span>
+        <span class="separator">
+          <select class="country" name="user[country]" value="<%= @country %>" required="required">
+            <% for key, value of @country_codes(): %>
+            <option value="<%= key %>" <% if @country == key: %>selected<% end %>>
+            <%= value %>
+            </option>
+            <% end %>
+          </select>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <input type="submit" value="submit" style="visibility: hidden;">
+</form>

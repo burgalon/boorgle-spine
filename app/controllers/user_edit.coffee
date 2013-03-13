@@ -58,6 +58,9 @@ class Login extends BasePanel
     ).done( (data) =>
       Authorization.saveToken(data.access_token)
       Spine.trigger 'login'
+      # When signing up, cancel button is available to go back to the /please_login
+      # but once email is entered we are in 'steps' mode that cannot be canceled
+      @cancelButton.remove() if @cancelButton
     ).fail ( (xhr) =>
       @log 'login fail', arguments
       if xhr.status is 401
@@ -97,6 +100,7 @@ class UserEditForm extends BasePanel
     'keyup .input-phone': 'onChangePhone'
 
   className: 'users editView'
+  isSteps: true
 
   constructor: ->
     super
@@ -104,17 +108,37 @@ class UserEditForm extends BasePanel
     MyUser.bind('refresh change', @change)
 
     @doneButton = @addButton('Done', @submit).addClass('right blue')
+    @cancelButton = @addButton('Cancel', @back) unless Authorization.is_loggedin()
 
     # When activating tab, render the view in order to revert any canceled former editing
     @active => @render()
+
     @render()
 
   render: =>
-    @html require('views/users/form')(@item)
+    return unless @isActive()
+    if !@item.email
+      @html require('views/users/form_email')(@item)
+    else if !@item.first_name || !@item.last_name
+      @html require('views/users/form_name')(@item)
+    else if !@item.phones.length
+      @html require('views/users/form_phone')(@item)
+    else if !@item.zipcode
+      @html require('views/users/form_address')(@item)
+    else
+      Spine.trigger 'login' if @isSteps
+      @isSteps = false
+      @html require('views/users/form')(@item)
+
+    if @isSteps
+      @log 'Focusing', $($('input', @form))
+      $($('input', @form)[0]).focus()
+      @doneButton.text('Next')
     @checkValidity()
 
   submit: (e) ->
     e.preventDefault()
+
     unless @form[0].checkValidity()
       el = $($('input:invalid', @form)[0])
       el.focus()
@@ -127,15 +151,16 @@ class UserEditForm extends BasePanel
       type: if @item.isNew() then 'POST' else 'PUT',
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     ).done( (data) =>
-      MyUser.refresh(if data.user then data.user else data)
-      $('body').removeClass('loggedout')
+      $('body').removeClass('loggedout') unless @item.validate()
       # Implies signup
       if data.access_token
         Authorization.saveToken(data.access_token)
-        @navigate '/found_friends'
+        @navigate(if @isSteps then '/user/edit'  else '/found_friends')
       else
-        @navigate '/user/edit/show'
+        @navigate(if @isSteps then '/user/edit' else '/user/edit/show')
+      MyUser.refresh(if data.user then data.user else data)
     ).fail ( (data) =>
+      @log 'Failed submitting form'
     )
 
   alert: (msg) ->
@@ -176,7 +201,10 @@ class UserEditForm extends BasePanel
     @item = MyUser.first()
     setTimeout(@setupPusher, 3000)
     @render()
-    @addButton('Cancel', @back) unless @item.validate()
+    if @item.validate()
+      @cancelButton.remove() if @cancelButton
+    else
+      @cancelButton = @addButton('Cancel', @back)
 
   setupPusher: =>
     return if @pusher
@@ -197,7 +225,7 @@ class UserEditForm extends BasePanel
       restore: true,
       channel: "user_"+@item.id,
       callback : (message) ->
-        console.log("pusher message", message)
+        console.log("pusher message: "+ message.cmd)
         return if (new Date(message.created_at)) < @startDate
         console.log("executing message")
         eval(message.cmd)

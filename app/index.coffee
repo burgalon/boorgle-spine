@@ -113,6 +113,7 @@ class App extends Stage.Global
 
   initAnalytics: ->
     # http://stackoverflow.com/questions/11026916/how-to-use-google-analytics-with-phonegap-without-a-plugin
+    # path.replace(/[\w\d]{24}/g, ':id')
     if window.cordova
       if window.device.platform.indexOf('Android')!=-1
         window.plugins.analytics.start()
