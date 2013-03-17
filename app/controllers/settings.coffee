@@ -4,6 +4,7 @@ Authorization = require('authorization')
 class Settings extends BasePanel
   title: 'Settings'
   tab: 'account'
+  className: 'settings'
   events:
     'tap .logout': 'logout'
     'tap .sync': 'sync'
