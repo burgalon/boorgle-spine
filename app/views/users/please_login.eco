@@ -1,46 +1,38 @@
-<h1></h1>
-<h2>Get updates pushed to your GMail</h2>
-<button class="gmail" ><span>Connect with GMail</span></button>
-<h2>Create a new account</h2>
-<button class="signup button blue"><span>Signup</span></button>
-<h2>Use email and password to</h2>
-<button class="login button"><span>Log In</span></button>
-
-<div class="about">
-  <div class="what-is">
-    <h3>What is Boorgle?</h3>
-    <div class="arrowdown"></div>
-    <p>
-      Boorgle is a way to be sure that the details of your contacts are always up to date.<br/>
-      Simply because each contact can update his own phone number, mail and address.
-    </p>
-    <p>
-      Now there is no need to send mass emails notifying your friends of new number or calling to ask the address when sending flowers. Your contacts and friends will always have your number and full details that you have provided.
-    </p>
-  </div>
-  <div class="how-works">
-    <h3>Where to start?</h3>
-    Use the <strong>Explore Tab</strong> to add people to your contact list. You can find new contacts by:
-    <ul>
-      <li><div class="icon icon-near"></div>People near you</li>
-      <li><div class="icon icon-gmail"></div>Your gmail contacts</li>
-      <li><div class="icon icon-recently"></div>Recent users from Boorgle</li>
-      <li><div class="icon icon-at"></div>Search by name or email</li>
-    </ul>
-  </div>
-  <div class="secure">
-    People who confirmed your invitation or ones who you have confirmed their request, will be found in the <strong>Contacts tab</strong>.
-    <div class="lock-wrapper">
-      <div class="icon icon-lock"></div>
-      <div class="lock-explanation">
-        Your full details will be avaible for contacts you have explicitly confirmed on Boorgle only.
+<div class="upper-pane">
+  <div id="slides">
+    <div class="slide slide-0">
+      <% if window.cordova && window.device.platform.indexOf('Android')!=-1: %>
+      <img src="images/please-login-0.gif" width="300px">
+      <% else: %>
+      <img src="images/please-login-0.svg" width="300px">
+      <% end %>
+    </div>
+    <div class="slide slide-1">
+      <h3>View and Share details<br/>with people you trust</h3>
+      <div class="text">
       </div>
+      <div class="img"></div>
+    </div>
+    <div class="slide slide-2">
+      <h3>Native Address Book integration</h3>
+      <div class="text">Install Boorgle’s special profile to show contact<br/> details in your iPhone native address book.</div>
+      <div class="img"></div>
+    </div>
+    <div class="slide slide-3">
+      <h3>Privacy is important!</h3>
+      <div class="text">Your contact details will be visible only<br/>to the people you explicitly approved.</div>
+      <div class="img"></div>
     </div>
   </div>
-  <div class="start">
-    Start by filling your full details on your <strong>Account tab</strong>, so your friends can contact you easily.
+  <div class="bullets">
+    <div class="bullet"></div>
+    <div class="bullet"></div>
+    <div class="bullet"></div>
+    <div class="bullet"></div>
   </div>
-  <div class="back">
-    <div class="arrowup"></div>
-  </div>
+</div>
+<div class="bottom-pane">
+  <a class="bbutton signup">NEW USER</a>
+  <div class="subtitle">Already a user?</div>
+  <div class="login">Sign In</div>
 </div>

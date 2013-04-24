@@ -1,182 +1,115 @@
+n-slides=4
 .please_login
   header
     display: none !important
 
   > article
-    color: #404040
-    text-shadow: 0 1px #fff
     text-align: center
-    image: 'images/connect-bg.jpg'
-    background-position: 50% 0
-    background-size: 100% 100% !important
-    border-bottom: 4px solid #0b8886
-    padding-top: 18px
 
-    h1
-      background: transparent
-      image: 'images/logo.png' 163px 78px
-      width: 163px
-      height: 78px
-      margin: 0px auto
+    .upper-pane
+      overflow-x: hidden
+      width: 100%
+      background: #DDD3B7
+      border-bottom: 1px solid #ccc3B7
+      position: relative
 
-    h2
-      color: #cdc
-      font-weight: lighter
-      text-shadow: 0px 1px 3px #020202
-      font-size: 13px
-      margin: 15px 0 10px 0
-      text-transform: uppercase
-
-    .signup, .login
-      width: 238px
-      height: 46px
-      margin: 0
-
-    .login
-      background-color: #dcdfe0
-      color: #8a9397
-      text-shadow: 0 1px 0 white
-      margin-bottom: 10px
-
-
-    .gmail
-      background: transparent
-      image: 'images/login-button.png' 238px 94px
-      width: 238px
-      height: 46px
-      border: none
-      margin: 0 auto
-
-      &:hover, &:active
-        background-position: 0 -47px
-
-      span
-        display: none
-
-    .about
-      background: lightGrayBg
-      color: #404040
-      text-shadow: 0 1px #fff
-
-      h3
+      .bullets
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: n-slides * 20px
+        margin-left: -(@width / 2)
+        height: 25px
         text-align: center
-        text-transform: uppercase
-        font-size: 16px
-        margin-top: 0
+        z-index: 1
 
-      strong
-        color: #08777a
+        .bullet
+          float: left
+          border: solid rgba(0,0,0, 0.25) 3px
+          border-radius: 3px
+          margin: 10px 6px
 
-      // All subpanel
-      > div
-        padding: 20px 30px
+          &.selected
+            border: solid #4d4d4d 3px
 
-      .connect
-        text-align: center
-        image: 'images/connect-bg.jpg'
-        background-position: 50% 0
-        background-size: 100% 334px !important
-        height: 273px
-        border-bottom: 4px solid #0b8886
-        padding-top: 25px
+      #slides
+        width: 100% * n-slides
+        white-space: nowrap
+        -webkit-transform: translate3d(0px,0,0)
 
-
-        h1
-          background: transparent
-          image: 'images/logo.png' 163px 78px
-          width: 163px
-          height: 78px
-          margin: 0px auto
-          text-indent: -9999px
-
-        h2
-          color: white
-          font-weight: lighter
-          text-shadow: 0px 1px 3px #020202
-          font-size: 15px
-          margin-bottom: 30px
-          margin-top: 5px
-
-        .desc
-          color: #001b1c
-          text-shadow: 0px 1px 2px #568B92
-          font-weight: normal
-          font-size: 12px
-          margin: 10px auto 0 auto
-          width: 200px
-
-        .signup, .signin
-          display: block
-          width: 238px
-          height: 46px
-          border: none
-          margin: 10px auto
-
-          //span
-          //  display: none
-
-        .login-button
-          background: transparent
-          image: 'images/login-button.png' 238px 94px
-          width: 238px
-          height: 46px
-          border: none
+      .slide
+        width: (100% / n-slides)
+        float: left
+        .img
           margin: 0 auto
 
-          &:hover, &:active
-            background-position: 0 -47px
+        h3
+          color: #3d392e
+          margin: 10px 0
 
-          span
-            display: none
+        .text
+          color: #6d6658
+          padding-bottom: 10px
+          font-size: 14px
+          height: 49px
 
-    .arrowdown, .arrowup
-      width: 21px
-      height: 20px;
-      image: 'images/arrowdown.png' 21px 20px
-      margin: 0 auto
+      .animate
+        -webkit-transition: all .3s ease-out
 
-    .arrowup
-      transform:rotate(180deg)
+      //.slide-0
+      //  background: red
+      //.slide-1
+      //  background: green
+      //.slide-2
+      //  background: orange
+      //.slide-3
+      //  background: purple
 
-    .what-is
-      .arrowdown
-        margin-bottom: 20px
+      .slide-0 .img
+        width 300px
+        height: 299px
+        bg('images/please-login-0.svg', @width, @height)
 
-    .how-works
-      background: darkGrayBg
+      .slide-1 .img
+        width 265px
+        height: 136px
+        bg('images/please-login-1.png', @width, @height)
+      .slide-2 .img
+        width: 215px
+        height: 200px
+        bg('images/please-login-2.png', @width, @height)
+      .slide-3 .img
+        width: 240px
+        height: 200px
+        bg('images/please-login-3.png', @width, @height)
 
-      ul
-        list-style: none
-        padding: 0
-      li
-        padding: 5px 0
-        position: relative
 
-    .secure
-      .lock-wrapper
-        margin-top: 20px
+    .bottom-pane
+      background: white
 
-    .start
-      background: darkGrayBg
+      .gmail
+        border: none
+        width: 175px
+        height: 37px
+        background: url('images/connect-with-gmail.png') transparent
+        background-size: @width @height
 
-    .icon
-      width: 17px
-      height: 17px
-      display: inline-block
-      background-position: center
-      margin-right: 10px
-      position: relative
-      top: 2px
+      .signup
+        margin: 20px 0
+        width: 125px
+        height: 27px
+        line-height: @height
 
-    .icon-at
-      image: 'images/icon-at.png' 14px 14px
+      .subtitle
+        color: #999
+        font-size: 14px
+        margin 10px 0
 
-    .icon-gmail
-      image: 'images/icon-gmail.png' 14px 14px
-    .icon-lock
-      image: 'images/icon-lock.png' 13px 15px
-      float: left
-    .icon-near
-      image: 'images/icon-near.png' 11px 15px
-    .icon-recently
-      image: 'images/icon-recently.png' 17px 15px
+      .login
+        color: #555
+        text-decoration: underline
+        height: 27px
+        line-height: @height
+
+        &:hover
+          color: #ffa500
